@@ -1,0 +1,59 @@
+\contentsline {chapter}{Acknowledgements}{vii}{chapter*.2}%
+\contentsline {chapter}{Abstract}{ix}{chapter*.3}%
+\contentsline {chapter}{Notation and terminology}{xiii}{chapter*.5}%
+\contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Plasma Science}{1}{section.1.1}%
+\contentsline {subsection}{\numberline {1.1.1}I'm a Mathematician... what is ``plasma''?}{1}{subsection.1.1.1}%
+\contentsline {subsection}{\numberline {1.1.2}Fusion Reactor Design 101}{2}{subsection.1.1.2}%
+\contentsline {section}{\numberline {1.2}What problem does this thesis address?}{2}{section.1.2}%
+\contentsline {subsection}{\numberline {1.2.1}What results do we seek?}{3}{subsection.1.2.1}%
+\contentsline {section}{\numberline {1.3}Project Progression}{3}{section.1.3}%
+\contentsline {section}{\numberline {1.4}Structure of Thesis}{3}{section.1.4}%
+\contentsline {chapter}{\numberline {2}Background}{5}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Magnetohydrodynamics}{5}{section.2.1}%
+\contentsline {subsection}{\numberline {2.1.1}MHD Theory}{5}{subsection.2.1.1}%
+\contentsline {subsection}{\numberline {2.1.2}Ideal MHD}{5}{subsection.2.1.2}%
+\contentsline {section}{\numberline {2.2}Grad-Shafranov Equation}{5}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}Derivation}{6}{subsection.2.2.1}%
+\contentsline {section}{\numberline {2.3}AC Configuration Tokamaks}{6}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}Physical Differences}{6}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.2}Why Bother?}{6}{subsection.2.3.2}%
+\contentsline {chapter}{\numberline {3}Current Reversal Theory}{7}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Perturbation Methods}{7}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}What is a Perturbation Treatment?}{7}{subsection.3.1.1}%
+\contentsline {subsection}{\numberline {3.1.2}Regular Perturbation Theory}{8}{subsection.3.1.2}%
+\contentsline {subsection}{\numberline {3.1.3}Ideal MHD Perturbation}{9}{subsection.3.1.3}%
+\contentsline {subsubsection}{Resistivity Note}{9}{section*.6}%
+\contentsline {section}{\numberline {3.2}Grad-Shafranov-Helmholtz Equation}{10}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Helmholtz Equations}{10}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}GSH Equation}{10}{subsection.3.2.2}%
+\contentsline {subsection}{\numberline {3.2.3}Analytic Solution and Derivation}{11}{subsection.3.2.3}%
+\contentsline {section}{\numberline {3.3}Current Reversal Systems}{11}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Current and Pressure Density Profiles}{11}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.3.2}Example Configurations}{11}{subsection.3.3.2}%
+\contentsline {chapter}{\numberline {4}Numerical Model Fitting}{13}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Non-Linear Optimisation}{13}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Least Squares}{13}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.2}Optimisation Algorithms}{13}{subsection.4.1.2}%
+\contentsline {subsubsection}{The Usual Suspects}{13}{section*.7}%
+\contentsline {subsubsection}{MMA Algorithm}{13}{section*.8}%
+\contentsline {section}{\numberline {4.2}GSH Parameter Fitting}{13}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Optimisation Function}{13}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}Parameter Space}{13}{subsection.4.2.2}%
+\contentsline {subsection}{\numberline {4.2.3}Convergence Difficulties}{14}{subsection.4.2.3}%
+\contentsline {section}{\numberline {4.3}Simulated Current Reversals}{14}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Method of Reversal}{14}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.3.2}Results and Explanations}{14}{subsection.4.3.2}%
+\contentsline {chapter}{\numberline {5}Comparison with Experiment}{15}{chapter.5}%
+\contentsline {section}{\numberline {5.1}ISTTOK}{15}{section.5.1}%
+\contentsline {subsection}{\numberline {5.1.1}A Brief History of ISTTOK}{15}{subsection.5.1.1}%
+\contentsline {subsection}{\numberline {5.1.2}Reactor Specification}{15}{subsection.5.1.2}%
+\contentsline {section}{\numberline {5.2}}{15}{section.5.2}%
+\contentsline {chapter}{\numberline {6}Blue Skies and Horizons}{17}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Further Work}{17}{section.6.1}%
+\contentsline {subsection}{\numberline {6.1.1}Simulated Electric Field via Fake Solenoids}{17}{subsection.6.1.1}%
+\contentsline {section}{\numberline {6.2}Problems Encountered}{18}{section.6.2}%
+\contentsline {subsection}{\numberline {6.2.1}}{18}{subsection.6.2.1}%
+\contentsline {subsection}{\numberline {6.2.2}}{18}{subsection.6.2.2}%
+\contentsline {chapter}{\numberline {A}Appendix title goes here}{19}{appendix.A}%
+\contentsline {chapter}{Bibliography}{21}{appendix.A}%

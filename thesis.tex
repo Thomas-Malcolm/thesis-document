@@ -1,0 +1,104 @@
+\documentclass[a4paper,12pt]{book}
+
+
+  % a file containing your definitions, which packages to load etc
+  \include{definitions}
+
+  % line-spacing factor
+  \renewcommand{\baselinestretch}{1.2}
+
+  % use this if you don't want headers and page numbers on
+  % blank pages at the end of chapters
+  \newcommand{\blanknonumber}{\newpage\thispagestyle{empty}}
+
+  % needed for ANU logo on titlepage (optional)
+  \usepackage{graphics}
+  \usepackage{physics}
+  \usepackage{alias}
+
+  % margins
+  \setlength{\voffset}{-1in}
+  \setlength{\hoffset}{-1in}
+  \setlength{\oddsidemargin}{4cm}
+  \setlength{\evensidemargin}{2.5cm}
+  \setlength{\textwidth}{14.5cm}
+  \setlength{\textheight}{22.5cm}
+  \setlength{\topmargin}{2.5cm}
+
+
+\usepackage{url}
+\usepackage[hidelinks]{hyperref} %added by Joan Licata,  2022
+\usepackage{xcolor}
+  % for working drafts, un-comment the following command and list
+  % the chapters etc you want to see in the output, eg
+  % \includeonly{titlepage,chapter1,chapter2}
+
+
+
+\begin{document}
+
+
+  % set page numbers to roman and suppress chapter numbers
+  \frontmatter
+
+  % remove or switch the order of these as you see fit
+  \include{titlepage}\blanknonumber
+
+  \include{dedication}\blanknonumber
+  
+  \include{declaration}\blanknonumber
+  
+  \include{acknowledgements}\blanknonumber
+  
+  \include{abstract}\blanknonumber
+  
+  \tableofcontents\blanknonumber
+  
+  \include{notation}\blanknonumber
+
+  % \include{background}\blanknonumber
+
+  % set page numbers to arabic, reset to 1
+  \mainmatter
+
+  % Chapters of thesis
+  \include{chapters/chapter1}
+  \include{chapters/chapter2}
+  \include{chapters/chapter3}
+  \include{chapters/chapter4}
+  \include{chapters/chapter5}
+  \include{chapters/chapter6}
+
+
+
+
+% APPENDICES
+
+
+  % change chapter name and counters (eg Chapter 1 -> Appendix A)
+  \appendix
+
+
+  % assuming there are files appendix1.tex etc...
+  \include{appendix1}
+  %\include{appendix2}
+  %\include{appendix3}
+  %etc
+
+
+
+
+% BIBLIOGRAPHY
+
+
+  % add Bibliography to table of contents
+  \addcontentsline{toc}{chapter}{Bibliography}
+
+
+  % list BibTeX (.bib) files and choose bibliography style
+  \bibliography{bibliography}
+  \bibliographystyle{plain}
+
+
+
+\end{document}

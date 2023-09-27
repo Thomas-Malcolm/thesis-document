@@ -1,0 +1,188 @@
+
+\chapter{Current Reversal Theory}
+\label{chapter3}
+
+
+
+% 3.1.
+\section{Perturbation Methods}
+
+% 3.1.1.
+\subsection{What is a Perturbation Treatment?}
+
+When it comes to solving differential equations, the ideal scenario 
+is that you find an analytic solution, $\Psi$. This, however, is generally a 
+difficult problem, and especially so in the case of differential equations. A great deal 
+of research goes into trying to find analytic solutions to PDEs, 
+which is no less true for the Grad-Shafranov equation and its variations. Though 
+such efforts are often futile, or require making assumptions about properties of 
+your solution which may not be representative of what you're trying to show, 
+other means of obtaining the $\Psi(\vec{x})$ for $\vec{x} \in \Omega$ have been developed.
+
+A traditional approach to this is to use some numerical code to approximate solution values. 
+There are various codes which exist for this purpose specifically with regards to 
+the GSE equation, such as HELENA REFERENCE. These codes come in many flavours - 
+some implement a particle simulation, which can provide precision with simulation, 
+though are computationally costly. Others exploit various properties of the 
+variant of GSE they target and may be computationally more feasible, but are 
+restricted in scope, application, and/or reliability because of their assumptions.
+
+A common problem that numerical methods seek to solve is that of time evolution. 
+Simulations which evolve a system through time, for obvious reasons, do not discard 
+the time dependency component in their derivation of the GSE. This, however, often 
+makes them computationally expensive as a result, while also increasing the difficulty of 
+finding analytic solutions to the system. 
+
+For this thesis, given the availability of an analytic solution to a variation of 
+the GSE that specifically relates to current reversals, we employ a hybrid approach. 
+In our simulation we wish to observe changes in the system through a current ramp down
+- this necessitates a time dependency component to our solution. However, there are 
+a couple points to note:
+\begin{itemize}
+    \item Time evolution simulations are expensive
+    \item Existing literature on time evolution GSE do not take into account the possibility for current 
+    reversal (e.g. resistivity)
+    \item The GSH variant we utilise (which has yet to be introduced) is not time dependent, i.e., 
+    was not derived taking into account a time component
+\end{itemize}
+
+There are a couple possible avenues we could explore from here. We could implement a numerical code 
+for the time evolution, for example a particle simulation, however this is for all intents and purposes
+computationally infeasible given the hardware available (a beloved but dilapidated Thinkpad T440p). We could 
+attempt to find an analytic solution to the GSE with time dependence (or an approximation to one),
+but given the mountain of research existing in this space and the relative inexperience 
+of the author, this would likely be a futile task. The third, and most lucrative option, 
+is to use an existing analytic solution to a variation of the GSE that accounts for 
+current reversal, and explore if small changes to its state
+are sufficiently ``good enough'' approximations of .
+
+This is where perturbation theory comes in. Intuitively we would expect a 
+plasma to vary ``smoothly'' - nature rarely behaves in instantaneous ways. The 
+analytic solution we have describes the instantaneous state (a slice in time) of 
+our reactor's state. We may anticipate then that if we were to change something 
+in our system by a ``sufficiently small amount'', that our system may react 
+to that change of state in a way that approximates how it would if it 
+were really varying through time. We will have the ability to determine the 
+state of our system for some given parameters, and so the question becomes: can 
+we vary our input in a way such that the behaviour of the analytic solution to 
+the GSH is an approximation of a time evolution of the plasma. We are able to compare 
+our results to experimental data, and then exploit our work to answer further questions.
+
+
+
+% 3.1.2.
+\subsection{Regular Perturbation Theory}
+
+
+\url{https://jmahaffy.sdsu.edu/courses/f19/math537/beamer/perturb.pdf}
+\url{https://www.ucl.ac.uk/~ucahhwi/LTCC/section2-3-perturb-regular.pdf}
+\url{https://math.byu.edu/~bakker/Math521/Lectures/M521Lec15.pdf}
+
+% 3.1.3.
+\subsection{Ideal MHD Perturbation}
+
+At the beginning of this thesis we introduced it as being interdisciplenary in nature. 
+Keeping in that spirit, at times here we will put on our physicists cap and 
+seemingly arbitrarily remove terms we no longer wish to have. We 
+kindly ask that any mathematicians reading these sections avert their attention 
+so as to maintain sanity.
+
+In Chapter \ref{chapter2} we derived the ideal MHD equations, given:
+\begin{align}
+    j \times B &= \nabla p \\
+    \mu_0 j &= \nabla \times B \\
+    \nabla \dot B &= 0
+\end{align}
+These, notably, are the time independent variation. We wish to look at the 
+effect of a small ($\epsilon > 0$) time perturbation to this system, and so 
+will return to this derivation, without discarding the time component. We will 
+begin with Maxwell's equations:
+
+
+\subsubsection{Resistivity Note}
+
+While when using the ideal MHD equations we make many simplifications, there 
+is one that we should note perticularly given what we are trying to model. 
+Resistivity is a phenomenon
+
+Talk about AC reactors, acceleration of electrons important 
+
+Explain why perturbation theory is justified for resitivity
+
+Allegory below
+
+
+A perhaps more intuitive analogy is that of swimming. Imagine you are stationary under water 
+in a pool, floating, and you look at your arm extended out in front of you. 
+Focus on the feeling of the water moving around your arm - this will emulate the resistivity 
+that electrons would feel. If you move your arm abruptly, 
+perhaps in a cutting motion, then you will feel the pressure of the water push against 
+your arm, and perhaps you have to use noticably more force to overcome this pressure.
+Now imagine instead that you don't abruptly cut, but instead very slowly, almost 
+imperceptibly, move your arm through the water. You will notice that the feeling 
+of water \emph{resisting} your arms motion will not be as noticeable. 
+
+NOTE: perhaps it's better told from the perspective of an external observer?
+Otherwise this might imply that electron speeds should differ, not that the observed force 
+is different.
+
+% 3.2.
+\section{Grad-Shafranov-Helmholtz Equation}
+
+% 3.2.1.
+\subsection{Helmholtz Equations}
+
+What is a Helmholtz equation 
+
+% 3.2.2.
+\subsection{GSH Equation}
+How do we apply it to the Grad-Shafranov equation
+
+The work here will largely follow the paper by Wang and Yu REFERENCE,
+with some key notes and modifications. We are by now familiar with the 
+GSE:
+
+INSERT GSE
+
+Wang provide a slightly different (though equivalent) formulation:
+\begin{prop}
+    First, we will introduce some normalisation terms. Let $j_\phi = \frac{J_{\phi} \mu_0 a}{B_0}$ be 
+    the toroidal current density normalised with respect to the magnetic field, recalling that $J_{\phi}$ 
+    is the toroidal magnetic field, $\mu_0$ is free-space magnetic permeability, 
+    and $B_0$ is the on-axis magnetic field strength (here, the strength of the 
+    magnetic field evaluted at the centre of the cross section, where $x = a$).
+
+    The GSE can then equivalently be stated:
+    \begin{align}
+        \left ( x \pdv{x} \frac{1}{x} \pdv{x} + \pdv[2]{z} \right ) \psi &= -\frac{1}{2} x^2 \dv{\beta}{\psi} - \frac{1}{2}\dv{g^2}{\psi} = -x j_{\phi} \\
+        \intertext{where}
+        a_1 &= -\frac{1}{2} \dv{\beta}{\psi} \\
+        a_2 - \alpha^2 \psi &= -\frac{1}{2} \dv{g^2}{\psi}
+    \end{align}
+
+    Here, we have some normalised terms: $\psi(x,z) = \frac{\Psi(x,z)}{B_0 a^2}$ is the normalised poloidal magnetic flux function. The $\beta$ 
+    function is given $\beta(\psi) = \frac{2 \mu_0 p(\psi)}{B_0^2}$, and $g(\psi) = \frac{F(\psi)}{B_0 a}$. 
+\end{prop} 
+
+\begin{remark}
+    We highlight here the parameter tuple $(a_1, a_2, \alpha)$. We will see soon that 
+    these parameters can be used to determine our system. For now we simply note their 
+    significance so that the reader (that's you!) may pay them special attention through the rest of the following working.
+\end{remark}
+
+At the boundary of a fusion reactor we expect there to be no / minimal poloidal magnetic 
+flux, i.e. that the field strength dissipates as we approach the edge of the reactor. This justifies 
+the boundary condition we will impose: $\psi |_b = 0$. 
+
+
+% 3.2.3.
+\subsection{Analytic Solution and Derivation}
+
+% 3.3.
+\section{Current Reversal Systems}
+
+% 3.3.1.
+\subsection{Current and Pressure Density Profiles}
+
+% 3.3.2.
+\subsection{Example Configurations}
