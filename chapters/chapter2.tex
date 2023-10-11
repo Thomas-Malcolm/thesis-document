@@ -5,12 +5,47 @@
 % 2.1
 \section{Magnetohydrodynamics}
 
-Study of magnetism as a fluid. Physically everything is driven by 
-particles and fields, however this is computationally infeasible. So MHD 
-theory was developed, marrying fluid dynamics with Maxwell's equations
+
+The term ``magnetohydrodynamics'' (MHD) is a portmanteau of two physical concepts which are used to model plasmas 
+inside fusion reactors: the ``magneto'' term comes from ``magnetic field'', and ``hydrodynamics'' indicates a 
+a fluid dynamics component. Put together, magnetohydrodynamics is the study of electrically conductive materials 
+that behave like fluids. Essentially it provides a way to model the behaviour of a (considerably volumous!) 
+mass of particles, and their electrodynamic forces, as if it were a fluid, as opposed to having to model 
+individual particle interactions. This idea was first introducd by Hannes Alfv\'en in 1970, for which he earned 
+the Nobel prize \cite{alfven-mhd}!
+
+Much modern research uses some variation of an MHD model (and the derived Grad-Shafranov Equation, which we will 
+soon be introduced to) for a number of reasons, not least being its comparative computational efficiency.
+One primary benefit of treating our plasma as a fluid being that we avoid modelling the behaviour of 
+each individual particle in said plasma, a simplification which becomes especially important when we consider 
+the order of number of particles we would have to simulate is of order $\sim 10^{20}$ - far too much 
+for the author's ThinkPad to even contemplate!
+
+Here we will build the relevant MHD background for this thesis, deriving the MHD equations from first principles, 
+and explaning the assumptions we make to reduce them to a simplified state known as ``ideal MHD''. From there we will 
+look at the PDE which models the behaviour of a plasma inside a Tokamak, the ``Grad-Shafranov Equation''. We will 
+then note some pitfalls of using this model to describe AC configuration Tokamaks (as we are investigating), 
+and finish with a discussion on runaway electrons (RE).
 
 % 2.1.1.
 \subsection{MHD Theory}
+
+Given MHD is the marriage of fluid dynamics with electrodynamics, it is only natural to begin our 
+study looking at the equations which describe electrodynamic behaviour --- Maxwell's equations 
+describe the interaction between magnetic fields $\vec{B}$, electric fields $\vec{E}$, and 
+the current density $j$ which induces them. Thus, we introduce Maxwell's equations:
+\begin{definition}
+    Maxwell's equations are given \cite{wesson-tokamaks}:
+    \begin{align}
+        \nabla \times \vec{B} &= \mu_0 j + \frac{1}{c^2} \pdv{\vec{E}}{t} \\
+        \nabla \times E &= -\pdv{\vec{B}}{t} \\
+        \nabla \cdot \vec{B} &= 0 \\
+        \nabla \cdot E &= \frac{\rho_c}{\epsilon_0}
+    \end{align}
+
+    where $\mu_0$ is free-space magnetic permeability (in $\text{henry}\; m^{-1}$), and $c$ is the speed of light.
+    
+\end{definition}
 
 Lagrangian operator
 
@@ -41,22 +76,34 @@ Solutions to GS equation
 
 Go through derivation of it 
 
-% 3.1.
+% 2.3.
 \section{AC Configuration Tokamaks}
 
 Tokamak's normally in DC mode. What does it mean for a fusion reactor 
 to operate in AC mode
 
-% 3.1.1.
+% 2.3.1.
 \subsection{Physical Differences}
 
 Plasma current (talk: operation of toroidal coils to regulate current)
 
 
 
-% 3.1.2.
+% 2.3.2.
 \subsection{Why Bother?}
 
 What benefits are there to using an AC design over DC?
 
 Talk about confinement time, stability, etc
+
+% 2.4
+\subsection{Runaway Electrons}
+
+\subsubsection{Generation Mechanisms}
+
+Here we will discuss how runaway electrons come to exist within a Tokamak's fusion cycle.
+
+\subsubsection{RE Detection}
+
+\subsubsection{Why we care}
+

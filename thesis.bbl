@@ -1,8 +1,18 @@
 \begin{thebibliography}{1}
 
+\bibitem{alfven-mhd}
+H.~ALFV{\'E}N.
+\newblock Existence of electromagnetic-hydrodynamic waves.
+\newblock {\em Nature}, 150(3805):405--406, Oct 1942.
+
 \bibitem{websters_plasma}
 Merriam-Webster.
 \newblock Plasma, 2023.
 \newblock \url{https://www.merriam-webster.com/dictionary/plasma}.
+
+\bibitem{wesson-tokamaks}
+J.~Wesson and D.J. Campbell.
+\newblock {\em Tokamaks}.
+\newblock International series of monographs on physics. Clarendon Press, 2004.
 
 \end{thebibliography}
