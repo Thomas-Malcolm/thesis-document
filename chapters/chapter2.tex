@@ -32,8 +32,8 @@ and finish with a discussion on runaway electrons (RE).
 
 Given MHD is the marriage of fluid dynamics with electrodynamics, it is only natural to begin our 
 study looking at the equations which describe electrodynamic behaviour --- Maxwell's equations 
-describe the interaction between magnetic fields $\vec{B}$, electric fields $\vec{E}$, and 
-the current density $j$ which induces them. Thus, we introduce Maxwell's equations:
+describe the interaction between magnetic fields $\vec{B}(\vec{r}, t)$, electric fields $\vec{E}(\vec{r}, t)$, and 
+the current density $j(\vec{r}, t)$ which induces them, where $\vec{r} \in \R^3$ is a position vector and $t \in \R$ describes time. Thus, we introduce Maxwell's equations:
 \begin{definition}
     Maxwell's equations are given \cite{wesson-tokamaks}:
     \begin{align}
@@ -43,15 +43,80 @@ the current density $j$ which induces them. Thus, we introduce Maxwell's equatio
         \nabla \cdot E &= \frac{\rho_c}{\epsilon_0}
     \end{align}
 
-    where $\mu_0$ is free-space magnetic permeability (in $\text{henry}\; m^{-1}$), and $c$ is the speed of light.
+    The functions driving change in this system are $\rho_c(\vec{r}, t)$, the electric charge density, and $j(\vec{r}, t)$, 
+    the electric current density. We also have $\mu_0$, the free-space magnetic permeability (in henry $m^{-1}$); $\epsilon_0$, 
+    the free-space permittivity; and $c$, the speed of light.
     
 \end{definition}
 
-Lagrangian operator
+These equations give us a way to reason about the electric and magnetic fields if we're given some descriptor for the 
+current we're passing through some medium. We are now to introduce the fluid dynamics component to our system. A fluid's 
+mass density can be given by summing over the effects of individual ``species'' of particles (e.g. electrons) in the fluid:
+$$\rho_c = \sum_{\sigma} m_{\sigma} n_{\sigma}$$
+and its current density similarly:
+$$\vec{j}(\vec{r}, t) = \sum_{\sigma} n_{\sigma} q_{\sigma} \vec{u}_{\sigma}$$
+where $\sigma$ describes a particle species, $m_\sigma$ describes its mass, $n_\sigma$ its number density 
+(a measurement of concentration for the given particle species in a pre-defined volume -- akin to Avogadro's constant), 
+$q_\sigma$ describes its electric charge, and $\vec{u}_\sigma$ the mean velocity of this species of particle in the fluid. 
 
-Maxwell's equations
 
-Assumptions and simplifications (leading into ideal MHD)
+\begin{notn}
+    A common simplification in notation for fluids is made in using the \emph{Lagrangian derivative}, given:
+    $$\frac{\DD}{\DD t} = \left (\pdv{t} + \vec{u} \cdot \nabla \right )$$ 
+    It describes the total change in a volume within a fluid as it moves throughout said fluid. It is essentially 
+    a change in reference frame for a derivative - where a regular derivative might descirbe, for example, 
+    how a particle moves with respect to time in its surroundings, its Lagrangian will take into account 
+    the motion of the fluid the particle is immersed in as well.
+\end{notn}
+
+We begin with fluid motion as described by Newton:
+\begin{definition}
+    Newton's law for a fluid:
+    \begin{align}
+        \rho \frac{\DD }{\DD t} \vec{V} &= \vec{F}
+    \end{align}
+    where $\rho(\vec{r}, t)$ is the mass density of the fluid, 
+    $\vec{V}(\vec{r}, t)$ describes the velocity of the fluid element, and $\vec{F}(\vec{r}, t)$ 
+    describes the force per unit volume acting on the fluid element \cite{mhd-lectures}.
+\end{definition}
+The forces acting on a fluid can be split into two cases
+\begin{itemize}
+    \item Gravitational
+    
+    Here, $\vec{F}_g = \rho \vec{g}$, where $\vec{g}$ is the gravitational acceleration. This should hark back to high school 
+    physics, though note this is a vector here as we care about the direction gravity accelerates the fluid element in, 
+    and relativistic effects can be an important consideration for high mass systems. This is more relevant for cases that 
+    you are using the MHD equations to describe the dynamics of large systems, such as a star. Unsurprisingly, this is less relevant 
+    for our case of plasmas within relatively miniscule Tokamaks.
+
+    \item Electromagnetic
+    
+    This is the interesting part for us. As we assume our fluid is capable of conducting electricity (it's a plasma after all),
+    there are electromagnetic forces operating within the fluid that affect the behaviour of the particles that the fluid consists of. 
+    The electromagnetic forces themselves can be split into two types, the \textbf{electric force} given by $\vec{F}_q = \rho_c \vec{E}$, 
+    and the \textbf{Lorentz force}, given $\vec{F}_{L} = \vec{j} \times \vec{B}$ (where $\vec{B}(\vec{r}, t)$ describes the magnetic field)
+\end{itemize}
+Taking these forces into account, we can describe the motion of an element of our fluid moving with velocity $\vec{u}$ 
+via:
+\begin{equation}
+    \rho \frac{\DD}{\DD t} \vec{u} = \rho_c \left ( \vec{j} \times \vec{B} + \vec{E} \right ) - \nabla p + \rho \vec{g}
+\end{equation}
+
+
+\begin{definition}
+    Fluid equations:
+    \begin{align}
+        \frac{\DD}{\DD t} \rho + \rho \nabla \cdot \vec{u} &= \pdv{\rho}{t} + \nabla \cdot (\rho \vec{u}) = 0 \\
+        \frac{\DD}{\DD t} p + \gamma p \nabla \cdot \vec{u} &= \pdv{p}{t} + \vec{u} \cdot \nabla p + \gamma p \nabla \cdot \vec{u} = 0
+    \end{align}
+\end{definition}
+
+
+
+These equations are quite volumous, and are too 
+cumbersome for our purposes in terms of computation, and in the complexity they create as a system of PDEs.
+We then wish to make a number of assumptions to simplify them to a point at which they are usable. The next 
+section will discuss what assumptions and simplifications we make, and the concessions which come with that.
 
 % 2.1.2.
 \subsection{Ideal MHD}

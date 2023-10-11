@@ -10,6 +10,12 @@ Merriam-Webster.
 \newblock Plasma, 2023.
 \newblock \url{https://www.merriam-webster.com/dictionary/plasma}.
 
+\bibitem{mhd-lectures}
+Dalton~D Schnack.
+\newblock {\em {Lectures in Magnetohydrodynamics: With an Appendix on Extended
+  MHD}}.
+\newblock Lecture notes in physics. Springer, Berlin, Heidelberg, 2009.
+
 \bibitem{wesson-tokamaks}
 J.~Wesson and D.J. Campbell.
 \newblock {\em Tokamaks}.
