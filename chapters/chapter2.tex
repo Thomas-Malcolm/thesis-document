@@ -59,6 +59,7 @@ where $\sigma$ describes a particle species, $m_\sigma$ describes its mass, $n_\
 (a measurement of concentration for the given particle species in a pre-defined volume -- akin to Avogadro's constant), 
 $q_\sigma$ describes its electric charge, and $\vec{u}_\sigma$ the mean velocity of this species of particle in the fluid. 
 
+\subsubsection{Fluid Dynamics}
 
 \begin{notn}
     A common simplification in notation for fluids is made in using the \emph{Lagrangian derivative}, given:
@@ -69,17 +70,49 @@ $q_\sigma$ describes its electric charge, and $\vec{u}_\sigma$ the mean velocity
     the motion of the fluid the particle is immersed in as well.
 \end{notn}
 
-We begin with fluid motion as described by Newton:
-\begin{definition}
-    Newton's law for a fluid:
+We begin with conservation of mass, also known as the ``continuity equation''. 
+
+\begin{definition}[The continuity equation]
+    The below relates how mass density, $\rho$, changes with respect to the motion of a 
+    fluid element.
+
+    \begin{equation}
+        \pdv{\rho}{t}  = -\nabla \cdot \left ( \rho \vec{u} \right ) \label{continuity}
+    \end{equation}
+
+    The derivation of the above comes from a surface integral over a volume with an outward and inward flux, 
+    and an application of Gauss' flux law. For a full derivation, see pg. 19 - 21 of \cite{mhd-lectures}.
+\end{definition}
+
+\begin{remark}
+    The above is a PDE with four variables: $\rho$, the mass density of the medium, and $\vec{u}$, the velocity 
+    of the fluid. This renders the system not closed, and thus too general for an analytic solution - we have 
+    more unknowns than we have equations \cite{mhd-lectures}. Later we 
+    will introduce other equations to our system to apply more restrictions, and make assumptions about the 
+    physicality of the system which will reduce these dependencies, and make it determined (``closed'').
+\end{remark}
+
+\begin{remark}
+    We can rewrite \eqref{continuity} with a Lagrangian frame of reference, as 
     \begin{align}
-        \rho \frac{\DD }{\DD t} \vec{V} &= \vec{F}
+        &\frac{\DD}{\DD t}\rho = -\rho \nabla \cdot \vec{u} \\
+        \iff &\frac{\DD}{\DD t}\rho + \rho \nabla \cdot \vec{u} = 0 \label{continuity-lag}
+    \end{align}
+\end{remark}
+
+Equation \eqref{continuity} (and equivalently \eqref{continuity-lag}) tells us that the mass of our fluid is conserved for motion of a volume element 
+of our fluid - one assumption we make for our model. Next we'll discuss fluid motion as described by Newton for a fluid element:
+
+\begin{definition}[Newtonian Fluid Motion]
+    Newton's law for a fluid specifies:
+    \begin{align}
+        \rho \frac{\DD }{\DD t} \vec{u} &= \vec{F}
     \end{align}
     where $\rho(\vec{r}, t)$ is the mass density of the fluid, 
-    $\vec{V}(\vec{r}, t)$ describes the velocity of the fluid element, and $\vec{F}(\vec{r}, t)$ 
+    $\vec{u}(\vec{r}, t)$ describes the velocity of the fluid element, and $\vec{F}(\vec{r}, t)$ 
     describes the force per unit volume acting on the fluid element \cite{mhd-lectures}.
 \end{definition}
-The forces acting on a fluid can be split into two cases
+The forces acting on particles within a fluid can be split into two types
 \begin{itemize}
     \item Gravitational
     
@@ -99,34 +132,144 @@ The forces acting on a fluid can be split into two cases
 Taking these forces into account, we can describe the motion of an element of our fluid moving with velocity $\vec{u}$ 
 via:
 \begin{equation}
-    \rho \frac{\DD}{\DD t} \vec{u} = \rho_c \left ( \vec{j} \times \vec{B} + \vec{E} \right ) - \nabla p + \rho \vec{g}
+    \rho \frac{\DD}{\DD t} \vec{u} =  \vec{j} \times \vec{B} + \rho_c \vec{E} - \nabla p + \rho \vec{g}
 \end{equation}
 
 
-\begin{definition}
-    Fluid equations:
-    \begin{align}
-        \frac{\DD}{\DD t} \rho + \rho \nabla \cdot \vec{u} &= \pdv{\rho}{t} + \nabla \cdot (\rho \vec{u}) = 0 \\
-        \frac{\DD}{\DD t} p + \gamma p \nabla \cdot \vec{u} &= \pdv{p}{t} + \vec{u} \cdot \nabla p + \gamma p \nabla \cdot \vec{u} = 0
-    \end{align}
+\begin{remark}
+    Here the $\rho \vec{g}$ term could be abstracted further away into a stress tensor, as described by equation 4.20 of \cite{mhd-lectures}. These 
+    pressures however are largely negligible when dealing with the scale we do in Tokamak plasmas however, and 
+    are thus ignored. We will soon drop the gravitational consideration as well anyway, but include it here for now for completeness.
+\end{remark}
+
+\begin{remark}
+    The equation we have introduced is a function of six variables in its complex form (with stress tensor 
+    included), though even in this form we still have more variables than we do equations (1). Similar to before, this 
+    is not constrained sufficiently to consider it a closed system.
+\end{remark}
+
+We next relate a plasma's pressure to its motion. We will simply present it here, though important notes in its 
+derivation are that we assume the plasma behaves as an ideal gas (which is to say the only interaction 
+between particles within the plasma are via elastic collisions with each other, or the boundaries of the container 
+it is contained within). This is equivalent to saying that energy in the system depends only on the pressure. Thus, the 
+energy equation is given:
+\begin{definition}[Energy Equation]
+    Where $\vec{p}(\vec{r}, t)$ describes the pressure of our fluid:
+    \begin{equation}
+        \frac{\DD}{\DD t} p  = -\Gamma p \nabla \cdot \vec{u} + (\Gamma - 1) \left [ -\nabla \cdot \vec{q} + \vec{\Pi} : \nabla \vec{u} + \eta \vec{J}^2 \right ]
+    \end{equation}
+    where $\Gamma$ describes ``abiabatic index'' (a known constant for plasmas), $q$ is the heat flux through 
+    the boundary of the volume; $\eta$ is the electrical resistivity of the fluid; and $\vec{\Pi}$ is the viscous 
+    stress tensor (the component which we replaced with $\rho \vec{g}$ earlier), and will soon ignore again. 
 \end{definition}
 
 
 
-These equations are quite volumous, and are too 
-cumbersome for our purposes in terms of computation, and in the complexity they create as a system of PDEs.
-We then wish to make a number of assumptions to simplify them to a point at which they are usable. The next 
-section will discuss what assumptions and simplifications we make, and the concessions which come with that.
+The equations we've looked at constitute what are known as the fluid equations:
 
-% 2.1.2.
-\subsection{Ideal MHD}
+\begin{definition}[Fluid Equations]
+    \begin{align}
+        \frac{\DD}{\DD t} \rho &+ \nabla  \cdot \rho \vec{u} = 0 \\
+        \rho \frac{\DD}{\DD t} \vec{u} &=  \vec{j} \times \vec{B} + \rho_c \vec{E} - \nabla p + \rho \vec{g} \\
+        \frac{\DD}{\DD t} p  &= -\Gamma p \nabla \cdot \vec{u} + (\Gamma - 1) \left [ -\nabla \cdot \vec{q} + \vec{\Pi} : \nabla \vec{u} + \eta \vec{j}^2 \right ]
+    \end{align}
+\end{definition}
 
-Simplifications made to derive ideal MHD equations 
+As reiterated a couple times now, these equations form an unclosed system, and are thus undetermined. 
+To resolve this we introduce some constraints that come from electrodynamic forces, and a couple other 
+relations that lead to a closed system.
 
-Use in GS equation 
+\subsubsection{Electrodynamics}
 
-Physical implications
+As it currently stands, the input variables for the fluid equations are $\rho(\vec{r}, t)$ and $p(\vec{r}, t)$. We note that 
+the electric field $\vec{E}$ and the magnetic field $\vec{B}$ are generated by the electric charge density, $\rho_c$, and 
+the current density $\vec{j}$. This is where Maxwell's equations come into play. By combining Maxwell's equations with the 
+fluid equation given above, we achieve the MHD model. The only piece to our puzzle missing is to tie the motion of the fluid 
+(through $\vec{u}$) to the behaviour of the electric and magnetic fields. This is done via \textit{Ohm's} law:
+\begin{equation}
+    \vec{E} + \vec{u} \times \vec{B} = \eta \vec{j}
+\end{equation}
+\begin{remark}
+    Note that the above is technically a lie, as it does not take into account relativistic effects, though for simplicity 
+    our MHD model ignores these.
+\end{remark}
 
+
+\begin{definition}[MHD Equations]
+    The MHD equations can then be summarised:
+    \begin{align}
+        \frac{\DD}{\DD t} \rho &= 0 \\
+        \rho \frac{\DD}{\DD t} \vec{u} &= -\nabla p + \vec{j} \times \vec{B} + \nabla \cdot \Pi \\
+        \frac{\DD}{\DD t} p  &= -\Gamma p \nabla \cdot \vec{u} + (\Gamma - 1) \left [ -\nabla \cdot \vec{q} + \vec{\Pi} : \nabla \vec{u} + \eta \vec{j}^2 \right ] \\
+        \pdv{\vec{B}}{t} &= -\nabla \times \vec{E} \\
+        \mu_0 \vec{j} &= \nabla \times \vec{B} \\
+        \vec{E} + \vec{u} \times \vec{B} &= \eta \vec{j}
+    \end{align}
+\end{definition}
+
+\begin{remark}
+    The MHD equations as presented above constitute 14 equations with 27 unknowns. The breakdown is as such:
+    \begin{itemize}
+        \item $\rho$ : 1 unknown
+        \item $\vec{u}$ : 3 unknowns
+        \item $p$: 1 unknown
+        \item $\vec{\Pi}$ : 9 unknowns
+        \item $\vec{j}$ : 3 unknowns
+        \item $\vec{B}$ : 3 unknowns
+        \item $\vec{E}$ : 3 unknowns
+        \item $\vec{q}$ : 3 unknowns
+        \item $\eta$ : 1 unknown
+    \end{itemize}
+\end{remark}
+
+The above is obviously insufficiently constrained for purposes of identifying a solution. We will skip a large amount 
+of the work required to reduce the above to a closed system, though for details see lecture 7 of \cite{mhd-lectures}. 
+For now, we will comment on two reduced MHD models:
+
+\subsubsection{Resistive MHD}
+The resistive MHD model comes about by setting $\vec{q} = 0$ and $\vec{\Pi} = 0$. Here, we have $\eta \ne 0$ notably. The model 
+is given:
+\begin{definition}[Resistive MHD]
+    \begin{align}
+        \frac{\DD}{\DD t} \rho &= 0 \\
+        \rho \frac{\DD}{\DD t} \vec{u} &= -\nabla p + \vec{j} \times \vec{B}\\
+        \frac{\DD}{\DD t} p  &= -\Gamma p \nabla \cdot \vec{u} \\
+        \pdv{\vec{B}}{t} &= -\nabla \times \vec{E} \\
+        \mu_0 \vec{j} &= \nabla \times \vec{B} \\
+        \vec{E} + \vec{u} \times \vec{B} &= \eta \vec{j}
+    \end{align}
+\end{definition}
+
+\begin{remark}
+    The most notable effect of resistive MHD is that allowing for electrons to diffuse allows the resulting magnetic field lines 
+    to reconnect, which leads to breaks in the magnetic field line topology. This can lead to the generation of fast particles, i.e., 
+    runaway electrons.
+\end{remark}
+
+
+\subsubsection{Ideal MHD}
+The ideal MHD equations are one step removed from the resistive MHD model --- in fact they are equivalent, only for the ideal MHD case 
+we also ignore resistivity. Thus, set $\eta = 0$, and we obtain the ideal MHD equations:
+\begin{definition}[Ideal MHD]
+    \begin{align}
+        \frac{\DD}{\DD t} \rho &= 0 \\
+        \rho \frac{\DD}{\DD t} \vec{u} &= -\nabla p + \vec{j} \times \vec{B}\\
+        \frac{\DD}{\DD t} p  &= -\Gamma p \nabla \cdot \vec{u} \\
+        \pdv{\vec{B}}{t} &= -\nabla \times \vec{E} \\
+        \mu_0 \vec{j} &= \nabla \times \vec{B} \\
+        \vec{E} + \vec{u} \times \vec{B} &= 0
+    \end{align}
+\end{definition}
+
+\begin{remark}
+    In doing this, we have removed the dependency on $\vec{\Pi}$, $\eta$ and $\vec{q}$, which accounts 
+    for 13 unknowns. This brings the total number of equations to 14 (or $8$ if you make a substitution 
+    for Ohm's law) with 14 ($8$) unknowns. Thus, under the ideal MHD model, the system is closed.
+\end{remark}
+
+
+\red{Brief discussion on what resistivity is?}
+\red{Tie into GSE}
 % 2.2. 
 \section{Grad-Shafranov Equation}
 
@@ -134,7 +277,7 @@ What is it
 
 What do its components describe
 
-Solutions to GS equation 
+Solutions to GS equation?
 
 % 2.2.1
 \subsection{Derivation}

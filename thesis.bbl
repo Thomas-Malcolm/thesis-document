@@ -5,10 +5,21 @@ H.~ALFV{\'E}N.
 \newblock Existence of electromagnetic-hydrodynamic waves.
 \newblock {\em Nature}, 150(3805):405--406, Oct 1942.
 
+\bibitem{iter-tokamak-acronym}
+ITER.
+\newblock Tokamak, 2023.
+\newblock \url{https://www.iter.org/mach/Tokamak}.
+
 \bibitem{websters_plasma}
 Merriam-Webster.
 \newblock Plasma, 2023.
 \newblock \url{https://www.merriam-webster.com/dictionary/plasma}.
+
+\bibitem{nasa-sun-fusion}
+NASA.
+\newblock Fusion chemistry - a closer look, 2023.
+\newblock
+  \url{https://solarsystem.nasa.gov/genesismission/gm2/science/sunlight_solar-heat/fusion_chemistry.htm}.
 
 \bibitem{mhd-lectures}
 Dalton~D Schnack.
