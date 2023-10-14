@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Debian) (preloaded format=pdflatex 2022.9.5)  13 OCT 2023 23:47
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Debian) (preloaded format=pdflatex 2022.9.5)  14 OCT 2023 00:15
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -436,55 +436,56 @@ Chapter 1.
 
 
 ] [2]
-
-LaTeX Warning: Reference `east-geometry' on page 3 undefined on input line 78.
-
-<imgs/c1/east-cross-section.png, id=371, 1580.90625pt x 941.5175pt>
+<imgs/c1/east-cross-section.png, id=372, 1580.90625pt x 941.5175pt>
 File: imgs/c1/east-cross-section.png Graphic file (type png)
 <use imgs/c1/east-cross-section.png>
-Package pdftex.def Info: imgs/c1/east-cross-section.png  used on input line 81.
+Package pdftex.def Info: imgs/c1/east-cross-section.png  used on input line 89.
 (pdftex.def)             Requested size: 316.17564pt x 188.30016pt.
-[3 </home/tom/documents/uni/honours/thesis/thesis-document/imgs/c1/east-cross-section.png>]) [4]
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[3]) [4 </home/tom/documents/uni/honours/thesis/thesis-document/imgs/c1/east-cross-section.png>] [5]
 \openout2 = `chapters/chapter2.aux'.
 
- (/home/tom/documents/uni/honours/thesis/thesis-document/chapters/chapter2.tex
+ (/home/tom/documents/uni/honours/thesis/thesis-document/chapters/chapter2.tex [6
+
+
+
+
+]
 Chapter 2.
-[5
-
-
-
-
-] [6] [7] [8] [9] [10] [11] [12]) [13]
+[7] [8] [9] [10] [11] [12] [13] [14]) [15]
 \openout2 = `chapters/chapter3.aux'.
 
- (/home/tom/documents/uni/honours/thesis/thesis-document/chapters/chapter3.tex [14
+ (/home/tom/documents/uni/honours/thesis/thesis-document/chapters/chapter3.tex [16
 
 
 
 
 ]
 Chapter 3.
-[15]
+[17]
 Overfull \hbox (22.29634pt too wide) in paragraph at lines 77--80
 []$\OT1/cmtt/m/n/12 https : / / jmahaffy . sdsu . edu / courses / f19 / math537 / beamer / perturb . pdf$[] []$https :
  []
 
-[16] [17] [18]) [19]
+[18] [19] [20]) [21]
 \openout2 = `chapters/chapter4.aux'.
 
- (/home/tom/documents/uni/honours/thesis/thesis-document/chapters/chapter4.tex [20
+ (/home/tom/documents/uni/honours/thesis/thesis-document/chapters/chapter4.tex [22
 
 
 
 
 ]
 Chapter 4.
-[21]) [22]
+[23]) [24]
 \openout2 = `chapters/chapter5.aux'.
 
  (/home/tom/documents/uni/honours/thesis/thesis-document/chapters/chapter5.tex
 Chapter 5.
-) [23
+) [25
 
 
 
@@ -492,52 +493,49 @@ Chapter 5.
 ]
 \openout2 = `chapters/chapter6.aux'.
 
- (/home/tom/documents/uni/honours/thesis/thesis-document/chapters/chapter6.tex [24
+ (/home/tom/documents/uni/honours/thesis/thesis-document/chapters/chapter6.tex [26
 
 
 
 
 ]
 Chapter 6.
-) [25] [26]
+) [27] [28]
 \openout2 = `appendix1.aux'.
 
  (/home/tom/documents/uni/honours/thesis/thesis-document/appendix1.tex
 Appendix A.
-[27
+[29
 
 
 
 
-]) [28] (/home/tom/documents/uni/honours/thesis/thesis-document/thesis.bbl
+]) [30] (/home/tom/documents/uni/honours/thesis/thesis-document/thesis.bbl
 Underfull \hbox (badness 10000) in paragraph at lines 19--23
 \OT1/cmtt/m/n/12 nasa . gov / genesismission / gm2 / science / sunlight _ solar-[]heat / fusion _
  []
 
-) [29
+) [31
 
 
 
 ] (/home/tom/documents/uni/honours/thesis/thesis-document/thesis.aux (/home/tom/documents/uni/honours/thesis/thesis-document/titlepage.aux) (/home/tom/documents/uni/honours/thesis/thesis-document/dedication.aux) (/home/tom/documents/uni/honours/thesis/thesis-document/declaration.aux) (/home/tom/documents/uni/honours/thesis/thesis-document/acknowledgements.aux) (/home/tom/documents/uni/honours/thesis/thesis-document/abstract.aux) (/home/tom/documents/uni/honours/thesis/thesis-document/notation.aux) (/home/tom/documents/uni/honours/thesis/thesis-document/chapters/chapter1.aux) (/home/tom/documents/uni/honours/thesis/thesis-document/chapters/chapter2.aux) (/home/tom/documents/uni/honours/thesis/thesis-document/chapters/chapter3.aux) (/home/tom/documents/uni/honours/thesis/thesis-document/chapters/chapter4.aux) (/home/tom/documents/uni/honours/thesis/thesis-document/chapters/chapter5.aux) (/home/tom/documents/uni/honours/thesis/thesis-document/chapters/chapter6.aux) (/home/tom/documents/uni/honours/thesis/thesis-document/appendix1.aux))
-
-LaTeX Warning: There were undefined references.
-
 Package rerunfilecheck Info: File `thesis.out' has not changed.
 (rerunfilecheck)             Checksum: EC7446168BCFCC0FC9D52863771B442E;3875.
  ) 
 Here is how much of TeX's memory you used:
- 8521 strings out of 481168
- 128877 string characters out of 5913831
+ 8522 strings out of 481168
+ 128876 string characters out of 5913831
  445345 words of memory out of 5000000
- 25037 multiletter control sequences out of 15000+600000
+ 25036 multiletter control sequences out of 15000+600000
  411722 words of font info for 59 fonts, out of 8000000 for 9000
  59 hyphenation exceptions out of 8191
  81i,11n,89p,387b,471s stack positions out of 5000i,500n,10000p,200000b,80000s
  </home/tom/.texlive2020/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1200.600pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on /home/tom/documents/uni/honours/thesis/thesis-document/thesis.pdf (43 pages, 1336611 bytes).
+Output written on /home/tom/documents/uni/honours/thesis/thesis-document/thesis.pdf (45 pages, 1338152 bytes).
 PDF statistics:
- 684 PDF objects out of 1000 (max. 8388607)
- 614 compressed objects within 7 object streams
- 176 named destinations out of 1000 (max. 500000)
+ 693 PDF objects out of 1000 (max. 8388607)
+ 621 compressed objects within 7 object streams
+ 178 named destinations out of 1000 (max. 500000)
  459 words of extra memory for PDF output out of 10000 (max. 10000000)
 
