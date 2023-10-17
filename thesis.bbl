@@ -1,14 +1,43 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 
 \bibitem{alfven-mhd}
 H.~ALFV{\'E}N.
 \newblock Existence of electromagnetic-hydrodynamic waves.
 \newblock {\em Nature}, 150(3805):405--406, Oct 1942.
 
+\bibitem{east-geometry-article}
+S.~L. Chen, F.~Villone, B.~J. Xiao, L.~Barbato, Z.~P. Luo, L.~Liu,
+  S.~Mastrostefano, and Z.~Xing.
+\newblock 3d passive stabilization of n=0 mhd modes in east tokamak.
+\newblock {\em Scientific Reports}, 6(1):32440, Sep 2016.
+
+\bibitem{gse-derivation}
+Dama Daniel.
+\newblock Derivation and applications of grad-shafranov equation in
+  magnetohydrodynamics (mhd).
+\newblock {\em Journal of Research in Applied Mathematics}, 7(4), 2021.
+
+\bibitem{evans-pdes}
+L.C. Evans.
+\newblock {\em Partial Differential Equations}.
+\newblock Graduate studies in mathematics. American Mathematical Society, 2010.
+
+\bibitem{spec-code}
+S.~R. Hudson, R.~L. Dewar, G.~Dennis, M.~J. Hole, M.~McGann, G.~von Nessi, and
+  S.~Lazerson.
+\newblock {Computation of multi-region relaxed magnetohydrodynamic equilibria}.
+\newblock {\em Physics of Plasmas}, 19(11):112502, 11 2012.
+
 \bibitem{iter-tokamak-acronym}
 ITER.
 \newblock Tokamak, 2023.
 \newblock \url{https://www.iter.org/mach/Tokamak}.
+
+\bibitem{malaquias-matthew}
+A~Malaquias, M~Hole, R~B Henriques, I~S Nedzelskiy, and V~V Plyusnin.
+\newblock Experiments during ac current transition in isttok and the hypothesis
+  of ballistic runaway electrons.
+\newblock {\em Plasma Physics and Controlled Fusion}, 64(9):095013, aug 2022.
 
 \bibitem{websters_plasma}
 Merriam-Webster.
@@ -26,6 +55,16 @@ Dalton~D Schnack.
 \newblock {\em {Lectures in Magnetohydrodynamics: With an Appendix on Extended
   MHD}}.
 \newblock Lecture notes in physics. Springer, Berlin, Heidelberg, 2009.
+
+\bibitem{shafranov-paper}
+V.~D. {Shafranov}.
+\newblock {Plasma Equilibrium in a Magnetic Field}.
+\newblock {\em Reviews of Plasma Physics}, 2:103, January 1966.
+
+\bibitem{trudinger-nonlinear-pde-lecture}
+Neil Trudinger.
+\newblock Fully nonlinear pdes in geometry.
+\newblock Lecture Slides, 2004.
 
 \bibitem{wesson-tokamaks}
 J.~Wesson and D.J. Campbell.

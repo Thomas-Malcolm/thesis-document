@@ -11,7 +11,7 @@
 \subsection{What is a Perturbation Treatment?}
 
 When it comes to solving differential equations, the ideal scenario 
-is that you find an analytic solution, $\Psi$. This, however, is generally a 
+is that you find an analytic solution, $\psi$. This, however, is generally a 
 difficult problem, and especially so in the case of differential equations. A great deal 
 of research goes into trying to find analytic solutions to PDEs, 
 which is no less true for the Grad-Shafranov equation and its variations. Though 
@@ -21,7 +21,7 @@ other means of obtaining the $\Psi(\vec{x})$ for $\vec{x} \in \Omega$ have been 
 
 A traditional approach to this is to use some numerical code to approximate solution values. 
 There are various codes which exist for this purpose specifically with regards to 
-the GSE equation, such as HELENA REFERENCE. These codes come in many flavours - 
+the GSE equation, such as SPEC \cite{spec-code}. These codes come in many flavours - 
 some implement a particle simulation, which can provide precision with simulation, 
 though are computationally costly. Others exploit various properties of the 
 variant of GSE they target and may be computationally more feasible, but are 
@@ -29,9 +29,12 @@ restricted in scope, application, and/or reliability because of their assumption
 
 A common problem that numerical methods seek to solve is that of time evolution. 
 Simulations which evolve a system through time, for obvious reasons, do not discard 
-the time dependency component in their derivation of the GSE. This, however, often 
-makes them computationally expensive as a result, while also increasing the difficulty of 
-finding analytic solutions to the system. 
+the time dependency component in their derivation of the GSE. 
+A common problem that numerical methods are employed to solve is that of time evolution. 
+Simulations which evolve a system through time however often require time dependence in the 
+system they are trying to solve -- something, if you recall from our derivation of the GSE, is 
+not present in our model. This introduces a difficulty for us, as solutions to the GSE explicitly 
+represent plasma equilibria, and so we expect no variation of the system with respect to time.
 
 For this thesis, given the availability of an analytic solution to a variation of 
 the GSE that specifically relates to current reversals, we employ a hybrid approach. 
@@ -41,7 +44,7 @@ a couple points to note:
 \begin{itemize}
     \item Time evolution simulations are expensive
     \item Existing literature on time evolution GSE do not take into account the possibility for current 
-    reversal (e.g. resistivity)
+    reversal
     \item The GSH variant we utilise (which has yet to be introduced) is not time dependent, i.e., 
     was not derived taking into account a time component
 \end{itemize}
@@ -54,15 +57,51 @@ but given the mountain of research existing in this space and the relative inexp
 of the author, this would likely be a futile task. The third, and most lucrative option, 
 is to use an existing analytic solution to a variation of the GSE that accounts for 
 current reversal, and explore if small changes to its state
-are sufficiently ``good enough'' approximations of .
+are sufficiently ``good enough'' approximations of our system that it can be used to make 
+statements about experimental data.
 
 This is where perturbation theory comes in. Intuitively we would expect a 
 plasma to vary ``smoothly'' - nature rarely behaves in instantaneous ways. The 
-analytic solution we have describes the instantaneous state (a slice in time) of 
-our reactor's state. We may anticipate then that if we were to change something 
-in our system by a ``sufficiently small amount'', that our system may react 
-to that change of state in a way that approximates how it would if it 
-were really varying through time. We will have the ability to determine the 
+analytic solution we will soon have describes the instantaneous state (a slice in time) of 
+our plasma's state. We may anticipate then that if we were to change something 
+in our system by a ``sufficiently small amount'' (we will later comment on what exactly is meant by sufficiently small), 
+that our system may react to that change of state in a way that approximates how it would if it 
+were really varying through time. 
+
+\subsubsection{Resistivity Note}
+When we derived the ideal MHD equations we compared them to the resistive MHD model, noting that 
+the removal of resistivity would be an important simplification to note. Here we see its importance, as 
+we are now allowing our system to vary with respect to time, which means that there exists some time scale 
+for which resistive effects will begin to impact the behaviour of our plasma. 
+
+Our model assumes the ideal MHD assumptions however, which includes dropping resistivity, and so the effect 
+of these resistive instabilities is lost in our model. The question of whether these effects are significant 
+enough to affect the accuracy of our time evolution is one we hope to answer when we come to reviewing our simulations in 
+chapter \ref{chapter5}.
+
+A perhaps more intuitive analogy is that of swimming. Imagine you are stationary sitting 
+at the bottom of a pool, and you are looking at your arm extended out in front of you. 
+Focus on the feeling of the water moving around your arm - this will emulate the resistivity 
+that electrons would feel. If you move your arm abruptly, 
+perhaps in a cutting motion, then you will feel the pressure of the water push against 
+your arm, and that might affect how quickly you can move your arm, or if the current of the water is 
+particularly strong, perhaps you notice your arm move not in the direction you intended. Perhaps 
+you also have to use more energy to move your arm than you intended, so it doesn't go as far. 
+Now imagine instead that you don't abruptly cut, but instead, very slowly, almost 
+imperceptibly, move your arm through the water. In this case you may not be aware of any resistance at all 
+- there is no sensation of resistance, your arm moves exactly as fast as you expect it to, and you use exactly 
+the amount of energy to move it as you expected. However, if you do this for long enough, perhaps you 
+will begin to notice the effects more and more. Or maybe by now you'll realise you're out of breath and need 
+to resurface. An instructive graphic is below.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[scale=0.6]{imgs/c3/pool.png}
+    \caption{Demonstrative graphic for conducting a resistivity experiment at the bottom of a pool.}
+\end{figure}
+\newpage
+
+We will have the ability to determine the 
 state of our system for some given parameters, and so the question becomes: can 
 we vary our input in a way such that the behaviour of the analytic solution to 
 the GSH is an approximation of a time evolution of the plasma. We are able to compare 
@@ -84,47 +123,146 @@ our results to experimental data, and then exploit our work to answer further qu
 At the beginning of this thesis we introduced it as being interdisciplenary in nature. 
 Keeping in that spirit, at times here we will put on our physicists cap and 
 seemingly arbitrarily remove terms we no longer wish to have. We 
-kindly ask that any mathematicians reading these sections avert their attention 
-so as to maintain sanity.
+kindly ask that any mathematicians reading these sections avert their gaze in such 
+times so as to maintain sanity.
 
-In Chapter \ref{chapter2} we derived the ideal MHD equations, given:
+In Chapter \ref{chapter2} we derived the ideal MHD equations, and their subsequent reduction, used in GSE, given:
 \begin{align}
-    j \times B &= \nabla p \\
-    \mu_0 j &= \nabla \times B \\
-    \nabla \dot B &= 0
+    \vec{j} \times \vec{B} &= \nabla p \\
+    \mu_0 \vec{j} &= \nabla \times \vec{B} \\
+    \nabla \cdot \vec{B} &= 0
 \end{align}
-These, notably, are the time independent variation. We wish to look at the 
-effect of a small ($\epsilon > 0$) time perturbation to this system, and so 
-will return to this derivation, without discarding the time component. We will 
-begin with Maxwell's equations:
+These by note are time independent. We wish to look at the 
+effect of some small ($\epsilon > 0$) time perturbation to the original system however, and so 
+will return to their derivation, this time without discarding the time component. Consider the pre-GSE ideal MHD equations again, 
+as given in (\eqref{ideal-mhd-first} - \eqref{ideal-mhd-last})
+\begin{align*}
+    \frac{\DD}{\DD t} \rho &= -\rho \nabla \cdot \vec{u} \\
+    \rho \frac{\DD}{\DD t} \vec{u} &= -\nabla p + \vec{j} \times \vec{B}\\
+    \frac{\DD}{\DD t} p  &= -\gamma p \nabla \cdot \vec{u} \\
+    \shortintertext{with the assumptions}
+    \pdv{\vec{B}}{t} &= -\nabla \times \vec{E} \\
+    \mu_0 \vec{j} &= \nabla \times \vec{B} \\
+    \vec{E} + \vec{u} \times \vec{B} &= 0 
+\end{align*}
 
+We will apply our perturbation treatment to the first three equations of these (the continuity equation, momentum equation, and 
+energy equation), using the assumptions to aid us. We will being with the continuity equation.
 
-\subsubsection{Resistivity Note}
+\subsubsection{Continuity Equation Time Perturbation}
+We restate the continuity equation:
+\begin{equation*}
+    \frac{\DD}{\DD t} \rho = -\rho \nabla \cdot \vec{u}
+\end{equation*}
+Here we have two functions, $\rho$ and $\vec{u}$, which are both functions of three dimension in space and one of time, i.e.
+\begin{align*}
+    \rho &:= \rho(\vec{r}, t) \\
+    \vec{u} &:= \vec{u}(\vec{r}, t)
+\end{align*}
+where $\vec{r} \in \R^3, t \in \R$. Here (and throughout these perturbation treatments) we will decouple the time dependency by 
+assuming it to be some epsilon perturbation from an initial state. For example, for mass density ($\rho$), we can let $\rho_0$ 
+describe some initial state that is only dependent on space, and $\rho_1$ a perturbation component similarly dependent only on space. Let $\epsilon_{\rho} < 0$ be some small perturbation factor
+for mass density, and $t$ be the time evolved. Then we prescribe a time-linear perturbation expansion as such:
+\begin{align*}
+    \rho(\vec{r}, t) &= \rho_0(\vec{r}) + \epsilon_\rho t \rho_1(\vec{r}) + \mathcal{O}(\epsilon_\rho^2)
+    \shortintertext{and analogously:}
+    \vec{u}(\vec{r}, t) &= \vec{u}_0(\vec{r}) + \epsilon_u t \vec{u}_1 (\vec{r}) + \mathcal{O}(\epsilon_u^2)
+\end{align*}
+Here the $t$ term effectively acts as a scaling factor on top of $\epsilon$. We have also dropped any $\epsilon$ terms of order 
+greater than $1$ in our approximation, that is to say, if we were to be accurate our expansion would actually be:
+\begin{align*}
+    \rho(\vec{r}, t) &= \rho_0(\vec{r}) + \epsilon_\rho t \rho_1(\vec{r}) + \epsilon^2_\rho t \rho_2(\vec{r}) + \dots \\
+    \vec{u}(\vec{r}, t) &= \vec{u}_0(\vec{r}) + \epsilon_u t \vec{u}_1 (\vec{r}) + \epsilon^2_{u} t \vec{u}_2(\vec{r}) + \dots
+\end{align*}
+As we said at the start of this chapter however, this is an interdisciplenary thesis, and the above is an example of us putting on our 
+physicist cap and deciding to remove ``unnecessary'' complexity. Physically we can justify this dropping of terms as we would expect terms of 
+greater order to contribute diminishingly to our system. That is to say, on the time scales we are considering, an approximation of up to $\epsilon$ 
+should be sufficient for experimental comparisons. As such, we need only to reason about that, and drop any terms on order of $\mathcal{O}(\epsilon^2)$.
 
-While when using the ideal MHD equations we make many simplifications, there 
-is one that we should note perticularly given what we are trying to model. 
-Resistivity is a phenomenon
+We substitute these perturbation expansions into our equation. For brevity we will drop function parameters in our notation, and 
+first begin with an expansion of the $\rho$ term:
+\begin{align*}
+    \shortintertext{\textit{LHS:}}
+    \frac{\DD}{\DD t} \rho &= \left ( \pdv{t} + \vec{u} \cdot \nabla \right ) \rho \\
+    &= \pdv{t} \rho + \vec{u} \cdot (\nabla \rho) \\
+    &= \pdv{t} (\rho_0 + \epsilon_\rho t \rho_1) + \vec{u} \cdot (\nabla (\rho_0 + \epsilon_\rho t \rho_1)) \\
+    &= \pdv{t}\rho_0 + \epsilon_\rho \rho_1 + \vec{u} \cdot (\nabla \rho_0) + \epsilon_\rho t \vec{u} \cdot (\nabla \rho_1) \\
+    \shortintertext{noting that $\rho_0$ is not a function of time}
+    &= \epsilon_\rho \rho_1 + \vec{u} \cdot (\nabla \rho_0) + \epsilon_\rho t \vec{u} \cdot (\nabla \rho_1)
+    \shortintertext{\textit{RHS:}}
+    -\rho \nabla \cdot \vec{u} &= -(\rho_0 + \epsilon_\rho t \rho_1) (\nabla \cdot \vec{u}) \\
+    &= -\rho_0 (\nabla \cdot \vec{u}) - \epsilon_\rho t \rho_1 (\nabla \cdot \vec{u})
+\end{align*}
+\begin{align*}
+    \shortintertext{\textit{Combined:}}
+    \frac{\DD}{\DD t} \rho &= -\rho \nabla \cdot \vec{u} \\
+    \epsilon_\rho \rho_1 + \vec{u} \cdot (\nabla \rho_0) + \epsilon_\rho t \vec{u} \cdot (\nabla \rho_1) &= -\rho_0 (\nabla \cdot \vec{u}) - \epsilon_\rho t \rho_1 (\nabla \cdot \vec{u}) \\
+    \epsilon_\rho \rho_1 + \epsilon_\rho t \left [ \vec{u} \cdot (\nabla \rho_1) + \rho_1 (\nabla \cdot \vec{u}) \right ] &+ [\rho_0 (\nabla \cdot \vec{u}) + \vec{u} \cdot (\nabla \rho_0)] = 0 \\
+    \epsilon_\rho \rho_1 + \nabla \cdot (\rho_0 \vec{u}) + \epsilon_\rho t [\nabla \cdot (\rho_1 \vec{u})] &= 0
+\end{align*}
+Here we have used the divergence property $\nabla \cdot (f\vec{v}) = (\nabla f) \cdot \vec{v} + f(\nabla \cdot \vec{v})$. Note that for the 
+Grad-Shafranov equation we usually (and we shall) assume an incompressible fluid, which mathematically is significant as it gives us the property 
+that $\nabla \cdot (\rho \vec{u}) = 0$. From the above we immediately get that $\epsilon_\rho \rho_1 = 0$, which just tells us that the time component 
+we introduced has no effect on the system, given the assumptions we make. This is excellent news for us, as it means that small perturbations 
+in our system in a manner that emulates a time evolution should not affect the accuracy of our model, at least insofar as the effects of the 
+continuity equation are concerned, and up to a term of $\mathcal{O}(\epsilon^2)$. To be confident that we can do this for the Grad-Shafranov equation on a whole, we need to repeat this process for 
+the other ideal MHD equations. Next we'll look at the momentum equation.
 
-Talk about AC reactors, acceleration of electrons important 
+\subsubsection{Momentum Equation}
+We restate the momentum equation here:
+\begin{equation*}
+    \rho \frac{\DD}{\DD t}\vec{u} = -\nabla \rho + \vec{j} \times \vec{B}
+\end{equation*}
+We will follow the same process as we did for the continuity equation. Here we have four equations, however, by introducing one of 
+our GSE assumptions we can reduce this to three immediately. For GSE we assume that our fluid has no velocity, i.e. $\vec{u} = 0$, which 
+gives us that $\frac{\DD}{\DD t} \vec{u} = 0$. Thus the equation we actually have to expand is:
+\begin{equation*}
+    0 = -\nabla \rho + \vec{j} \times \vec{B}
+\end{equation*}
+The three equations we have are each functions of $\vec{r} \in \R^3$ and $t \in \R$, and can be linearly perturbed in time as we did earlier. As such:
+\begin{align*}
+    \rho(\vec{r}, t) &:= \rho_0(\vec{r}) + \epsilon_\rho t \rho_1(\vec{r}) + \mathcal{O}(\epsilon_\rho^2) \\
+    \vec{B}(\vec{r}, t) &:= \vec{B}_0(\vec{r}) + \epsilon_B t \vec{B}_1(\vec{r}) + \mathcal{O}(\epsilon_B^2) \\
+    \vec{j}(\vec{r}, t) &:= \vec{j}_0(\vec{r}) + \epsilon_j t \vec{j}_1(\vec{r}) + \mathcal{O}(\epsilon_j^2)
+\end{align*}
+Making these substitutions into the momentum equation:
+\begin{align*}
+    \nabla \rho &= \vec{j} \times \vec{B} \\
+    \nabla (\rho_0 + \epsilon_\rho t \rho_1) &= \vec{j} \times (\vec{B}_0 + \epsilon_B t \vec{B}_1) \\
+    (\nabla \rho_0) + \epsilon_\rho t (\nabla \rho_1) &= (\vec{j} \times \vec{B}_0) + \epsilon_B t (\vec{j} \times \vec{B}_1) \\
+    (\nabla \rho_0) + \epsilon_\rho t (\nabla \rho_1) = [(\vec{j}_0 \times \vec{B}_0) + \epsilon_j t (\vec{j}_1 &\times \vec{B}_0)] + \epsilon_B t [(\vec{j}_0 \times \vec{B}_1) + \epsilon_j t (\vec{j}_1 \times \vec{B}_1)] \\
+    (\nabla \rho_0) + \epsilon_\rho t (\nabla \rho_1) &= \vec{j}_0 \times \vec{B}_0 + \epsilon_j \epsilon_B t^2 (\vec{j}_1 \times \vec{B}_1)
+\end{align*}
+If we collate terms of like order, we get 
+\begin{align*}
+    \nabla \rho_0 &= \vec{j}_0 \times \vec{B}_0 \\
+    \epsilon_\rho t (\nabla \rho_1) &= \epsilon_j \epsilon_B t^2 (\vec{j}_1 \times \vec{B}_1) 
+\end{align*}
+both of which look remarkably like the original momentum equation, which is not to be mistaken for coincidence. Notably, when we take our 
+evolution over ``small enough'' time scales, the perturbation components here disappear entirely, and we are left with the version of the 
+momentum equation which is used in the regular equilibrium-state derivation of the Grad-Shafranov equation. As such, we would anticipate that 
+small time perturbations associated with the effects of the momentum equation will introduce ``small'' errors in the resulting GSE solution, though 
+(and as we hope to observe through experiment), hopefully imperceptibly so - as the above expansion seems to suggest.  
 
-Explain why perturbation theory is justified for resitivity
+\subsubsection{The Other Ideal MHD Equations}
+Isaac Newton is quoted as saying ``it causeth my head to ache'', which he is claimed to have said in reference to perturbation expansions 
+in trying to determine the orbit of the Moon. Hopefully understandably, we ask that the reader excuse our omitting the working for the more involved of the ideal MHD equations, 
+as to write it all down here would be to commit an expositionary crime. The expansion of the remaining equations however leads to a similar outcome 
+as we found with the continuity equation and the momentum equation - that, up to an $\epsilon$ factor, the ideal MHD equations do not show significant deviation 
+from their equilibrium counterparts. 
 
-Allegory below
+\subsubsection{Significance}
+The purpose of this exercise was to provide some theoretical justification for the simulations we will later run. By showing that we can 
+approximate a linear time evolution of the ideal MHD equations using states of equilibrium, we have shown that the GSE will be resistant 
+to such a treatment itself. What we have not done, is show that the GSE can be evolved with time as such. \todo \red{have to join this and the below}
 
+It is important to remark that the GSE is an equilibrium model - it is constructed under the assumptions of plasma equilibrium, and as we've 
+already remarked on for resistivity, essentially ``wishes away'' many of the physical effects that would otherwise be introduced by some system that 
+changes with respect to time. To that extent, 
+it could be considered tomfoolery (which, for what it's worth, does befit the author) to assume that the work we've done is a guarantee that 
+we can \todo
 
-A perhaps more intuitive analogy is that of swimming. Imagine you are stationary under water 
-in a pool, floating, and you look at your arm extended out in front of you. 
-Focus on the feeling of the water moving around your arm - this will emulate the resistivity 
-that electrons would feel. If you move your arm abruptly, 
-perhaps in a cutting motion, then you will feel the pressure of the water push against 
-your arm, and perhaps you have to use noticably more force to overcome this pressure.
-Now imagine instead that you don't abruptly cut, but instead very slowly, almost 
-imperceptibly, move your arm through the water. You will notice that the feeling 
-of water \emph{resisting} your arms motion will not be as noticeable. 
-
-NOTE: perhaps it's better told from the perspective of an external observer?
-Otherwise this might imply that electron speeds should differ, not that the observed force 
-is different.
+\todo
 
 % 3.2.
 \section{Grad-Shafranov-Helmholtz Equation}

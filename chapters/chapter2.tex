@@ -7,19 +7,19 @@
 
 
 The term ``magnetohydrodynamics'' (MHD) is a portmanteau of two physical concepts which are used to model plasmas 
-inside fusion reactors: the ``magneto'' term comes from ``magnetic field'', and ``hydrodynamics'' indicates a 
+inside fusion reactors (among other things): the ``\textbf{m}agneto'' term comes from ``magnetic field'', and ``\textbf{h}ydro\textbf{d}ynamics'' indicates a 
 a fluid dynamics component. Put together, magnetohydrodynamics is the study of electrically conductive materials 
 that behave like fluids. Essentially it provides a way to model the behaviour of a (considerably volumous!) 
-mass of particles, and their electrodynamic forces, as if it were a fluid, as opposed to having to model 
+mass of conductive particles, and their electrodynamic forces, as if it were a fluid, as opposed to having to model 
 individual particle interactions. This idea was first introducd by Hannes Alfv\'en in 1970, for which he earned 
 the Nobel prize \cite{alfven-mhd}!
 
-Much modern research uses some variation of an MHD model (and the derived Grad-Shafranov Equation, which we will 
+Much modern research in Tokamak plasma simulation uses some variation of an MHD model (and the derived Grad-Shafranov Equation, which we will 
 soon be introduced to) for a number of reasons, not least being its comparative computational efficiency.
 One primary benefit of treating our plasma as a fluid being that we avoid modelling the behaviour of 
 each individual particle in said plasma, a simplification which becomes especially important when we consider 
 the order of number of particles we would have to simulate is of order $\sim 10^{20}$ - far too much 
-for the author's ThinkPad to even contemplate!
+for the author's ThinkPad T440p to even contemplate!
 
 Here we will build the relevant MHD background for this thesis, deriving the MHD equations from first principles, 
 and explaning the assumptions we make to reduce them to a simplified state known as ``ideal MHD''. From there we will 
@@ -156,9 +156,9 @@ energy equation is given:
 \begin{definition}[Energy Equation]
     Where $\vec{p}(\vec{r}, t)$ describes the pressure of our fluid:
     \begin{equation}
-        \frac{\DD}{\DD t} p  = -\Gamma p \nabla \cdot \vec{u} + (\Gamma - 1) \left [ -\nabla \cdot \vec{q} + \vec{\Pi} : \nabla \vec{u} + \eta \vec{J}^2 \right ]
+        \frac{\DD}{\DD t} p  = -\gamma p \nabla \cdot \vec{u} + (\gamma - 1) \left [ -\nabla \cdot \vec{q} + \vec{\Pi} : \nabla \vec{u} + \eta \vec{J}^2 \right ]
     \end{equation}
-    where $\Gamma$ describes ``abiabatic index'' (a known constant for plasmas), $q$ is the heat flux through 
+    where $\gamma$ describes ``abiabatic index'' (a known constant for plasmas), $q$ is the heat flux through 
     the boundary of the volume; $\eta$ is the electrical resistivity of the fluid; and $\vec{\Pi}$ is the viscous 
     stress tensor (the component which we replaced with $\rho \vec{g}$ earlier), and will soon ignore again. 
 \end{definition}
@@ -171,7 +171,7 @@ The equations we've looked at constitute what are known as the fluid equations:
     \begin{align}
         \frac{\DD}{\DD t} \rho &+ \nabla  \cdot \rho \vec{u} = 0 \\
         \rho \frac{\DD}{\DD t} \vec{u} &=  \vec{j} \times \vec{B} + \rho_c \vec{E} - \nabla p + \rho \vec{g} \\
-        \frac{\DD}{\DD t} p  &= -\Gamma p \nabla \cdot \vec{u} + (\Gamma - 1) \left [ -\nabla \cdot \vec{q} + \vec{\Pi} : \nabla \vec{u} + \eta \vec{j}^2 \right ]
+        \frac{\DD}{\DD t} p  &= -\gamma p \nabla \cdot \vec{u} + (\gamma - 1) \left [ -\nabla \cdot \vec{q} + \vec{\Pi} : \nabla \vec{u} + \eta \vec{j}^2 \right ]
     \end{align}
 \end{definition}
 
@@ -198,11 +198,13 @@ fluid equation given above, we achieve the MHD model. The only piece to our puzz
 \begin{definition}[MHD Equations]
     The MHD equations can then be summarised:
     \begin{align}
-        \frac{\DD}{\DD t} \rho &= 0 \\
+        \label{mhd-eq1}
+        \frac{\DD}{\DD t} \rho &= -\rho \nabla \cdot \vec{u} \\
         \rho \frac{\DD}{\DD t} \vec{u} &= -\nabla p + \vec{j} \times \vec{B} + \nabla \cdot \Pi \\
-        \frac{\DD}{\DD t} p  &= -\Gamma p \nabla \cdot \vec{u} + (\Gamma - 1) \left [ -\nabla \cdot \vec{q} + \vec{\Pi} : \nabla \vec{u} + \eta \vec{j}^2 \right ] \\
+        \frac{\DD}{\DD t} p  &= -\gamma p \nabla \cdot \vec{u} + (\gamma - 1) \left [ -\nabla \cdot \vec{q} + \vec{\Pi} : \nabla \vec{u} + \eta \vec{j}^2 \right ] \\
         \pdv{\vec{B}}{t} &= -\nabla \times \vec{E} \\
         \mu_0 \vec{j} &= \nabla \times \vec{B} \\
+        \label{mhd-eq-last}
         \vec{E} + \vec{u} \times \vec{B} &= \eta \vec{j}
     \end{align}
 \end{definition}
@@ -227,13 +229,14 @@ of the work required to reduce the above to a closed system, though for details 
 For now, we will comment on two reduced MHD models:
 
 \subsubsection{Resistive MHD}
-The resistive MHD model comes about by setting $\vec{q} = 0$ and $\vec{\Pi} = 0$. Here, we have $\eta \ne 0$ notably. The model 
+The resistive MHD model comes about by setting $\vec{q} = 0$ and $\vec{\Pi} = 0$, in other words saying that we have no 
+external source for current, and . Here, we have $\eta \ne 0$ notably. The model 
 is given:
 \begin{definition}[Resistive MHD]
     \begin{align}
-        \frac{\DD}{\DD t} \rho &= 0 \\
+        \frac{\DD}{\DD t} \rho &= -\rho \nabla \cdot \vec{u} \\
         \rho \frac{\DD}{\DD t} \vec{u} &= -\nabla p + \vec{j} \times \vec{B}\\
-        \frac{\DD}{\DD t} p  &= -\Gamma p \nabla \cdot \vec{u} \\
+        \frac{\DD}{\DD t} p  &= -\gamma p \nabla \cdot \vec{u} \\
         \pdv{\vec{B}}{t} &= -\nabla \times \vec{E} \\
         \mu_0 \vec{j} &= \nabla \times \vec{B} \\
         \vec{E} + \vec{u} \times \vec{B} &= \eta \vec{j}
@@ -252,12 +255,13 @@ The ideal MHD equations are one step removed from the resistive MHD model --- in
 we also ignore resistivity. Thus, set $\eta = 0$, and we obtain the ideal MHD equations:
 \begin{definition}[Ideal MHD]
     \begin{align}
-        \frac{\DD}{\DD t} \rho &= 0 \\
+        \label{ideal-mhd-first}
+        \frac{\DD}{\DD t} \rho &= -\rho \nabla \cdot \vec{u} \\
         \rho \frac{\DD}{\DD t} \vec{u} &= -\nabla p + \vec{j} \times \vec{B}\\
-        \frac{\DD}{\DD t} p  &= -\Gamma p \nabla \cdot \vec{u} \\
+        \frac{\DD}{\DD t} p  &= -\gamma p \nabla \cdot \vec{u} \\
         \pdv{\vec{B}}{t} &= -\nabla \times \vec{E} \\
         \mu_0 \vec{j} &= \nabla \times \vec{B} \\
-        \vec{E} + \vec{u} \times \vec{B} &= 0
+        \vec{E} + \vec{u} \times \vec{B} &= 0 \label{ideal-mhd-last}
     \end{align}
 \end{definition}
 
@@ -267,22 +271,223 @@ we also ignore resistivity. Thus, set $\eta = 0$, and we obtain the ideal MHD eq
     for Ohm's law) with 14 ($8$) unknowns. Thus, under the ideal MHD model, the system is closed.
 \end{remark}
 
+\begin{remark}
+    Equation \eqref{ideal-mhd-last} is the reduced Ohm's law equation. This presentation of it is a result 
+    known as the \textit{frozen flux condition}. Nominally, it tells us that $\pdv{\Psi}{t} = 0$ (we will 
+    introduce $\Psi$ shortly, but for now take it to be the ``magnetic flux function'' (which it is) without 
+    any context). This is to say that the magnetic flux through any co-moving closed circuit is constant,
+    in other words, field lines are to some extent ``attached'' to the fluid they are in (read: plasma), and 
+    similarly the plasma cannot move across the magnetic field (but the fluid can move along the field lines).
+\end{remark}
 
-\red{Brief discussion on what resistivity is?}
-\red{Tie into GSE}
+We'll present the ideal MHD equations here again but with their associated names for ease of reference:
+
+\begin{table}[h!]
+    \begin{tabular}{|c|c|c|}
+    \hline
+    \begin{tabular}[c]{@{}c@{}}\textbf{Continuity Equation}\\ $\frac{\DD}{\DD t} \rho = -\rho \nabla \cdot \vec{u}$ \end{tabular}              
+    & \begin{tabular}[c]{@{}c@{}}\textbf{Momentum Equation}\\ $\rho \frac{\DD}{\DD t} \vec{u} = -\nabla p + \vec{j} \times \vec{B}$ \end{tabular}
+    & \begin{tabular}[c]{@{}c@{}}\textbf{Energy Equation}\\ $\frac{\DD}{\DD t} p  = -\gamma p \nabla \cdot \vec{u}$ \end{tabular} \\ 
+    \hline
+    \begin{tabular}[c]{@{}c@{}}\textbf{Maxwell-Faraday Equation }\\ $\pdv{\vec{B}}{t} = -\nabla \times \vec{E}$ \end{tabular}
+    & \begin{tabular}[c]{@{}c@{}}\textbf{Ampere's Law }\\ $\mu_0 \vec{j} = \nabla \times \vec{B}$ \end{tabular}  
+    & \begin{tabular}[c]{@{}c@{}}\textbf{Ohm's Law }\\ $\vec{E} + \vec{u} \times \vec{B} = 0$ \end{tabular} \\ 
+    \hline
+    \end{tabular}
+\end{table}
+
+
+\textbf{Resistivity Note:}
+There is one specific assumption made in ideal MHD that we wish to highlight, and that is the assumption of negligible 
+resistivity within the plasma. In a real plasma we would expect imperfections in the way it conducts, and would expect collisions 
+between particles in the plasma to generate a type of ``friction'' between each other that inhibits conductivity. 
+When this occurs, the magnetic field lines that are driven by the current will perturb with respect to some diffusion law, leading to 
+changes in magnetic field line topology. These effects occur over some period of time that is dependent on the plasma's 
+composition and geometry of the plasma - thus any plasma model which wishes to accurately represent the dynamics of the electric 
+and magnetic field as a function of time will do well to take these effects into account, especially when it is over a ``sufficient'' 
+time scale (with special consideration for what ``sufficient'' actually entails here). It is possible that the timescales on which 
+a simulation is run are too small for resistive effects to meaningfully change field line topology, though this is more a question of 
+acceptable error and initial conditions. In this thesis (as we'll see) we seek to approximate a time evolution, but do so with 
+a series of equilibria, which as such do not take into account resistive effects. We will make note on this again when we come to 
+discuss of our perturbation approach, and similarly when we present our simulated current reversals.
+
+The ideal MHD equations as we stated are what govern many approximations to behaviour of plasmas in general. These in their current 
+form of course make no assumptions about the geometry of the medium in which a plasma exists, nor any properties which 
+may be associated with such a scenario. Next we will take these equations and confine them to the geometry of an axisymmetric Tokamak 
+``reactor'', and derive the Grad-Shafranov equation, a model which will let us reason about the poloidal magnetic field structure given 
+some prescribed geometry and conditions.
+
 % 2.2. 
 \section{Grad-Shafranov Equation}
 
-What is it
+The Grad-Shafranov Equation (GSE) concerns a two-dimensional, axisymmetric toroidal plasma under the 
+assumptions of ideal MHD. It is a nonlinear, elliptic partial differential equation (PDE) which presents 
+with a cylindrical coordinate system \cite{shafranov-paper}. We will first begin with some basic definitions surrounding PDEs, partly 
+because the author is not formally educated in them and wishes to demonstrate the 
+amount they have learned over this last year, but largely, realistically, for the obligatory Evans citation. We 
+will then introduce GSE, and explore some of its properties.
 
-What do its components describe
+\begin{definition}[Partial Differential Equation]
+    An expression of the form
+    \begin{equation}
+        \label{pde-definition}
+        F(D^k u(x), D^{k-1} u(x), \dots, Du(x), u(x), x) = 0 \;\; (x \in U)
+    \end{equation}
+    is called a $k^{\text{th}}$-order Partial Differential Equation where 
+    $$F : \R^{n^k} \times \R^{n^{k-1}} \times \dots \times \R^n \times \R \times U \to \R$$
+    is provided, and the function
+    $$u: U \to \R$$
+    is an unknown \cite{evans-pdes}.
+\end{definition}
 
-Solutions to GS equation?
+To ``solve'' a PDE is to find such a function $u$, subject to any boundary conditions $\Gamma$ in $\partial U$ that may exist. A 
+common exercise in the study of PDEs is to simply show existence and uniqueness of a solution to a PDE, with no 
+intention of actually identifying the function itself. In our case, luckily, the GSE has identified solutions for 
+certain assumptions (boundary conditions) imposed on it, one of which we will exploit later in the Grad-Shafranov-Helmholtz 
+equation. Before that however, we'll look at definitions for PDE properties that are associated with the GSE:
+
+\begin{notn}
+    Evans uses the notation $D^{k} u$ to mean the $k \times k$ matrix of $k^{\text{th}}$ order partial derivatives of $u$.
+    While we use this when presenting the definitions below, we do not follow this convention for the rest of the thesis,
+    reserving $D$ for the Lagrangian derivative instead.
+\end{notn}
+
+\begin{definition}[PDE Linearity Classifications]
+    Let $a_{\alpha}$ be a function such that $\abs{\alpha} \le k$, where $k$ is the order of a system of PDEs. 
+    Let $f$ be another function. Then:
+    \begin{enumerate}
+        \item ``Linear''
+        
+        A PDE as given by \eqref{pde-definition} is said to be ``linear'' if it is of the form
+        $$\sum_{\abs{\alpha} \le k} a_{\alpha}(x) D^{\alpha} u = f(x)$$
+        \item ``Semilinear''
+        
+        A PDE is said to be ``semilinear'' if it is of the form
+        $$\sum_{\abs{\alpha} = k} a_{\alpha}(x) D^{\alpha} u + a_0(D^{k-1}u, \dots, Du, u, x) = 0$$
+        \item ``Quasilinear''
+        
+        A PDE is said to be ``quaslinear'' if it is of the form 
+
+        $$\sum_{\abs{\alpha} = k} a_{\alpha} \left ( D^{k-1} u, \dots, Du, u, x \right ) D^{\alpha} u + a_0 \left ( D^{k-1} u, \dots, Du, u, x \right ) = 0$$
+        \item ``Nonlinear''
+        
+        A PDE is said to be ``nonlinear'' if it depends nonlinearly on the highest 
+        order derivatives, i.e. it is of the form
+        $$\sum_{\abs{\alpha} = k} a_{\alpha} \left ( D^{\alpha} u, D^{k-1} u, \dots, Du, x \right ) = 0$$  
+        where the $D^{\alpha}$ term introduces nonlinearity by $a_{\alpha}$.
+    \end{enumerate}
+    
+\end{definition}
+
+\begin{definition}[Elliptic PDE]
+    A second-order PDE with presentation
+    $$F[u] = F(\cdot, u, Du, D^2 u)$$
+    where $\Gamma = U \times \R \times \R^n \times \mathbb{S}^n$, $F:\Gamma \to \R$, and $u$ is a solution to $F[u] = 0$ is said to be elliptic at 
+    the point $\gamma = (x,z,p,r) \in \Gamma$ if the matrix
+    $$F_{r}(\gamma) = \left [ F_{ij} (\gamma) \right ] := \left [ F_{r_{ij}} \right ] > 0$$ 
+    is true, i.e., that the matrix $F_{r}(\gamma)$ is positive definite for $r \in U$ \cite{trudinger-nonlinear-pde-lecture}. 
+    Furthermore, the operator $F$ is said to be \textit{elliptic} if this holds true for the set
+    $$\Gamma_u = \lbrace (x, u(x), Du(x), D^2 u(x)) : x \in U \rbrace$$
+\end{definition}
+
+\begin{remark}
+    Note that the above representation of a second-order PDE, while not how Evans presents it, is a more abstract way of 
+    depicting the same thing. Here we can define an operator $F$ to be in terms of our solution $u$ and its first and second order derivatives, 
+    instead of as a decoupled statement of otherwise disconnected expressions. This lets us reason about the PDE 
+    as a whole more directly, as we have above by using the positive definiteness of the resulting matrix at a point to define 
+    ellipticity, instead of having to separately define the form of a second-order PDE and reason about a matrix explicitly in terms 
+    of the solution. 
+\end{remark}
+
+Often in our efforts we will deal not with a single PDE, but rather a system of PDEs, and so we formalise this concept as well:
+
+\begin{definition}[System of PDEs]
+    An expression of the form
+    \begin{equation}
+        \mathbf{F} (D^k u(x), D^{k-1} u(x), \dots, D u(x), x) = 0 \;\; (x \in U)
+    \end{equation}
+    is called a $k^{\text{th}}$-order system of Partial Differential Equations where
+    $$\mathbf{F}: \R^{mn^{k}} \times \R^{m n^{k-1}} \times \dots \times \R^{mn} \times \R^m \times U \to \R^{m}$$
+    is provided, and the function
+    $$\mathbf{u}: U \to \R^m, \;\; \mathbf{u} = (u_1, \dots, u_m)$$
+\end{definition}
+
+In fact we have already seen an example of the above in our derivation of the MHD equations (\eqref{mhd-eq1} - \eqref{mhd-eq-last}), the 
+result of which was a system of PDEs; a system which was determined by virtue of there being as many unknown functions ($u_i$) as there were 
+PDEs in the system.
+
+We are now armed with the necessary tools to introduce the Grad-Shafranov Equation. Here we present the definition of the GSE as given by Wesson \cite{wesson-tokamaks}.
+\begin{definition}[Grad-Shafranov Equation]
+    Let $(R, \phi, z)$ be the cylindrical coordinate system 
+    we take, where $R$ is the major radial offset, $\phi$ is the toroidal angle, and $z$ is the poloidal vertical offset from the centre 
+    of the cross section. $p(\Psi)$ and $f(\Psi)$ are two flux functions of $\Psi$, the poloidal magnetic flux function, and $\mu_0$ is the 
+    vacuum magnetic permeability constant. Then the Grad-Shafranov Equation is given:
+    \begin{equation}
+        \label{gse-formal}
+        R \pdv{}{R} \frac{1}{R} \pdv{\Psi}{R} + \pdv[2]{\Psi}{z} = -\mu_0 R^2 \pdv{p(\Psi)}{\Psi} - \mu_0^2 f(\Psi) \pdv{f(\Psi)}{\Psi}
+    \end{equation}
+\end{definition}
+
+\placeholderimage
+
+\begin{remark}
+    The equation can be restated more concisely in terms of the elliptic operator
+    $$\Delta^{*} \Psi = R \nabla \cdot \left ( \frac{1}{R} \nabla \Psi \right )$$
+    as:
+    \begin{equation*}
+        \Delta^{*} \Psi = -\mu_0 R^2 p'(\Psi) - f(\Psi) f'(\Psi)
+    \end{equation*}
+    where prime notation denotes partial derivative with respect to $\Psi$.
+\end{remark}
+
+\begin{corollary}
+    Associated with the GSE are explicit forms for the magnetic field $\vec{B}$ and current $\vec{j}$:
+    \begin{align}
+        \vec{B} &= \frac{1}{R} \left ( \nabla \Psi \times \hat{e}_{\phi} \right ) + \frac{f(\Psi)}{R} \hat{e}_{\phi} \\
+        \mu_0 \vec{j}   &= \frac{1}{R} \pdv{f(\Psi)}{\Psi} \left ( \nabla \Psi \times \hat{e}_{\phi} \right ) - \left [ \pdv{}{R} \left ( \frac{1}{R} \pdv{\Psi}{R} + \frac{1}{R} \pdv[2]{\Psi}{z}\right ) \right ] \hat{e}_{\phi}
+    \end{align}
+    where here $\hat{e}_{d}$ is the unit vector in the direction $d$, as is convention. In their poloidal (subscript $p$) and toroidal (subscript $\phi$) components, these are then explicitly just:
+    \begin{align*}
+        \vec{B}_p &= \frac{1}{R} \left ( \nabla \Psi \times \hat{e}_{\phi} \right ) \\
+        \vec{B}_{\phi} &= \frac{f(\Psi)}{R} \\
+        \vec{j}_p &= \frac{1}{\mu_0 R} \left ( \nabla f(\Psi) \times \hat{e}_{\phi}\right )\\
+        \vec{j}_{\phi} &= -\frac{1}{\mu_0 R} \Delta^{*} \Psi
+    \end{align*}
+\end{corollary}
+
+\begin{remark}
+    The flux function $f(\Psi)$ describes the poloidal flux per radian in $\phi$. Of note, for an axisymmetric torus the 
+    total flux function would then simply be $2\pi \Psi$. The other flux function here, $p(\Psi)$, simply describes pressure 
+    inside the Tokamak \cite{gse-derivation}. 
+\end{remark}
+
+\begin{remark}
+    We noted in our introduction of the PDE theory that the GSE was an elliptic, nonlinear PDE. We can see the 
+    ellipticity immediately by virtue of there being an elliptic operator present in $\Delta^{*}$, and the nonlinearity 
+    we can gather from the fact there are non-linear coefficients of partial derivatives with respect to $\Psi$, for example, the  
+    $-f(\Psi)f'(\Psi)$ in the elliptic operator form of the GSE.
+\end{remark}
+
+The GSE equation is not without its faults, and is, in large, a considerable simplification of the actual physical behaviour 
+of a plasma within a Tokamak -- as my supervisor Matthew would say, it is very much so a spherical cow model. To explore 
+why this is so, we'll explain the components of the GSE and the assumptions that are made in reaching it through a 
+derivation with accompanying annotations below.
 
 % 2.2.1
 \subsection{Derivation}
 
-Go through derivation of it 
+Here we present a derivation of the Grad-Shafranov Equation. We begin by assuming the ideal MHD conditions, which 
+immediately gives us that, in our plasma model:
+\begin{itemize}
+    \item The plasma particle distribution approximately abides a Maxwellian distribution
+    \item Resistivity is negligible
+    \item There is no external (to the system) current source
+    \item The topology of the magnetic field is fixed relative to the fluid, i.e., the magnetic field and fluid move together (the frozen-in flux theorem)
+    \item Any velocities considered are non-relativistic (notably, this includes electron velocities)
+\end{itemize}
+
+\TODO \\
+\red{can use graphics here as well}
 
 % 2.3.
 \section{AC Configuration Tokamaks}
