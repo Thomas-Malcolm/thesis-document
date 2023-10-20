@@ -178,7 +178,6 @@ As we said at the start of this chapter however, this is an interdisciplenary th
 physicist cap and deciding to remove ``unnecessary'' complexity. Physically we can justify this dropping of terms as we would expect terms of 
 greater order to contribute diminishingly to our system. That is to say, on the time scales we are considering, an approximation of up to $\epsilon$ 
 should be sufficient for experimental comparisons. As such, we need only to reason about that, and drop any terms on order of $\mathcal{O}(\epsilon^2)$.
-
 We substitute these perturbation expansions into our equation. For brevity we will drop function parameters in our notation, and 
 first begin with an expansion of the $\rho$ term:
 \begin{align*}
@@ -254,15 +253,23 @@ from their equilibrium counterparts.
 \subsubsection{Significance}
 The purpose of this exercise was to provide some theoretical justification for the simulations we will later run. By showing that we can 
 approximate a linear time evolution of the ideal MHD equations using states of equilibrium, we have shown that the GSE will be resistant 
-to such a treatment itself. What we have not done, is show that the GSE can be evolved with time as such. \todo \red{have to join this and the below}
+to such a treatment itself. What we have not done is show that GSE itself can be evolved through time in an accurate manner. We are, knowingly, 
+introducing errors into our system -- but the hope is that the errors introduced will be insignificant with respect to the measurements we seek to make. 
+This is the nature of mathematical modelling.
 
 It is important to remark that the GSE is an equilibrium model - it is constructed under the assumptions of plasma equilibrium, and as we've 
-already remarked on for resistivity, essentially ``wishes away'' many of the physical effects that would otherwise be introduced by some system that 
-changes with respect to time. To that extent, 
+already remarked on for resistivity, essentially ``wishes away'' many of the physical effects that would otherwise be introduced by some plasma which actually does 
+change with respect to time. To that extent, 
 it could be considered tomfoolery (which, for what it's worth, does befit the author) to assume that the work we've done is a guarantee that 
-we can \todo
+we can simply take equilibrium solutions to the GSE and assume that one is an evolution of the other in time, while still maintaining physicality.
 
-\todo
+While this may seem rather bleak / unpromising (after all, we are conceding that the model we have is not an entirely accurate 
+physical representation of what's going on), the question we concern ourselves with is whether it is good enough to explain 
+the observed runaway electron phenomena. To that extent, we will next introduce a variation of the Grad-Shafranov equation, 
+solutions for which describe current reversal equilibrium configurations (CREC). We posit then that, if we take a 
+solution to this system and perturb the current density profile by some small $\epsilon$ in time, then the resulting 
+change in the GSH solution will be a sufficiently accurate representation of a physical system so as to explain the 
+presence of excess runaway electrons.
 
 % 3.2.
 \section{Grad-Shafranov-Helmholtz Equation}
