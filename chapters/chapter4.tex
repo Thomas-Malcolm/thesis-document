@@ -8,22 +8,28 @@
 % 4.1.1.
 \subsection{Least Squares}
 
+\red{Standard $L_2$ norm explanation and stuff}
+
 % 4.1.2.
 \subsection{Optimisation Algorithms}
 
 Minimising least squares.
+\red{Motivate optimisation algorithms}
 
 % 4.1.2.1
 \subsubsection{The Usual Suspects}
 
-Newton's method
+\red{Newton's method}
 
-Gradient descent
+\red{Gradient descent}
 
-Bounded vs non-bounded optimisation
+\red{Bounded vs non-bounded optimisation}
 
 % 4.1.2.2.
 \subsubsection{MMA Algorithm}
+
+\red{just summarise below more or less}
+\red{https://fab.cba.mit.edu/classes/865.18/design/optimization/mma.pdf}
 
 Method of Moving Asymptotes (MMA)
 
@@ -32,11 +38,26 @@ Provide explanation of LD-MMA algorithm.
 % 4.2.
 \section{GSH Parameter Fitting}
 
+\red{Talk about why we want to find $a_1, a_2$ and $\alpha$, and how we could go about 
+doing that}
+
 % 4.2.1
 \subsection{Optimisation Function}
 
+\red{Talk about data we have available}
+
+\red{Construct the objective function}
+
+\red{Bounds for the objective function and justification}
+
 % 4.2.2
 \subsection{Parameter Space}
+
+\red{Parameter space a bit cooked}
+
+\red{Show for various zooms}
+
+\red{Talk about asymptotic behaviour with $\alpha$ (justifies MMA usage)}
 
 Graphs showing effect of different parameters
 
@@ -45,14 +66,35 @@ Non-reliance on $\alpha$ (with exception of $\frac{1}{\alpha}$ where $\alpha = 0
 % 4.2.3
 \subsection{Convergence Difficulties}
 
+\red{Could be merged with above?}
+
 Initial difficulties with normalisation. 
 
 % 4.3
 \section{Simulated Current Reversals}
 
+\red{Have ability to solve for $a_1, a_2$ and $\alpha$, so next step is 
+the ``time perturbation'' - hark back to chapter 3 here}
+
+
 % 4.3.1
 \subsection{Method of Reversal}
 
+
+\red{Linearly vary current. Could talk about alternatives - i.e. if 
+our time perturbation had not been linear but had been trigonometric (to 
+fit with a larger scope AC simulation) then our current reversal method 
+here could be different}
+
+
 % 4.3.2
 \subsection{Results and Explanations}
+
+\red{Have still frame shots of the result of that (3x3 tiles?)}
+
+\red{Highlight magnetic field topology breaking - suggests RE population generation}
+
+\red{Comment on feasibility of the behaviour - e.g.pressure density profile follows 
+magnetic field axis, but then there are things like current densities 
+at the edge of the reactor}
 

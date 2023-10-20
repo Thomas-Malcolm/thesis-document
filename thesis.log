@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Debian) (preloaded format=pdflatex 2022.9.5)  19 OCT 2023 23:11
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Debian) (preloaded format=pdflatex 2022.9.5)  20 OCT 2023 23:00
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -353,7 +353,7 @@ Package epstopdf Info: Source file: <ANU.eps>
 (epstopdf)             Command: <repstopdf --outfile=ANU-eps-converted-to.pdf ANU.eps>
 (epstopdf)             \includegraphics on input line 18.
 Package epstopdf Info: Output file is already uptodate.
-<ANU-eps-converted-to.pdf, id=228, 285.065pt x 98.3675pt>
+<ANU-eps-converted-to.pdf, id=232, 285.065pt x 98.3675pt>
 File: ANU-eps-converted-to.pdf Graphic file (type pdf)
 <use ANU-eps-converted-to.pdf>
 Package pdftex.def Info: ANU-eps-converted-to.pdf  used on input line 18.
@@ -374,7 +374,7 @@ Package pdftex.def Info: ANU-eps-converted-to.pdf  used on input line 18.
 
 
 ]
-<imgs/the-beatles.png, id=243, 2055.68pt x 1541.76pt>
+<imgs/the-beatles.png, id=247, 2055.68pt x 1541.76pt>
 File: imgs/the-beatles.png Graphic file (type png)
 <use imgs/the-beatles.png>
 Package pdftex.def Info: imgs/the-beatles.png  used on input line 16.
@@ -442,16 +442,19 @@ Chapter 1.
 
 
 ] [2]
-<imgs/c1/east-cross-section.png, id=375, 1580.90625pt x 941.5175pt>
+<imgs/c1/east-cross-section.png, id=380, 1580.90625pt x 941.5175pt>
 File: imgs/c1/east-cross-section.png Graphic file (type png)
 <use imgs/c1/east-cross-section.png>
-Package pdftex.def Info: imgs/c1/east-cross-section.png  used on input line 89.
+Package pdftex.def Info: imgs/c1/east-cross-section.png  used on input line 92.
 (pdftex.def)             Requested size: 316.17564pt x 188.30016pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[3] [4 </home/tom/documents/uni/honours/thesis/thesis-document/imgs/c1/east-cross-section.png>]) [5]
+[3]
+Underfull \vbox (badness 3601) has occurred while \output is active []
+
+ [4 </home/tom/documents/uni/honours/thesis/thesis-document/imgs/c1/east-cross-section.png>]) [5]
 \openout2 = `chapters/chapter2.aux'.
 
  (/home/tom/documents/uni/honours/thesis/thesis-document/chapters/chapter2.tex [6
@@ -467,7 +470,7 @@ Overfull \hbox (7.6713pt too wide) in paragraph at lines 286--297
  []
 
 [14] [15] [16] [17]
-<imgs/placeholder.jpg, id=542, 385.44pt x 264.5082pt>
+<imgs/placeholder.jpg, id=547, 385.44pt x 264.5082pt>
 File: imgs/placeholder.jpg Graphic file (type jpg)
 <use imgs/placeholder.jpg>
 Package pdftex.def Info: imgs/placeholder.jpg  used on input line 431.
@@ -487,7 +490,7 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 ]
 Chapter 3.
 [23] [24]
-<imgs/c3/pool.png, id=592, 592.2125pt x 333.245pt>
+<imgs/c3/pool.png, id=597, 592.2125pt x 333.245pt>
 File: imgs/c3/pool.png Graphic file (type png)
 <use imgs/c3/pool.png>
 Package pdftex.def Info: imgs/c3/pool.png  used on input line 99.
@@ -523,27 +526,32 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 ]
 Chapter 4.
+
+Overfull \hbox (118.46425pt too wide) in paragraph at lines 31--33
+[]\OT1/cmr/m/n/12 just sum-marise be-low more or less[] []https://fab.cba.mit.edu/classes/865.18/design/optimization/mma.pdf[] 
+ []
+
 [35]) [36]
 \openout2 = `chapters/chapter5.aux'.
 
  (/home/tom/documents/uni/honours/thesis/thesis-document/chapters/chapter5.tex
 Chapter 5.
-) [37
+[37
 
 
 
 
-]
+]) [38]
 \openout2 = `chapters/chapter6.aux'.
 
- (/home/tom/documents/uni/honours/thesis/thesis-document/chapters/chapter6.tex [38
-
-
-
-
-]
+ (/home/tom/documents/uni/honours/thesis/thesis-document/chapters/chapter6.tex
 Chapter 6.
-[39]) [40]
+[39
+
+
+
+
+]) [40]
 \openout2 = `appendix1.aux'.
 
  (/home/tom/documents/uni/honours/thesis/thesis-document/appendix1.tex
@@ -564,21 +572,21 @@ Underfull \hbox (badness 10000) in paragraph at lines 48--52
 
 ]) [44] (/home/tom/documents/uni/honours/thesis/thesis-document/thesis.aux (/home/tom/documents/uni/honours/thesis/thesis-document/titlepage.aux) (/home/tom/documents/uni/honours/thesis/thesis-document/dedication.aux) (/home/tom/documents/uni/honours/thesis/thesis-document/declaration.aux) (/home/tom/documents/uni/honours/thesis/thesis-document/acknowledgements.aux) (/home/tom/documents/uni/honours/thesis/thesis-document/abstract.aux) (/home/tom/documents/uni/honours/thesis/thesis-document/notation.aux) (/home/tom/documents/uni/honours/thesis/thesis-document/chapters/chapter1.aux) (/home/tom/documents/uni/honours/thesis/thesis-document/chapters/chapter2.aux) (/home/tom/documents/uni/honours/thesis/thesis-document/chapters/chapter3.aux) (/home/tom/documents/uni/honours/thesis/thesis-document/chapters/chapter4.aux) (/home/tom/documents/uni/honours/thesis/thesis-document/chapters/chapter5.aux) (/home/tom/documents/uni/honours/thesis/thesis-document/chapters/chapter6.aux) (/home/tom/documents/uni/honours/thesis/thesis-document/appendix1.aux))
 Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: EC7446168BCFCC0FC9D52863771B442E;3875.
+(rerunfilecheck)             Checksum: 46C5F04E580F86D1943BDC04745906E9;3961.
  ) 
 Here is how much of TeX's memory you used:
- 8608 strings out of 481168
- 130110 string characters out of 5913831
- 449048 words of memory out of 5000000
- 25067 multiletter control sequences out of 15000+600000
+ 8610 strings out of 481168
+ 130144 string characters out of 5913831
+ 449051 words of memory out of 5000000
+ 25068 multiletter control sequences out of 15000+600000
  412343 words of font info for 61 fonts, out of 8000000 for 9000
  59 hyphenation exceptions out of 8191
  81i,19n,89p,387b,501s stack positions out of 5000i,500n,10000p,200000b,80000s
  </home/tom/.texlive2020/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1200.600pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on /home/tom/documents/uni/honours/thesis/thesis-document/thesis.pdf (58 pages, 4377521 bytes).
+Output written on /home/tom/documents/uni/honours/thesis/thesis-document/thesis.pdf (58 pages, 4381564 bytes).
 PDF statistics:
- 818 PDF objects out of 1000 (max. 8388607)
- 726 compressed objects within 8 object streams
- 225 named destinations out of 1000 (max. 500000)
- 474 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 823 PDF objects out of 1000 (max. 8388607)
+ 731 compressed objects within 8 object streams
+ 226 named destinations out of 1000 (max. 500000)
+ 482 words of extra memory for PDF output out of 10000 (max. 10000000)
 
