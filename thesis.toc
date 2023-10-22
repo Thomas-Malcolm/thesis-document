@@ -68,7 +68,7 @@
 \contentsline {section}{\numberline {6.1}Conclusions}{53}{section.6.1}%
 \contentsline {section}{\numberline {6.2}Further Work}{54}{section.6.2}%
 \contentsline {subsection}{\numberline {6.2.1}Simulated Electric Field via Fake Solenoids}{54}{subsection.6.2.1}%
-\contentsline {subsection}{\numberline {6.2.2}Comparison with ISTTOK vloop data}{54}{subsection.6.2.2}%
-\contentsline {subsection}{\numberline {6.2.3}Grid Based Initial Parameter Guessing}{54}{subsection.6.2.3}%
-\contentsline {chapter}{\numberline {A}Appendix title goes here}{55}{appendix.A}%
-\contentsline {chapter}{Bibliography}{57}{appendix.A}%
+\contentsline {subsection}{\numberline {6.2.2}Comparison with ISTTOK $v_{\text {loop}}$ data}{54}{subsection.6.2.2}%
+\contentsline {subsection}{\numberline {6.2.3}Grid Based Initial Parameter Guessing}{55}{subsection.6.2.3}%
+\contentsline {chapter}{\numberline {A}Appendix title goes here}{57}{appendix.A}%
+\contentsline {chapter}{Bibliography}{59}{appendix.A}%

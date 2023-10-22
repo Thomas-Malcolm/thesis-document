@@ -56,9 +56,25 @@ This approach could utilise work done by Nicholas Bohlsen in using topological
 data analysis to identify the presence of magnetic islands from poloidal magnetic flux data in his thesis.
 
 % 6.2.2
-\subsection{Comparison with ISTTOK vloop data}
+\subsection{Comparison with ISTTOK $v_{\text{loop}}$ data}
+In the appendix of Wang's paper there are small extensions to their results if 
+some slightly different assumptions are made about the model \cite{wang-analytic-solution}. If these assumptions are made, we are presented with the 
+ability to both derive information about the electric field, and calculate $v_{\text{loop}}$ values. Both of these
+are of particular interest to us; if we are able to retrieve information about the electric field then we can use that to reason 
+about the generation of runaway electrons directly by inspecting the strength of the electric field under certain conditions. 
+Additionally, with the ability to calculate $v_{\text{loop}}$ data, we would have another metric by which to test the accuracy 
+of our simulation against experiment, as the ISTTOK data we have contained $v_{\text{loop}}$ information, inferred from the 
+raw data provided. This would more justify us in using pressure density profile data
 
 % 6.2.3
 \subsection{Grid Based Initial Parameter Guessing}
-\red{Grid based approach for having a better initial parameter guess}
-
+One of the identified problems with our model, at both the simulation stage and the data fitting, was that the initial parameter 
+guess is just that; a guess. Due to the parameter space we are dealing with the system is very sensitive to this initial choice, and 
+so it is crucial that a suitable initial guess is chosen for the optimisation algorithm to not fall into false positives. 
+As calculating residuals is relatively cheap to perform, and we know our objective function has a smooth parameter space (with 
+exception for $(\alpha^2 - \lambda_{n,l}^2)^{-1} = 0$ cases), we can utilise a grid-based search approach for identifying 
+what could potentially be a good initial guess. If we describe some domain $\Sigma := \Sigma_1 \times \Sigma_2 \times \Sigma_3$ such 
+that $(a_1, a_2, \alpha) \in \Sigma$, then we can segment this cuboid into smaller, uniformly sized cuboids. We could then 
+pick a ``representative point'' from these smaller cuboids (for simplicity, say the centre), and calculate the residual for that 
+specific parameter set with respect to the provided data. Then we pick the parameter set that has the smallest residual, and 
+use that parameter set as the initial guess for our optimisation algorithm.

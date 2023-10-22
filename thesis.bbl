@@ -11,11 +11,24 @@ S.~L. Chen, F.~Villone, B.~J. Xiao, L.~Barbato, Z.~P. Luo, L.~Liu,
 \newblock 3d passive stabilization of n=0 mhd modes in east tokamak.
 \newblock {\em Scientific Reports}, 6(1):32440, Sep 2016.
 
+\bibitem{basics-of-plasma-astrophysics}
+C.~Chiuderi and M.~Velli.
+\newblock {\em Basics of Plasma Astrophysics}.
+\newblock Springer Milan, 2016.
+
 \bibitem{newton-headache}
 William Cropper.
 \newblock {\em Great Physicists: The Life and Times of Leading Physicists from
   Galileo to Hawking}.
 \newblock Oxford University Press, 2004.
+
+\bibitem{plasma-lightning}
+C.~L. da~Silva, R.~G. Sonnenfeld, H.~E. Edens, P.~R. Krehbiel, M.~G. Quick, and
+  W.~J. Koshak.
+\newblock The plasma nature of lightning channels and the resulting nonlinear
+  resistance.
+\newblock {\em Journal of Geophysical Research: Atmospheres},
+  124(16):9442--9463, 2019.
 
 \bibitem{gse-derivation}
 Dama Daniel.
@@ -90,6 +103,12 @@ V.~D. {Shafranov}.
 Neil Trudinger.
 \newblock Fully nonlinear pdes in geometry.
 \newblock Lecture Slides, 2004.
+
+\bibitem{wang-analytic-solution}
+Shaojie Wang and Jun Yu.
+\newblock {An exact solution of the Grad–Shafranov–Helmhotz equation with
+  central current density reversal}.
+\newblock {\em Physics of Plasmas}, 12(6):062501, 05 2005.
 
 \bibitem{wesson-tokamaks}
 J.~Wesson and D.J. Campbell.
