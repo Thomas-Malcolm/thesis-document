@@ -11,6 +11,12 @@ S.~L. Chen, F.~Villone, B.~J. Xiao, L.~Barbato, Z.~P. Luo, L.~Liu,
 \newblock 3d passive stabilization of n=0 mhd modes in east tokamak.
 \newblock {\em Scientific Reports}, 6(1):32440, Sep 2016.
 
+\bibitem{newton-headache}
+William Cropper.
+\newblock {\em Great Physicists: The Life and Times of Leading Physicists from
+  Galileo to Hawking}.
+\newblock Oxford University Press, 2004.
+
 \bibitem{gse-derivation}
 Dama Daniel.
 \newblock Derivation and applications of grad-shafranov equation in
@@ -21,6 +27,13 @@ Dama Daniel.
 L.C. Evans.
 \newblock {\em Partial Differential Equations}.
 \newblock Graduate studies in mathematics. American Mathematical Society, 2010.
+
+\bibitem{huang-ct-tokamak}
+Jianguo Huang, Xuanzong Yang, Shaobai Zheng, Chunhua Feng, Houxian Zhang, and
+  Long Wang.
+\newblock The plasma current profile during current reversal in ac operation of
+  the ct-6b tokamak.
+\newblock {\em Nuclear Fusion}, 40(12):2023, dec 2000.
 
 \bibitem{spec-code}
 S.~R. Hudson, R.~L. Dewar, G.~Dennis, M.~J. Hole, M.~McGann, G.~von Nessi, and
@@ -38,6 +51,18 @@ A~Malaquias, M~Hole, R~B Henriques, I~S Nedzelskiy, and V~V Plyusnin.
 \newblock Experiments during ac current transition in isttok and the hypothesis
   of ballistic runaway electrons.
 \newblock {\em Plasma Physics and Controlled Fusion}, 64(9):095013, aug 2022.
+
+\bibitem{ion-beam-diagnostics}
+A.~Malaquias, I.~S. Nedzelskiy, R.~Henriques, and R.~Sharma.
+\newblock The heavy-ion beam diagnostic of the isttok tokamak highlights and
+  recent developments.
+\newblock {\em Sensors}, 22(11), 2022.
+
+\bibitem{project-source}
+Tom Malcolm.
+\newblock Thesis source code.
+\newblock via GitHub at \url{https://github.com/Thomas-Malcolm/thesis-code},
+  2023.
 
 \bibitem{websters_plasma}
 Merriam-Webster.

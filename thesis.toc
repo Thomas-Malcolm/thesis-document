@@ -55,17 +55,20 @@
 \contentsline {section}{\numberline {4.3}Simulated Current Reversals}{36}{section.4.3}%
 \contentsline {subsection}{\numberline {4.3.1}Method of Reversal}{36}{subsection.4.3.1}%
 \contentsline {subsection}{\numberline {4.3.2}Results and Explanations}{36}{subsection.4.3.2}%
-\contentsline {chapter}{\numberline {5}Comparison with Experiment}{37}{chapter.5}%
-\contentsline {section}{\numberline {5.1}ISTTOK}{37}{section.5.1}%
-\contentsline {subsection}{\numberline {5.1.1}A Brief History of ISTTOK}{37}{subsection.5.1.1}%
-\contentsline {subsection}{\numberline {5.1.2}Reactor Specification and Data}{37}{subsection.5.1.2}%
-\contentsline {section}{\numberline {5.2}Parameter Fitting}{37}{section.5.2}%
-\contentsline {subsection}{\numberline {5.2.1}Results}{37}{subsection.5.2.1}%
-\contentsline {subsection}{\numberline {5.2.2}Further Work}{38}{subsection.5.2.2}%
-\contentsline {chapter}{\numberline {6}Blue Skies and Horizons}{39}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Conclusions}{39}{section.6.1}%
-\contentsline {section}{\numberline {6.2}Further Work}{39}{section.6.2}%
-\contentsline {subsection}{\numberline {6.2.1}Simulated Electric Field via Fake Solenoids}{39}{subsection.6.2.1}%
-\contentsline {subsection}{\numberline {6.2.2}Comparison with ISTTOK vloop data}{40}{subsection.6.2.2}%
-\contentsline {chapter}{\numberline {A}Appendix title goes here}{41}{appendix.A}%
-\contentsline {chapter}{Bibliography}{43}{appendix.A}%
+\contentsline {chapter}{\numberline {5}Comparison with Experiment}{39}{chapter.5}%
+\contentsline {section}{\numberline {5.1}ISTTOK}{39}{section.5.1}%
+\contentsline {subsection}{\numberline {5.1.1}Heavy Ion Beam Diagnostics}{39}{subsection.5.1.1}%
+\contentsline {subsection}{\numberline {5.1.2}Reactor Specification and Data}{41}{subsection.5.1.2}%
+\contentsline {section}{\numberline {5.2}Parameter Fitting}{44}{section.5.2}%
+\contentsline {subsection}{\numberline {5.2.1}Results}{44}{subsection.5.2.1}%
+\contentsline {subsubsection}{Initial Attempts}{44}{section*.20}%
+\contentsline {subsubsection}{Data Cleanup and Second Attempt}{49}{section*.21}%
+\contentsline {subsubsection}{Alternative Data Coddling Methods and Steps Forward}{51}{section*.22}%
+\contentsline {chapter}{\numberline {6}Blue Skies and Horizons}{53}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Conclusions}{53}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Further Work}{54}{section.6.2}%
+\contentsline {subsection}{\numberline {6.2.1}Simulated Electric Field via Fake Solenoids}{54}{subsection.6.2.1}%
+\contentsline {subsection}{\numberline {6.2.2}Comparison with ISTTOK vloop data}{54}{subsection.6.2.2}%
+\contentsline {subsection}{\numberline {6.2.3}Grid Based Initial Parameter Guessing}{54}{subsection.6.2.3}%
+\contentsline {chapter}{\numberline {A}Appendix title goes here}{55}{appendix.A}%
+\contentsline {chapter}{Bibliography}{57}{appendix.A}%
