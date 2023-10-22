@@ -783,6 +783,7 @@ INPUT /home/tom/documents/uni/honours/thesis/thesis-document/abstract.tex
 INPUT /home/tom/documents/uni/honours/thesis/thesis-document/abstract.tex
 INPUT /home/tom/documents/uni/honours/thesis/thesis-document/abstract.tex
 INPUT /home/tom/documents/uni/honours/thesis/thesis-document/abstract.tex
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmsl12.tfm
 INPUT /home/tom/documents/uni/honours/thesis/thesis-document/thesis.toc
 INPUT /home/tom/documents/uni/honours/thesis/thesis-document/thesis.toc
 INPUT /home/tom/documents/uni/honours/thesis/thesis-document/thesis.toc
@@ -820,7 +821,6 @@ INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/latex-fonts/lasy10.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/latex-fonts/lasy8.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/latex-fonts/lasy6.tfm
 OUTPUT /home/tom/documents/uni/honours/thesis/thesis-document/thesis.toc
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmsl12.tfm
 INPUT /home/tom/documents/uni/honours/thesis/thesis-document/notation.tex
 INPUT /home/tom/documents/uni/honours/thesis/thesis-document/notation.tex
 INPUT /home/tom/documents/uni/honours/thesis/thesis-document/notation.tex
