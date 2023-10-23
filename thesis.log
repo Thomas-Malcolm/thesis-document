@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Debian) (preloaded format=pdflatex 2022.9.5)  23 OCT 2023 09:36
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Debian) (preloaded format=pdflatex 2022.9.5)  24 OCT 2023 01:50
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -444,33 +444,56 @@ Chapter 1.
 [1
 
 
-] [2]
-<imgs/c1/east-cross-section.png, id=374, 1580.90625pt x 941.5175pt>
-File: imgs/c1/east-cross-section.png Graphic file (type png)
-<use imgs/c1/east-cross-section.png>
-Package pdftex.def Info: imgs/c1/east-cross-section.png  used on input line 92.
-(pdftex.def)             Requested size: 316.17564pt x 188.30016pt.
+] [2] [3]
+<imgs/c1/dimensions.png, id=380, 602.25pt x 851.18pt>
+File: imgs/c1/dimensions.png Graphic file (type png)
+<use imgs/c1/dimensions.png>
+Package pdftex.def Info: imgs/c1/dimensions.png  used on input line 91.
+(pdftex.def)             Requested size: 301.12425pt x 425.58894pt.
+<imgs/c1/flux-functions.png, id=382, 144.54pt x 104.0688pt>
+File: imgs/c1/flux-functions.png Graphic file (type png)
+<use imgs/c1/flux-functions.png>
+Package pdftex.def Info: imgs/c1/flux-functions.png  used on input line 102.
+(pdftex.def)             Requested size: 289.07925pt x 208.13708pt.
+ [4 </home/tom/documents/uni/honours/thesis/thesis-document/imgs/c1/dimensions.png>]
+<imgs/c1/solenoids.png, id=389, 602.25pt x 851.18pt>
+File: imgs/c1/solenoids.png Graphic file (type png)
+<use imgs/c1/solenoids.png>
+Package pdftex.def Info: imgs/c1/solenoids.png  used on input line 118.
+(pdftex.def)             Requested size: 301.12425pt x 425.58894pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[3] [4 </home/tom/documents/uni/honours/thesis/thesis-document/imgs/c1/east-cross-section.png>] [5]) [6]
+[5 </home/tom/documents/uni/honours/thesis/thesis-document/imgs/c1/flux-functions.png>]
+<imgs/c1/east-cross-section.png, id=398, 1580.90625pt x 941.5175pt>
+File: imgs/c1/east-cross-section.png Graphic file (type png)
+<use imgs/c1/east-cross-section.png>
+Package pdftex.def Info: imgs/c1/east-cross-section.png  used on input line 132.
+(pdftex.def)             Requested size: 316.17564pt x 188.30016pt.
+
+Underfull \vbox (badness 1043) has occurred while \output is active []
+
+ [6 </home/tom/documents/uni/honours/thesis/thesis-document/imgs/c1/solenoids.png>] [7 </home/tom/documents/uni/honours/thesis/thesis-document/imgs/c1/east-cross-section.png>] [8]
+Underfull \vbox (badness 1436) has occurred while \output is active []
+
+ [9]) [10]
 \openout2 = `chapters/chapter2.aux'.
 
  (/home/tom/documents/uni/honours/thesis/thesis-document/chapters/chapter2.tex
 Chapter 2.
-[7
+[11
 
 
 
 
-] [8] [9] [10] [11] [12] [13]
+] [12] [13] [14] [15] [16] [17]
 Overfull \hbox (7.6713pt too wide) in paragraph at lines 286--297
 [][] 
  []
 
-[14] [15] [16] [17]
-<imgs/placeholder.jpg, id=549, 385.44pt x 264.5082pt>
+[18] [19] [20] [21]
+<imgs/placeholder.jpg, id=579, 385.44pt x 264.5082pt>
 File: imgs/placeholder.jpg Graphic file (type jpg)
 <use imgs/placeholder.jpg>
 Package pdftex.def Info: imgs/placeholder.jpg  used on input line 431.
@@ -479,18 +502,48 @@ Package pdftex.def Info: imgs/placeholder.jpg  used on input line 431.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[18] [19 </home/tom/documents/uni/honours/thesis/thesis-document/imgs/placeholder.jpg>] [20]) [21]
+[22] [23 </home/tom/documents/uni/honours/thesis/thesis-document/imgs/placeholder.jpg>] [24] [25]
+LaTeX Font Info:    Font shape `U/lasy/b/n' in size <8> not available
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 541.
+LaTeX Font Info:    Font shape `U/lasy/b/n' in size <6> not available
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 541.
+<imgs/c2/gradb-drift.png, id=617, 105.5142pt x 105.2733pt>
+File: imgs/c2/gradb-drift.png Graphic file (type png)
+<use imgs/c2/gradb-drift.png>
+Package pdftex.def Info: imgs/c2/gradb-drift.png  used on input line 555.
+(pdftex.def)             Requested size: 221.57993pt x 221.07402pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[26] [27 </home/tom/documents/uni/honours/thesis/thesis-document/imgs/c2/gradb-drift.png>]
+Overfull \hbox (0.9789pt too wide) in paragraph at lines 597--604
+[]\OT1/cmr/m/n/12 Another con-ti-bu-tion is that of mag-netic field topolgy. When there are ``breaks''
+ []
+
+[28]
+<imgs/c2/re-presence.png, id=640, 469.755pt x 223.5552pt>
+File: imgs/c2/re-presence.png Graphic file (type png)
+<use imgs/c2/re-presence.png>
+Package pdftex.def Info: imgs/c2/re-presence.png  used on input line 625.
+(pdftex.def)             Requested size: 422.7756pt x 201.1978pt.
+
+Overfull \hbox (10.21065pt too wide) in paragraph at lines 625--628
+ [][] 
+ []
+
+) [29 </home/tom/documents/uni/honours/thesis/thesis-document/imgs/c2/re-presence.png>]
 \openout2 = `chapters/chapter3.aux'.
 
- (/home/tom/documents/uni/honours/thesis/thesis-document/chapters/chapter3.tex [22
+ (/home/tom/documents/uni/honours/thesis/thesis-document/chapters/chapter3.tex [30
 
 
 
 
 ]
 Chapter 3.
-[23] [24]
-<imgs/c3/pool.png, id=599, 592.2125pt x 333.245pt>
+[31] [32]
+<imgs/c3/pool.png, id=665, 592.2125pt x 333.245pt>
 File: imgs/c3/pool.png Graphic file (type png)
 <use imgs/c3/pool.png>
 Package pdftex.def Info: imgs/c3/pool.png  used on input line 99.
@@ -499,7 +552,7 @@ Package pdftex.def Info: imgs/c3/pool.png  used on input line 99.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[25]
+[33]
 Overfull \hbox (22.29634pt too wide) in paragraph at lines 116--119
 []$\OT1/cmtt/m/n/12 https : / / jmahaffy . sdsu . edu / courses / f19 / math537 / beamer / perturb . pdf$[] []$https :
  []
@@ -507,24 +560,24 @@ Overfull \hbox (22.29634pt too wide) in paragraph at lines 116--119
 
 Underfull \vbox (badness 1552) has occurred while \output is active []
 
- [26 </home/tom/documents/uni/honours/thesis/thesis-document/imgs/c3/pool.png>]
+ [34 </home/tom/documents/uni/honours/thesis/thesis-document/imgs/c3/pool.png>]
 Underfull \vbox (badness 1348) has occurred while \output is active []
 
- [27]
+ [35]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [28] [29] [30]
+ [36] [37] [38]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [31] [32]
+ [39] [40]
 Overfull \hbox (101.36165pt too wide) in paragraph at lines 338--339
 [][]\OT1/cmr/m/n/12 https://www.teses.usp.br/teses/disponiveis/43/43134/tde-11032013-131439/publico/taborda.pdf[] 
  []
 
-) [33]
+) [41]
 \openout2 = `chapters/chapter4.aux'.
 
- (/home/tom/documents/uni/honours/thesis/thesis-document/chapters/chapter4.tex [34
+ (/home/tom/documents/uni/honours/thesis/thesis-document/chapters/chapter4.tex [42
 
 
 
@@ -536,18 +589,18 @@ Overfull \hbox (118.46425pt too wide) in paragraph at lines 31--33
 []\OT1/cmr/m/n/12 just sum-marise be-low more or less[] []https://fab.cba.mit.edu/classes/865.18/design/optimization/mma.pdf[] 
  []
 
-[35] [36]) [37]
+[43] [44]) [45]
 \openout2 = `chapters/chapter5.aux'.
 
- (/home/tom/documents/uni/honours/thesis/thesis-document/chapters/chapter5.tex [38
+ (/home/tom/documents/uni/honours/thesis/thesis-document/chapters/chapter5.tex [46
 
 
 
 
 ]
 Chapter 5.
-[39]
-<imgs/c5/ion-diagnostics.png, id=695, 325.215pt x 347.04657pt>
+[47]
+<imgs/c5/ion-diagnostics.png, id=762, 325.215pt x 347.04657pt>
 File: imgs/c5/ion-diagnostics.png Graphic file (type png)
 <use imgs/c5/ion-diagnostics.png>
 Package pdftex.def Info: imgs/c5/ion-diagnostics.png  used on input line 56.
@@ -559,8 +612,8 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [40] [41 </home/tom/documents/uni/honours/thesis/thesis-document/imgs/c5/ion-diagnostics.png (PNG copy)>]
-<imgs/c5/current-profile-unnormalised-0.png, id=713, 602.25pt x 401.5pt>
+ [48] [49 </home/tom/documents/uni/honours/thesis/thesis-document/imgs/c5/ion-diagnostics.png (PNG copy)>]
+<imgs/c5/current-profile-unnormalised-0.png, id=779, 602.25pt x 401.5pt>
 File: imgs/c5/current-profile-unnormalised-0.png Graphic file (type png)
 <use imgs/c5/current-profile-unnormalised-0.png>
 Package pdftex.def Info: imgs/c5/current-profile-unnormalised-0.png  used on input line 120.
@@ -569,14 +622,14 @@ Package pdftex.def Info: imgs/c5/current-profile-unnormalised-0.png  used on inp
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[42]
-<imgs/c5/ip_time_data.png, id=722, 602.25pt x 401.5pt>
+[50]
+<imgs/c5/ip_time_data.png, id=788, 602.25pt x 401.5pt>
 File: imgs/c5/ip_time_data.png Graphic file (type png)
 <use imgs/c5/ip_time_data.png>
 Package pdftex.def Info: imgs/c5/ip_time_data.png  used on input line 130.
 (pdftex.def)             Requested size: 361.35278pt x 240.90184pt.
- [43 </home/tom/documents/uni/honours/thesis/thesis-document/imgs/c5/current-profile-unnormalised-0.png> </home/tom/documents/uni/honours/thesis/thesis-document/imgs/c5/ip_time_data.png>]
-<imgs/c5/comparison-current-0-unfiltered.png, id=731, 602.25pt x 401.5pt>
+ [51 </home/tom/documents/uni/honours/thesis/thesis-document/imgs/c5/current-profile-unnormalised-0.png> </home/tom/documents/uni/honours/thesis/thesis-document/imgs/c5/ip_time_data.png>]
+<imgs/c5/comparison-current-0-unfiltered.png, id=797, 602.25pt x 401.5pt>
 File: imgs/c5/comparison-current-0-unfiltered.png Graphic file (type png)
 <use imgs/c5/comparison-current-0-unfiltered.png>
 Package pdftex.def Info: imgs/c5/comparison-current-0-unfiltered.png  used on input line 151.
@@ -586,7 +639,7 @@ Overfull \hbox (9.00716pt too wide) in paragraph at lines 151--154
  [][] 
  []
 
-<imgs/c5/comparison-current-15-unfiltered.png, id=733, 602.25pt x 401.5pt>
+<imgs/c5/comparison-current-15-unfiltered.png, id=799, 602.25pt x 401.5pt>
 File: imgs/c5/comparison-current-15-unfiltered.png Graphic file (type png)
 <use imgs/c5/comparison-current-15-unfiltered.png>
 Package pdftex.def Info: imgs/c5/comparison-current-15-unfiltered.png  used on input line 164.
@@ -596,8 +649,8 @@ Overfull \hbox (9.00716pt too wide) in paragraph at lines 164--167
  [][] 
  []
 
-[44 </home/tom/documents/uni/honours/thesis/thesis-document/imgs/c5/comparison-current-0-unfiltered.png>]
-<imgs/c5/comparison-current-20-unfiltered.png, id=744, 602.25pt x 401.5pt>
+[52 </home/tom/documents/uni/honours/thesis/thesis-document/imgs/c5/comparison-current-0-unfiltered.png>]
+<imgs/c5/comparison-current-20-unfiltered.png, id=810, 602.25pt x 401.5pt>
 File: imgs/c5/comparison-current-20-unfiltered.png Graphic file (type png)
 <use imgs/c5/comparison-current-20-unfiltered.png>
 Package pdftex.def Info: imgs/c5/comparison-current-20-unfiltered.png  used on input line 183.
@@ -610,8 +663,8 @@ Overfull \hbox (9.00716pt too wide) in paragraph at lines 183--187
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[45 </home/tom/documents/uni/honours/thesis/thesis-document/imgs/c5/comparison-current-15-unfiltered.png>]
-<imgs/c5/magnetic-field-0.png, id=755, 602.25pt x 401.5pt>
+[53 </home/tom/documents/uni/honours/thesis/thesis-document/imgs/c5/comparison-current-15-unfiltered.png>]
+<imgs/c5/magnetic-field-0.png, id=822, 602.25pt x 401.5pt>
 File: imgs/c5/magnetic-field-0.png Graphic file (type png)
 <use imgs/c5/magnetic-field-0.png>
 Package pdftex.def Info: imgs/c5/magnetic-field-0.png  used on input line 203.
@@ -624,8 +677,8 @@ Overfull \hbox (9.00716pt too wide) in paragraph at lines 203--206
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[46 </home/tom/documents/uni/honours/thesis/thesis-document/imgs/c5/comparison-current-20-unfiltered.png>]
-<imgs/c5/magnetic-field-15.png, id=763, 602.25pt x 401.5pt>
+[54 </home/tom/documents/uni/honours/thesis/thesis-document/imgs/c5/comparison-current-20-unfiltered.png>]
+<imgs/c5/magnetic-field-15.png, id=831, 602.25pt x 401.5pt>
 File: imgs/c5/magnetic-field-15.png Graphic file (type png)
 <use imgs/c5/magnetic-field-15.png>
 Package pdftex.def Info: imgs/c5/magnetic-field-15.png  used on input line 212.
@@ -634,7 +687,7 @@ Package pdftex.def Info: imgs/c5/magnetic-field-15.png  used on input line 212.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<imgs/c5/magnetic-field-20.png, id=764, 602.25pt x 401.5pt>
+<imgs/c5/magnetic-field-20.png, id=832, 602.25pt x 401.5pt>
 File: imgs/c5/magnetic-field-20.png Graphic file (type png)
 <use imgs/c5/magnetic-field-20.png>
 Package pdftex.def Info: imgs/c5/magnetic-field-20.png  used on input line 221.
@@ -645,13 +698,13 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [47 </home/tom/documents/uni/honours/thesis/thesis-document/imgs/c5/magnetic-field-0.png>] [48 </home/tom/documents/uni/honours/thesis/thesis-document/imgs/c5/magnetic-field-15.png> </home/tom/documents/uni/honours/thesis/thesis-document/imgs/c5/magnetic-field-20.png>] [49]
-<imgs/c5/comparison-current-edited-0.png, id=791, 602.25pt x 401.5pt>
+ [55 </home/tom/documents/uni/honours/thesis/thesis-document/imgs/c5/magnetic-field-0.png>] [56 </home/tom/documents/uni/honours/thesis/thesis-document/imgs/c5/magnetic-field-15.png> </home/tom/documents/uni/honours/thesis/thesis-document/imgs/c5/magnetic-field-20.png>] [57]
+<imgs/c5/comparison-current-edited-0.png, id=858, 602.25pt x 401.5pt>
 File: imgs/c5/comparison-current-edited-0.png Graphic file (type png)
 <use imgs/c5/comparison-current-edited-0.png>
 Package pdftex.def Info: imgs/c5/comparison-current-edited-0.png  used on input line 286.
 (pdftex.def)             Requested size: 391.45786pt x 260.9719pt.
-<imgs/c5/mag-field-edited-data-0.png, id=792, 602.25pt x 401.5pt>
+<imgs/c5/mag-field-edited-data-0.png, id=859, 602.25pt x 401.5pt>
 File: imgs/c5/mag-field-edited-data-0.png Graphic file (type png)
 <use imgs/c5/mag-field-edited-data-0.png>
 Package pdftex.def Info: imgs/c5/mag-field-edited-data-0.png  used on input line 292.
@@ -660,7 +713,7 @@ Package pdftex.def Info: imgs/c5/mag-field-edited-data-0.png  used on input line
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[50 </home/tom/documents/uni/honours/thesis/thesis-document/imgs/c5/comparison-current-edited-0.png>] [51 </home/tom/documents/uni/honours/thesis/thesis-document/imgs/c5/mag-field-edited-data-0.png>]) [52]
+[58 </home/tom/documents/uni/honours/thesis/thesis-document/imgs/c5/comparison-current-edited-0.png>] [59 </home/tom/documents/uni/honours/thesis/thesis-document/imgs/c5/mag-field-edited-data-0.png>]) [60]
 \openout2 = `chapters/chapter6.aux'.
 
  (/home/tom/documents/uni/honours/thesis/thesis-document/chapters/chapter6.tex
@@ -668,7 +721,7 @@ Chapter 6.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [53
+ [61
 
 
 
@@ -686,47 +739,47 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 59.
 
-) [54] [55]
+) [62] [63]
 \openout2 = `appendix1.aux'.
 
- (/home/tom/documents/uni/honours/thesis/thesis-document/appendix1.tex [56
+ (/home/tom/documents/uni/honours/thesis/thesis-document/appendix1.tex [64
 
 
 
 
 ]
 Appendix A.
-[57]) [58] (/home/tom/documents/uni/honours/thesis/thesis-document/thesis.bbl [59
+[65]) [66] (/home/tom/documents/uni/honours/thesis/thesis-document/thesis.bbl [67
 
 
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 86--90
+Underfull \hbox (badness 10000) in paragraph at lines 97--101
 \OT1/cmtt/m/n/12 gov / genesismission / gm2 / science / sunlight _ solar-[]heat / fusion _
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 108--112
+Underfull \hbox (badness 10000) in paragraph at lines 126--130
 []\OT1/cmr/m/n/12 Shaojie Wang and Jun Yu.  An ex-act so-lu-tion of the
  []
 
-) [60] (/home/tom/documents/uni/honours/thesis/thesis-document/thesis.aux (/home/tom/documents/uni/honours/thesis/thesis-document/titlepage.aux) (/home/tom/documents/uni/honours/thesis/thesis-document/dedication.aux) (/home/tom/documents/uni/honours/thesis/thesis-document/declaration.aux) (/home/tom/documents/uni/honours/thesis/thesis-document/acknowledgements.aux) (/home/tom/documents/uni/honours/thesis/thesis-document/abstract.aux) (/home/tom/documents/uni/honours/thesis/thesis-document/notation.aux) (/home/tom/documents/uni/honours/thesis/thesis-document/chapters/chapter1.aux) (/home/tom/documents/uni/honours/thesis/thesis-document/chapters/chapter2.aux) (/home/tom/documents/uni/honours/thesis/thesis-document/chapters/chapter3.aux) (/home/tom/documents/uni/honours/thesis/thesis-document/chapters/chapter4.aux) (/home/tom/documents/uni/honours/thesis/thesis-document/chapters/chapter5.aux) (/home/tom/documents/uni/honours/thesis/thesis-document/chapters/chapter6.aux) (/home/tom/documents/uni/honours/thesis/thesis-document/appendix1.aux))
+[68]) [69] (/home/tom/documents/uni/honours/thesis/thesis-document/thesis.aux (/home/tom/documents/uni/honours/thesis/thesis-document/titlepage.aux) (/home/tom/documents/uni/honours/thesis/thesis-document/dedication.aux) (/home/tom/documents/uni/honours/thesis/thesis-document/declaration.aux) (/home/tom/documents/uni/honours/thesis/thesis-document/acknowledgements.aux) (/home/tom/documents/uni/honours/thesis/thesis-document/abstract.aux) (/home/tom/documents/uni/honours/thesis/thesis-document/notation.aux) (/home/tom/documents/uni/honours/thesis/thesis-document/chapters/chapter1.aux) (/home/tom/documents/uni/honours/thesis/thesis-document/chapters/chapter2.aux) (/home/tom/documents/uni/honours/thesis/thesis-document/chapters/chapter3.aux) (/home/tom/documents/uni/honours/thesis/thesis-document/chapters/chapter4.aux) (/home/tom/documents/uni/honours/thesis/thesis-document/chapters/chapter5.aux) (/home/tom/documents/uni/honours/thesis/thesis-document/chapters/chapter6.aux) (/home/tom/documents/uni/honours/thesis/thesis-document/appendix1.aux))
 Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: 4F173D294A39C02AD74F3DDD99371918;3843.
+(rerunfilecheck)             Checksum: 354505F3436FF0BE52FCC0FA1850A0A9;3831.
  ) 
 Here is how much of TeX's memory you used:
- 8751 strings out of 481168
- 133616 string characters out of 5913831
- 451848 words of memory out of 5000000
- 25155 multiletter control sequences out of 15000+600000
- 415580 words of font info for 76 fonts, out of 8000000 for 9000
+ 8824 strings out of 481168
+ 134855 string characters out of 5913831
+ 452412 words of memory out of 5000000
+ 25195 multiletter control sequences out of 15000+600000
+ 417527 words of font info for 83 fonts, out of 8000000 for 9000
  59 hyphenation exceptions out of 8191
  81i,19n,89p,538b,501s stack positions out of 5000i,500n,10000p,200000b,80000s
- </home/tom/.texlive2020/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1200.600pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on /home/tom/documents/uni/honours/thesis/thesis-document/thesis.pdf (74 pages, 4783287 bytes).
+ </home/tom/.texlive2020/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1200.600pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on /home/tom/documents/uni/honours/thesis/thesis-document/thesis.pdf (83 pages, 5606738 bytes).
 PDF statistics:
- 979 PDF objects out of 1000 (max. 8388607)
- 848 compressed objects within 9 object streams
- 265 named destinations out of 1000 (max. 500000)
- 521 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1058 PDF objects out of 1200 (max. 8388607)
+ 905 compressed objects within 10 object streams
+ 285 named destinations out of 1000 (max. 500000)
+ 546 words of extra memory for PDF output out of 10000 (max. 10000000)
 

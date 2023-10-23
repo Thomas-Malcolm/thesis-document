@@ -75,48 +75,88 @@ we will humbly delve into the inner workings of fusion reactor terminology and d
 % 1.1.2.
 \subsection{Fusion Reactor Design 101}
 
-Here we will discuss the important structural aspects of a Tokamak fusion reactor. The term ``Tokamak'' is a 
-Russian acronym which translates as ``toroidal chamber with magnetic coils'' \cite{iter-tokamak-acronym}. Aptly, a Tokamak is a toroidal 
-object which is used as a vessell for plasma which is driven via external magnetic coils. 
+Here we will discuss the important structural aspects of a tokamak fusion reactor. The term ``tokamak'' is a 
+Russian acronym which translates as ``toroidal chamber with magnetic coils'' \cite{iter-tokamak-acronym}. Aptly, a tokamak is a toroidal 
+object which is used as a vessel for plasma which is driven via external magnetic coils. There are two main angular components 
+to a tokamak - components working in the ``toroidal'' (around the major radius, $R$, of the tokamak), and those working in the 
+``poloidal'' direction (around the minor radius, $a$, of a cross section of the tokamak). Thus, we will often reason about 
+various physical concepts (such as magnetic fields, current densities) in terms of one of these. Though, in fact, we will 
+often ignore the toroidal component - these are often abstracted away under the guise of an axisymmetry assumption, which assumes 
+that any partials with respect to the toroidal angle are diminishing, i.e., $\pdv{\phi} = 0$. We let $\phi$ denote poloidal angles, 
+and $\phi$ the toroidal angles. When we refer to $(x,z)$, we will be referring to offsets within a poloidal cross section. 
+Refer to figure \ref{dimensions} for a graphic distinguishing toroidal from poloidal components.
 
+\begin{figure}[h!]
+    \centering
+    \includegraphics[scale=0.5]{imgs/c1/dimensions.png}
+    \caption{The top half depicts poloidal cross section factors, whereas the bottom shows toroidal components. }
+    \label{dimensions}
+\end{figure}
 
+We draw specific attention to the difference between poloidal and toroidal magnetic flux. In this thesis we will concern 
+ourselves primarily with poloidal magnetic flux, which is what controls lateral ``movement'' of plasma within the tokamak - 
+which is central to the problem of confinement (pun intended). See figure \ref{flux-functions} for a comparison.
 
-\red{Idea here isn't so much to introduce physical concepts mathematically so much 
-as it is to provide an intuitive feeling for where definitions match up with a Tokamak 
-directly, i.e., poloidal vs toroidal flux. Then relate the diagrams to a real reactor, 
-like the EAST one below (or maybe more relevantly ITER / ISTTOK?)}
+\begin{figure}
+    \centering
+    \includegraphics[scale=2.0]{imgs/c1/flux-functions.png}
+    \caption{Emphasising the difference between the poloidal and magnetic fields. The flux function symbols associated with each are 
+    also provided. Alongside this we show the plasma current flow for good measure.}
+    \label{flux-functions}
+\end{figure}
 
-In reality, reactors do not often have such nice geometry. Figure \ref{fig:east-geometry}
+We control fusion reactors via a series of (meticulously!) places solenoids around the external of the reactor. These are positioned 
+such that certain solenoids can be used to shape either the toroidal or poloidal magnetic field. Current is passed through these,
+the strength of which drives the strength of the resultant magnetic field, and the direction of which is determined by the 
+``right hand rule'' if you recall high school physics exams with everyone staring at their hands. We see a depiction of these solenoids 
+and their effect on the poloidal and toroidal magnetic fields. Note that we have ignored one set of solenoids which accompany these, which are placed 
+following the contours of the toroidal direction, and are used for more fine grained control of the poloidal magnetic flux, but these are 
+largely irrelevant for our purposes, and are annoying to draw.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[scale=0.5]{imgs/c1/solenoids.png}
+    \caption{Solenoids which control the poloidal and toroidal magnetic fields.}
+    \label{solenoids}
+\end{figure}\newpage
+
+\subsubsection{Reactor Geometry}
+In reality, reactors do not have such nice geometry as the above diagrams (if we take shaky hand-drawn pictures to have ``nice'' geometry). Figure \ref{fig:east-geometry}
+shows a 3D model of the EAST reactor, showing the irregularities in the shape of the cross section that appears in a real reactor. These 
+engineering decisions made here are interesting and could be (and have been) the subject of their own research! For our purposes however, we will 
+assume that our tokamak is either a torus with an elliptic cross section, or even simpler, a cylinder with elliptic cross section. These act 
+as approximations to a real tokamak's design to make simulation simpler - it is the ``spherical cow'' model for fusion reactors.
+
 \begin{figure}[h!]
     \centering
     \includegraphics[scale=0.2]{imgs/c1/east-cross-section.png}
     \caption{EAST fusion reactor geometry. This is a 3D model of its cross section, highlighting the irregular shape \cite{east-geometry-article}}
     \label{fig:east-geometry}
-\end{figure}
+\end{figure}\newpage
 
-Diagram
+\subsubsection{Runaway Electrons}
+We make one last note on runaway electrons. If tokamaks were Hamilton, then runaway electrons would be Burr. Or Hamilton. Or time? 
+Whatever your interpretation of Lin Manuel-Miranda's musical epic suggests is the enemy. These high energy particles have the 
+potential to be highly damaging to a reactor. They have the ability to directly damage equipment within the reactor (such 
+as instruments that are plasma-facing), can erode the inside protective layers of the tokamak, can 
+disrupt the dynamics of the plasma, and more. In fact it is runaway electron mitigation 
+techniques which are at least part of the reasoning for having such an irregularly shaped 
+cross section as that adopted by the EAST reactor (and many more ``modern'' reactors). We will talk more about runaway electrons in chapter \ref{chapter2}.
 
-Poloidal vs toroidal flux
-
-Magnet positioning
-
-Heating of plasma
-
-Confinement
-
-REs
+Now that we are experts in fusion reactor design (who needs a physics degree, right?), we can proceed to talk about the 
+afflictions that modern day fusion reactors face and what this humble thesis attempts to tackle.
 
 % 1.2
 \section{What problem does this thesis address?}
 
 The core problem that this thesis is built around is introduced by Hole and Malaquias in \cite{malaquias-matthew}.
-In a Tokamak, external solenoids along with heating elements within the reactor are 
+In a tokamak, external solenoids along with heating elements within the reactor are 
 what drive the primary current within a plasma. In a reactor operating in the DC regime, this is 
 characterised by being a constant, unidirectional current. However, when operating in AC mode, 
 this naturally becomes oscillatory. At every current reversal there is necessarily a quiescent phase 
 for the plasma current, where $I_{p} = 0$. At this point we would anticipate there to be no plasma density 
 as a result of this lack of a driving current, however, experiment in ISTTOK disagrees with this sentiment. 
-Notably, reactors such as the CT-6B Tokamak identify through experiment the presence of coexisting anti-parallel 
+Notably, reactors such as the CT-6B tokamak identify through experiment the presence of coexisting anti-parallel 
 currents in the ramp down phase - directly contradicting ISTTOK's observations \cite{huang-ct-tokamak}. 
 Summarily, there is no consensus in the community surrounding three central issues:
 \begin{itemize}
@@ -139,14 +179,14 @@ the presence of a residual plasma even as the plasma current vanishes. This same
 also shows no evidence of the coexistence of anti-parallel currents.
 
 \subsubsection{What results do we seek?}
-Our broad scope goal is to simulate the behaviour of a current reversal within a Tokamak, with the intent 
+Our broad scope goal is to simulate the behaviour of a current reversal within a tokamak, with the intent 
 of identifying indicators of runaway electron generation, or support for the presence of anti-parallel current formation
 - in effect, to provide some insight into the answers behind any of the three points raised above. 
 More specifically, however, we will develop theory around simulating the behaviour of a ramp down phase, necessarily a time evolution, when 
 the tools we have available to us are characteristically time independent. From this we will develop a model 
 which targets specifically the scenario that we have accuss to current density profile data, and from this 
 derive information about the pressure density profile and the poloidal magnetic flux. We will run simulations 
-for a contrived Tokamak to observe some theoretical results, before applying what we've learned to data 
+for a contrived tokamak to observe some theoretical results, before applying what we've learned to data 
 made available by the ISTTOK project. From this we will attempt to draw inference about the behaviours listed 
 above, and note any limitations that may exist on our model.
 
@@ -154,10 +194,10 @@ above, and note any limitations that may exist on our model.
 \section{Project Progression}
 
 This project being inspired by work done by Hole and Malaquias and the scope for the project defined explicitly, 
-we first begun with a review of existing theoretical work done in simulating current reversals in Tokamaks. These 
+we first begun with a review of existing theoretical work done in simulating current reversals in tokamaks. These 
 efforts led to the discovery of Wang's paper \cite{wang-analytic-solution}, which provided an analytic solution 
 to a variation of the Grad-Shafranov equation constructed specifically for the modelling of equilibrium in 
-current reversal Tokamak configurations. While the presence of equilibria for AC regime Tokamaks is the subject of 
+current reversal tokamak configurations. While the presence of equilibria for AC regime tokamaks is the subject of 
 ongoing research (with theoretical work supporting their existence, but limited experimental support yet), 
 we can nevertheless sought to use their model to simulate a ramp down phase. We first showed that equilibrium 
 solutions to the Grad-Shafranov equation could be perturbed by some small time dependent $\epsilon$ term to 
@@ -169,3 +209,5 @@ of the system to be accurately represented by our model, however there is a ques
 information exists to make statements about the poloidal magnetic field topology, which itself can provide 
 insight into anti-parallel current channels and some runaway electron generation mechanisms. There are a 
 plethora of ways to extend upon the work we've done in this thesis, some of which are suggested in chapter \ref{chapter6}.
+
+Without further adieu, we will begin.

@@ -5,6 +5,11 @@ H.~ALFV{\'E}N.
 \newblock Existence of electromagnetic-hydrodynamic waves.
 \newblock {\em Nature}, 150(3805):405--406, Oct 1942.
 
+\bibitem{runaway-electrons}
+Allen~H. Boozer.
+\newblock Runaway electrons and magnetic island confinement.
+\newblock {\em Physics of Plasmas}, 23(8), 8 2016.
+
 \bibitem{east-geometry-article}
 S.~L. Chen, F.~Villone, B.~J. Xiao, L.~Barbato, Z.~P. Luo, L.~Liu,
   S.~Mastrostefano, and Z.~Xing.
@@ -40,6 +45,12 @@ Dama Daniel.
 L.C. Evans.
 \newblock {\em Partial Differential Equations}.
 \newblock Graduate studies in mathematics. American Mathematical Society, 2010.
+
+\bibitem{howard-plasma-physics}
+John Howard.
+\newblock Introduction to plasma physics.
+\newblock via ANU website at
+  \url{https://people.physics.anu.edu.au/~jnh112/AIIM/c17/}, 2002.
 
 \bibitem{huang-ct-tokamak}
 Jianguo Huang, Xuanzong Yang, Shaobai Zheng, Chunhua Feng, Houxian Zhang, and
@@ -87,6 +98,13 @@ NASA.
 \newblock Fusion chemistry - a closer look, 2023.
 \newblock
   \url{https://solarsystem.nasa.gov/genesismission/gm2/science/sunlight_solar-heat/fusion_chemistry.htm}.
+
+\bibitem{isttok-runaways}
+V~V Plyusnin, L~Jakubowski, J~Zebrowski, P~Duarte, K~Malinowski, H~Fernandes,
+  C~Silva, M~Rabinski, and M~J Sadowski.
+\newblock Characteristics of four-channel cherenkov-type detector for
+  measurements of runaway electrons in the {ISTTOK} tokamak.
+\newblock {\em Rev Sci Instrum}, 81(10), October 2010.
 
 \bibitem{mhd-lectures}
 Dalton~D Schnack.
