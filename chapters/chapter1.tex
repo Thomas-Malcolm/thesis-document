@@ -109,55 +109,63 @@ REs
 % 1.2
 \section{What problem does this thesis address?}
 
-Talk about paper Matthew and Artur released. Presence of residual REs.
+The core problem that this thesis is built around is introduced by Hole and Malaquias in \cite{malaquias-matthew}.
+In a Tokamak, external solenoids along with heating elements within the reactor are 
+what drive the primary current within a plasma. In a reactor operating in the DC regime, this is 
+characterised by being a constant, unidirectional current. However, when operating in AC mode, 
+this naturally becomes oscillatory. At every current reversal there is necessarily a quiescent phase 
+for the plasma current, where $I_{p} = 0$. At this point we would anticipate there to be no plasma density 
+as a result of this lack of a driving current, however, experiment in ISTTOK disagrees with this sentiment. 
+Notably, reactors such as the CT-6B Tokamak identify through experiment the presence of coexisting anti-parallel 
+currents in the ramp down phase - directly contradicting ISTTOK's observations \cite{huang-ct-tokamak}. 
+Summarily, there is no consensus in the community surrounding three central issues:
+\begin{itemize}
+    \item Why does there exist a residual plasma density when there is seemingly nothing to drive it? (i.e. $I_p = 0$)
+    \item Why do we see an increase in runaway electron generation during the ramp down phase (and partly during 
+    ramp up, though we will note on this missing data in chapter \ref{chapter2})
+    \item There is experimental evidence that both supports and discounts the existence of anti-parallel current
+    formation during the ramp down phase. What could drive this, and is there theoretical support for either side?
+\end{itemize}
 
-\TODO 
+It is hypothesised by Hole and Malaquias that this residual plasma density is the result of 
+persistent runaway electron populations in the plasma. It is further suggested that these populations
+are driven by some mechanism reuslting from the ramp down phase - we discuss runaway electron generation 
+mechanisms in chapter \ref{chapter2}. As we noted however, experiment is inconsistent on the question of 
+the existence of anti-parallel current channels in the plasma (both positive and negative current densities 
+in the plasma density. In ISTTOK we note that the potential difference of the plasma is vanishing as the plasma 
+current approaches $I_p = 0$. This combined with the observation that the pressure density profile, as measured 
+by the ISTTOK heavy ion beam diagnostics team, show non-vanishing pressures within the plasma, indicating 
+the presence of a residual plasma even as the plasma current vanishes. This same pressure density profile 
+also shows no evidence of the coexistence of anti-parallel currents.
 
-\red{Much of the justification for this can just be pawned off to the background section 
-for it, this can be small. Spend more time motivating why we care.}
-
-% 1.2.1
-\subsection{What results do we seek?}
-
-To provide a theoretical basis for exploring the observed anomalies. 
-To see if theory supports the observation
-
-\TODO
+\subsubsection{What results do we seek?}
+Our broad scope goal is to simulate the behaviour of a current reversal within a Tokamak, with the intent 
+of identifying indicators of runaway electron generation, or support for the presence of anti-parallel current formation
+- in effect, to provide some insight into the answers behind any of the three points raised above. 
+More specifically, however, we will develop theory around simulating the behaviour of a ramp down phase, necessarily a time evolution, when 
+the tools we have available to us are characteristically time independent. From this we will develop a model 
+which targets specifically the scenario that we have accuss to current density profile data, and from this 
+derive information about the pressure density profile and the poloidal magnetic flux. We will run simulations 
+for a contrived Tokamak to observe some theoretical results, before applying what we've learned to data 
+made available by the ISTTOK project. From this we will attempt to draw inference about the behaviours listed 
+above, and note any limitations that may exist on our model.
 
 % 1.3.
 \section{Project Progression}
 
-I began this project by first doing a lot of reading. Without a formal phsyics education past grade 12, it was 
-important to develop an understanding for the underlying processes that are happening so as to ensure an understanding 
-of the mathematics we deal with. Additionally, much of the mathematics I encountered was new to me. For example, until this thesis, I had 
-not come across the definition of a PDE before, let alone reasoned about a solution to one and used it to run a simulation. Regardless, 
-the very first step of the process was to read - that began with Wesson's classic textbook "Tokamaks", accompanied by a series of lectures 
-given by Matthew Hole at ANU for a fusion science special topics course delivered in 2022, and branched from there.
-
-The inspiration for this thesis (as we stated in the section above, and will frequent throughout the thesis) was a paper 
-published by Artur Malaquias and Matthew Hole, "Experiments during AC current transition in ISTTOK and the hypothesis of ballistic 
-runaway electrons" \cite{malaquias-matthew}.
-
-\TODO
-
-Work inspired by Matthew's paper 
-
-First expanded MHD equations linearly with a perturbation treatment
-
-Mathematical PDE theory developed by Wang. Identified errors in paper, fixed. 
-
-Developed a simulation to reproduce results. Then went other direction, 
-solving for parameters for data. 
-
-Simulated current inversion.
-
-ISTTOK data matching.
-
-Feasibility.
-
-
-
-% 1.4.
-\section{Structure of Thesis}
-
-\TODO (after writing it)
+This project being inspired by work done by Hole and Malaquias and the scope for the project defined explicitly, 
+we first begun with a review of existing theoretical work done in simulating current reversals in Tokamaks. These 
+efforts led to the discovery of Wang's paper \cite{wang-analytic-solution}, which provided an analytic solution 
+to a variation of the Grad-Shafranov equation constructed specifically for the modelling of equilibrium in 
+current reversal Tokamak configurations. While the presence of equilibria for AC regime Tokamaks is the subject of 
+ongoing research (with theoretical work supporting their existence, but limited experimental support yet), 
+we can nevertheless sought to use their model to simulate a ramp down phase. We first showed that equilibrium 
+solutions to the Grad-Shafranov equation could be perturbed by some small time dependent $\epsilon$ term to 
+simulate the effect of a time evolution. For some small (undetermined) perturbation this would still be an accurate 
+model of the physical effects within a reactor. We were able to simulate the ramp down phase for a contrived reactor using 
+the Helmholtz variation of the Grad-Shafranov equation as proposed by Wang. However, when applying our model to 
+data available from ISTTOK, we see difficulties in achieving an accurate model. Initial efforts suggest some resistance 
+of the system to be accurately represented by our model, however there is a question on whether enough 
+information exists to make statements about the poloidal magnetic field topology, which itself can provide 
+insight into anti-parallel current channels and some runaway electron generation mechanisms. There are a 
+plethora of ways to extend upon the work we've done in this thesis, some of which are suggested in chapter \ref{chapter6}.
