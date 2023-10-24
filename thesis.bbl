@@ -16,6 +16,12 @@ S.~L. Chen, F.~Villone, B.~J. Xiao, L.~Barbato, Z.~P. Luo, L.~Liu,
 \newblock 3d passive stabilization of n=0 mhd modes in east tokamak.
 \newblock {\em Scientific Reports}, 6(1):32440, Sep 2016.
 
+\bibitem{nobel-cherenkov}
+Pavel Cherenkov.
+\newblock Radiation of particles moving at a velocity exceeding that of light,
+  and some of the possibilities for their use in experimental physics.
+\newblock Nobel Lecture, 1958.
+
 \bibitem{basics-of-plasma-astrophysics}
 C.~Chiuderi and M.~Velli.
 \newblock {\em Basics of Plasma Astrophysics}.
@@ -132,5 +138,12 @@ Shaojie Wang and Jun Yu.
 J.~Wesson and D.J. Campbell.
 \newblock {\em Tokamaks}.
 \newblock International series of monographs on physics. Clarendon Press, 2004.
+
+\bibitem{cherenkov-radiation}
+J~Zebrowski, L~Jakubowski, M~Rabinski, M~J Sadowski, M~J Jakubowski,
+  R~Kwiatkowski, K~Malinowski, R~Mirowski, J~Mlynar, O~Ficker, V~Weinzettl,
+  F~Causa, COMPASS, and FTU Teams.
+\newblock Studies of runaway electrons via cherenkov effect in tokamaks.
+\newblock {\em Journal of Physics: Conference Series}, 959(1):012002, jan 2018.
 
 \end{thebibliography}

@@ -428,8 +428,6 @@ We are now armed with the necessary tools to introduce the Grad-Shafranov Equati
     \end{equation}
 \end{definition}
 
-\placeholderimage
-
 \begin{remark}
     The equation can be restated more concisely in terms of the elliptic operator
     $$\Delta^{*} \Psi = R \nabla \cdot \left ( \frac{1}{R} \nabla \Psi \right )$$
@@ -588,7 +586,7 @@ A connected idea to this is that of runaway avalanches. If a collision takes pla
 energy electron and another particle, then an avalanche can occur if that collision results in the production of another 
 high energy (relativistic) electron. This avalanche effect is characterised by an exponential growth, which can be given:
 \begin{equation*}
-    \ln \frac{n_{\text{re}}}{n_{\text{seed}}} = \frac{e}{m_e \ln \Lambda} \frac{\Delta \psi / (2\pi R)}{\sqrt{5 + Z_{\text{eff}}}}
+    \ln \frac{n_{\text{re}}}{n_{\text{seed}}} = \frac{e}{m_e \ln \Lambda} \frac{\Delta \Psi / (2\pi R)}{\sqrt{5 + Z_{\text{eff}}}}
 \end{equation*}
 where $n_{\text{re}}$ is the number of resulting relativistic electrons, $n_{\text{seed}}$ describes the 
 number of incident runaway electrons, and $Z_{\text{eff}}$ describes the effective background ion charge. Note that ISTTOK observes a 
@@ -600,7 +598,8 @@ complicated than simply ``topology changes, runaway electrons generated'', the o
 considered a type of runaway electron generation, and can be used to infer / support their generation if observed \cite{runaway-electrons}.
 This change in topolgy could, for example, be characterised by the formation of an ``X-point'', which is a point at which two previously 
 distinct magnetic field regions join together to share a single point of flux density in common, which mathemtically presents as 
-a singularity, though physically acts as an unstable accelerator.
+a singularity, though physically acts as an unstable accelerator. The paper cited above, \cite{runaway-electrons}, provides a good overview of the effects of 
+magnetic field line topology on the generation of runaway electrons.
 
 
 % 2.3.2.
@@ -610,26 +609,39 @@ It's all well and good to be know that runaway electrons are a possibility, but 
 to identify if you actually have runaway electrons. Unfortunately, we cannot just ask the plasma. As such, we must resort 
 to a series of clever tricks to infer the existence of REs. 
 
-The first and most obvious of these tricks is to recall that, being electrons that are moving, RE populations form a current. As 
-we are able to measure current density profiles in our reactors, if we do so and observe there to be a significant, unexpected increase in 
-current density, we could infer that this is the consequence of an RE population. 
+The first and most obvious of these tricks is to recall that, being electrons that are in motion, RE populations form a current. As 
+we are able to measure current density profiles in our reactors, if we do so and observe there to be a significant, unexpected, increase in 
+current density, we could infer that this is the consequence of the presence of an RE population. In a similar manner, 
+we can also for fluctuations in our pressure density profile, as a current channel opening up (as happens with a stream 
+of REs) ionises the gas it is travelling through, creating a density of plasma where it passes, which 
+increases pressure.
 
-\todo
+Another characteristic behaviour observed for runaway electron populations is Cherenkov radiation, 
+which presents when a burst of ``hard X-rays'' (HXR) appears \cite{cherenkov-radiation}. We can directly 
+observe and measure this phenomenon, and so it serves as a useful metric for measuring runaway electron presence, and
+population size.
 
-$v_{\text{loop}}$ spikes 
-
-Hard x-rays 
+\begin{remark}
+    Quick science fawning moment: Cherenkov radiation is an observable phenomena presenting as a blue 
+    glow, and is the result of photons travelling faster than the speed of light! But this is only possible 
+    in certain situations. For example, in water, light waves propagate slower than the speed of light in a vacuum
+    (the traditional value for $c$ we're accustomed to seeing).
+    However, radioactive materials can generate beta particles which are emitted at close to the velocity of light 
+    in a vacuum, $c$, and thus travel faster than the light in the medium around it! \cite{nobel-cherenkov}
+\end{remark}
 
 \begin{figure}[h!]
     \centering
     \includegraphics[scale=0.9]{imgs/c2/re-presence.png}
     \caption{ISTTOK plasma pressure density profile with plasma current ($I_p$) and X-rays detected. As X-rays are 
-    an indicator of runaway electrons, this indicates an jump in RE presence during the ramp down phase, and also 
-    at the start of the next ramp up phase \cite{malaquias-matthew}.}
+    an indicator of runaway electrons, this indicates a jump in REs during the ramp down phase (from about 
+    220ms - 227ms), and also 
+    at the start of the next ramp up phase (from about 245ms) \cite{malaquias-matthew}.}
 \end{figure}
 
-
-Plasma density fluctuation
-
-Notable instrument limitation: some sensors are directional in reactor (such as x-ray detector), which means 
-they can only track half the AC cycles, as half will travel in the wrong direction.
+We should note that, despite the various options available to us for identifying runaway electrons, 
+measurements can be somewhat fraught, and some populations may be mischaracterised in terms of strength, or 
+missed entirely. For example, some instruments that are plasma-facing in a tokamak are directional by nature. This would 
+be ok if your plasma current was oriented in a single direction, but as is in our case with a reactor operating 
+in AC mode, the plasma current changes direction. As such, the HXR detector for example will miss radiation 
+caused by RE populations travelling in a direction it can't detect. 

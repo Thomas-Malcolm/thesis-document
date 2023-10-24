@@ -873,6 +873,11 @@ INPUT /home/tom/documents/uni/honours/thesis/thesis-document/imgs/c1/east-cross-
 INPUT /home/tom/documents/uni/honours/thesis/thesis-document/imgs/c1/east-cross-section.png
 INPUT /home/tom/documents/uni/honours/thesis/thesis-document/imgs/c1/east-cross-section.png
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/tcrm1200.tfm
+INPUT /home/tom/documents/uni/honours/thesis/thesis-document/imgs/c1/residual-plasma.png
+INPUT /home/tom/documents/uni/honours/thesis/thesis-document/imgs/c1/residual-plasma.png
+INPUT /home/tom/documents/uni/honours/thesis/thesis-document/imgs/c1/residual-plasma.png
+INPUT /home/tom/documents/uni/honours/thesis/thesis-document/imgs/c1/residual-plasma.png
+INPUT /home/tom/documents/uni/honours/thesis/thesis-document/imgs/c1/residual-plasma.png
 INPUT /home/tom/documents/uni/honours/thesis/thesis-document/chapters/chapter2.tex
 INPUT /home/tom/documents/uni/honours/thesis/thesis-document/chapters/chapter2.tex
 INPUT /home/tom/documents/uni/honours/thesis/thesis-document/chapters/chapter2.tex
@@ -889,11 +894,6 @@ INPUT /home/tom/documents/uni/honours/thesis/thesis-document/chapters/chapter2.t
 INPUT /home/tom/documents/uni/honours/thesis/thesis-document/chapters/chapter2.tex
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx8.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx6.tfm
-INPUT /home/tom/documents/uni/honours/thesis/thesis-document/imgs/placeholder.jpg
-INPUT /home/tom/documents/uni/honours/thesis/thesis-document/imgs/placeholder.jpg
-INPUT /home/tom/documents/uni/honours/thesis/thesis-document/imgs/placeholder.jpg
-INPUT /home/tom/documents/uni/honours/thesis/thesis-document/imgs/placeholder.jpg
-INPUT /home/tom/documents/uni/honours/thesis/thesis-document/imgs/placeholder.jpg
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmmib10.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmmib8.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmmib6.tfm

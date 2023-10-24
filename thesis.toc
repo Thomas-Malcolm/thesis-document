@@ -6,8 +6,8 @@
 \contentsline {subsection}{\numberline {1.1.1}I'm a Mathematician... what is ``plasma''?}{1}{subsection.1.1.1}%
 \contentsline {subsection}{\numberline {1.1.2}Fusion Reactor Design 101}{3}{subsection.1.1.2}%
 \contentsline {subsubsection}{Reactor Geometry}{6}{section*.6}%
-\contentsline {subsubsection}{Runaway Electrons}{8}{section*.7}%
-\contentsline {section}{\numberline {1.2}What problem does this thesis address?}{8}{section.1.2}%
+\contentsline {subsubsection}{Runaway Electrons}{7}{section*.7}%
+\contentsline {section}{\numberline {1.2}What problem does this thesis address?}{7}{section.1.2}%
 \contentsline {subsubsection}{What results do we seek?}{9}{section*.8}%
 \contentsline {section}{\numberline {1.3}Project Progression}{10}{section.1.3}%
 \contentsline {chapter}{\numberline {2}Background}{11}{chapter.2}%
@@ -20,7 +20,7 @@
 \contentsline {section}{\numberline {2.2}Grad-Shafranov Equation}{19}{section.2.2}%
 \contentsline {subsection}{\numberline {2.2.1}Derivation}{24}{subsection.2.2.1}%
 \contentsline {section}{\numberline {2.3}Runaway Electrons}{24}{section.2.3}%
-\contentsline {subsection}{\numberline {2.3.1}Regular Electron Movement}{25}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.1}Regular Electron Movement}{24}{subsection.2.3.1}%
 \contentsline {subsubsection}{Electric Field drift}{25}{section*.13}%
 \contentsline {subsubsection}{$\grad \vec {B}$ drift}{26}{section*.14}%
 \contentsline {subsection}{\numberline {2.3.2}Generation}{27}{subsection.2.3.2}%

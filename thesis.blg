@@ -16,44 +16,44 @@ A level-1 auxiliary file: chapters/chapter6.aux
 A level-1 auxiliary file: appendix1.aux
 The style file: plain.bst
 Database file #1: bibliography.bib
-You've used 23 entries,
+You've used 25 entries,
             2118 wiz_defined-function locations,
-            646 strings with 7772 characters,
-and the built_in function-call counts, 6759 in all, are:
-= -- 617
-> -- 376
+            658 strings with 8294 characters,
+and the built_in function-call counts, 7652 in all, are:
+= -- 691
+> -- 456
 < -- 0
-+ -- 154
-- -- 128
-* -- 474
-:= -- 1198
-add.period$ -- 72
-call.type$ -- 23
-change.case$ -- 128
++ -- 186
+- -- 158
+* -- 555
+:= -- 1358
+add.period$ -- 78
+call.type$ -- 25
+change.case$ -- 149
 chr.to.int$ -- 0
-cite$ -- 23
-duplicate$ -- 230
-empty$ -- 520
-format.name$ -- 128
-if$ -- 1369
+cite$ -- 25
+duplicate$ -- 248
+empty$ -- 568
+format.name$ -- 158
+if$ -- 1539
 int.to.chr$ -- 0
-int.to.str$ -- 23
-missing$ -- 22
-newline$ -- 118
-num.names$ -- 46
-pop$ -- 149
+int.to.str$ -- 25
+missing$ -- 23
+newline$ -- 128
+num.names$ -- 50
+pop$ -- 172
 preamble$ -- 1
-purify$ -- 110
+purify$ -- 129
 quote$ -- 0
-skip$ -- 162
+skip$ -- 176
 stack$ -- 0
-substring$ -- 256
-swap$ -- 23
+substring$ -- 284
+swap$ -- 25
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 82
+type$ -- 90
 warning$ -- 0
-while$ -- 54
-width$ -- 25
-write$ -- 248
+while$ -- 59
+width$ -- 27
+write$ -- 269
