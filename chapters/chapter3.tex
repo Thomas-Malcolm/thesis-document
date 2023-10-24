@@ -112,10 +112,89 @@ our results to experimental data, and then exploit our work to answer further qu
 % 3.1.2.
 \subsection{Regular Perturbation Theory}
 
+At the heart of perturbation theory is the manipulation of functions by some small amount to achieve a goal. A familiar 
+perturbation is the taylor expansion - if we have some function $f(x)$, then we can use $n^{\text{th}}$ order derivatives to approximate 
+the value of the function for some perturbation $a$
+\begin{equation*}
+    f(x) = \sum_{n = 0}^{\infty} \frac{f^{(n)}(a)}{n!} (x - a)^n
+\end{equation*}
+In a similar spirit, we can expand a function $f(x)$ around a point $x = a$ by some $\epsilon$ amount
+$$f(a + \epsilon) = f(a) + \epsilon \dv{f}{x}(a) + \frac{1}{2} \epsilon^2 \dv[2]{f}{x}(a) + \dots$$
+and it is this sentiment that is what drives perturbation theory - that some small change in input of a function can result 
+in small changes in the output of that function. This is obviously not the case for all functions - immediately we see that this 
+fails for anything that is not differentiable, an in general if we wish to make an approximation to the $n^{\text{th}}$ degree then 
+we need our function to at least be $f \in C^n$ \cite{perturbation-basics}. 
 
-\url{https://jmahaffy.sdsu.edu/courses/f19/math537/beamer/perturb.pdf}
-\url{https://www.ucl.ac.uk/~ucahhwi/LTCC/section2-3-perturb-regular.pdf}
-\url{https://math.byu.edu/~bakker/Math521/Lectures/M521Lec15.pdf}
+When it comes to PDEs, regular perturbation theory can be used to find solutions to unknown functions. The general process is \cite{perturbation-basics}:
+\begin{enumerate}
+    \item Set $\epsilon = 0$, solve the resulting system (i.e., a solution for $f_0$ effectively)
+    \item Perturb the system by $\epsilon$ (i.e., go back and expand the system in terms of some $\epsilon > 0$)
+    \item Let the (unknown) solution to the new perturbed system be given as
+    $$f_0 + \epsilon f_1 + \epsilon^2 f_2 + \dots$$
+    \item Expand the PDE in terms of $\epsilon$. Collect like powers of $\epsilon$ and solve these are their own systems
+    \item Collate solutions for each $f_i$ as found for their respective powers of $\epsilon$ - this is your approximation 
+    to the analytic solution to the PDE
+\end{enumerate}
+
+\noindent
+Formally then we can state that, given a differential equation
+$$F(D^{k} u(x), D^{k-1}u(x), \dots, Du(x), x) = 0$$
+that an expansion for $u$ can be given
+$$u(x) = u_0(x) + \epsilon u_1(x) + \epsilon^2 u_2(x) + \dots$$
+If we were able to reason about all the derivatives of $u$ (and they exist), then in the ideal case we 
+can retrieve an analytic solution to the PDE. However, if instead the function is not $C^{\infty}$, or perhaps 
+becomes too difficult to analytically solve, we could instead solve for an approximate solution by instead expanding, for 
+example, to the second order:
+$$u(x) = u_0(x) + \epsilon u_1(x) + \epsilon^2 u_2(x) + \mathcal{O}(\epsilon^2)$$
+
+\subsubsection{Example}
+Here we will follow an example provided by \cite{perturbation-example}, which emphasis the utility of perturbation methods in solving 
+differential equations. 
+
+Let a body have mass $m$ with initial velocity $v_0$. It moves in a straight line, however there is a resistive force opposing its motion 
+with magnitude $av - bv^2$, where $v(\tau)$ describes the velocity of the object. We assume $b \ll a$ are constants, and Newton's law provides
+$$m \dv{v}{\tau} = -av + bv^2$$
+with the boundary condition
+$$v(0) = v_0$$
+We can make this system dimensionless by making a change of variables with $y = v / v_0$ and $t = \tau / (m / a)$, giving us the new system
+$$\dv{y}{t} = -y + \epsilon y^2$$
+with boundary condition
+$$y(0) = 1$$
+where $\epsilon \equiv (b v_0) / a \ll 1$. Now with our dimensionless model we can begin our perturbations. 
+Instead of opting for an analytic solution, 
+we'll use an approximation, so we will expand as such:
+$$y(t) = y_0(t) + \epsilon y_1(t) + \epsilon^2 y_2(t)$$
+and ignore any $\mathcal{O}(\epsilon^3)$ terms. Substituting this into our dimensionless model gives
+\begin{align*}
+    \dv{y}{t} &= -y + \epsilon y^2 \\
+    y_0' + \epsilon y_1' + \epsilon^2 y_2' &= -(y_0 + \epsilon y_1 + \epsilon^2 y_2) + \epsilon \left (y_0 + \epsilon y_1 + \epsilon^2 y_2 \right )^2
+\end{align*}
+Then, we next collect similar powers of $\epsilon$ (representing different orders of approximation), which we observe is a series of 
+linear ODEs:
+\begin{align*}
+    y_0' &= -y_0 \\
+    y_1' &= -y_1 + y_0^2 \\
+    y_2' &= -y_2 + 2y_0 y_1
+\end{align*}
+The initial condition also tells us that $y_0 (0) + \epsilon y_1(0) + \epsilon^2 y_2(0) = 1$, but, as we know $y_0(0) = 1$, 
+we also get that $y_1(0) = y_2(0) = 0$. Thus, we have a series of ODEs with initial conditions specified for each, which 
+harks back to first year calculus courses. We readily have solutions available for each of the ODEs:
+\begin{align*}
+    y_0(t) &= e^{-t} \\
+    y_1(t) &= e^{-t} - e^{-2t} \\
+    y_2(t) &= e^{-t} - e^{-2t} + e^{-3t}
+\end{align*}
+and thus, our approximate solution to $y$ can be given
+$$y(t) \approx e^{-t} + \epsilon(e^{-t} - e^{-2t}) + \epsilon^2 (e^{-t} - e^{-2t} + e^{-3t})$$
+As a form of validation, with omnipotent knowledge we can state that the actual solution to the original equation can 
+be given as 
+$$y(t) = \frac{e^{-t}}{1 + \epsilon(e^{-t} - 1)}$$
+which has the Taylor series expansion (in $\epsilon$):
+$$y(t) = e^{-t} + \epsilon(e^{-t} - e^{-2t}) + \epsilon^2(e^{-t} - e^{-2t} + e^{-3t}) + \mathcal{O}(\epsilon^3)$$
+which is exactly what our perturbation approximation determined \cite{perturbation-example}. A cool demonstration, if we can say so ourselves!
+
+While we won't be performing such an in depth perturbation treatment of the MHD equations themselves, it is this spirit 
+of approximation via perturbation which we will carry through our work, and keep in mind when it comes to our simulations.
 
 % 3.1.3.
 \subsection{Ideal MHD Perturbation}

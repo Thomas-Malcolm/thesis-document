@@ -76,6 +76,13 @@ ITER.
 \newblock Tokamak, 2023.
 \newblock \url{https://www.iter.org/mach/Tokamak}.
 
+\bibitem{perturbation-example}
+Joseph Mahaffy.
+\newblock Ordinary differential equations - lecture notes - perturbation
+  methods.
+\newblock University Website via
+  \url{https://jmahaffy.sdsu.edu/courses/f19/math537/beamer/perturb.pdf}, 2019.
+
 \bibitem{malaquias-matthew}
 A~Malaquias, M~Hole, R~B Henriques, I~S Nedzelskiy, and V~V Plyusnin.
 \newblock Experiments during ac current transition in isttok and the hypothesis
@@ -138,6 +145,13 @@ Shaojie Wang and Jun Yu.
 J.~Wesson and D.J. Campbell.
 \newblock {\em Tokamaks}.
 \newblock International series of monographs on physics. Clarendon Press, 2004.
+
+\bibitem{perturbation-basics}
+Helen Wilson.
+\newblock Introduction to perturbation methods.
+\newblock University Website via
+  \url{https://www.ucl.ac.uk/~ucahhwi/LTCC/section2-3-perturb-regular.pdf},
+  2014.
 
 \bibitem{cherenkov-radiation}
 J~Zebrowski, L~Jakubowski, M~Rabinski, M~J Sadowski, M~J Jakubowski,
