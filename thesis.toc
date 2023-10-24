@@ -19,56 +19,56 @@
 \contentsline {subsubsection}{Ideal MHD}{17}{section*.12}%
 \contentsline {section}{\numberline {2.2}Grad-Shafranov Equation}{19}{section.2.2}%
 \contentsline {subsection}{\numberline {2.2.1}Derivation}{24}{subsection.2.2.1}%
-\contentsline {section}{\numberline {2.3}Runaway Electrons}{24}{section.2.3}%
-\contentsline {subsection}{\numberline {2.3.1}Regular Electron Movement}{24}{subsection.2.3.1}%
-\contentsline {subsubsection}{Electric Field drift}{25}{section*.13}%
-\contentsline {subsubsection}{$\grad \vec {B}$ drift}{26}{section*.14}%
-\contentsline {subsection}{\numberline {2.3.2}Generation}{27}{subsection.2.3.2}%
-\contentsline {subsection}{\numberline {2.3.3}Detection}{28}{subsection.2.3.3}%
-\contentsline {chapter}{\numberline {3}Current Reversal Theory}{31}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Perturbation Methods}{31}{section.3.1}%
-\contentsline {subsection}{\numberline {3.1.1}What is a Perturbation Treatment?}{31}{subsection.3.1.1}%
-\contentsline {subsubsection}{Resistivity Note}{33}{section*.15}%
-\contentsline {subsection}{\numberline {3.1.2}Regular Perturbation Theory}{34}{subsection.3.1.2}%
-\contentsline {subsection}{\numberline {3.1.3}Ideal MHD Perturbation}{34}{subsection.3.1.3}%
-\contentsline {subsubsection}{Continuity Equation Time Perturbation}{35}{section*.16}%
-\contentsline {subsubsection}{Momentum Equation}{37}{section*.17}%
-\contentsline {subsubsection}{The Other Ideal MHD Equations}{38}{section*.18}%
-\contentsline {subsubsection}{Significance}{39}{section*.19}%
-\contentsline {section}{\numberline {3.2}Grad-Shafranov-Helmholtz Equation}{40}{section.3.2}%
-\contentsline {subsection}{\numberline {3.2.1}Helmholtz Equations}{40}{subsection.3.2.1}%
-\contentsline {subsection}{\numberline {3.2.2}GSH Equation}{40}{subsection.3.2.2}%
-\contentsline {subsection}{\numberline {3.2.3}Analytic Solution and Derivation}{41}{subsection.3.2.3}%
-\contentsline {section}{\numberline {3.3}Current Reversal Systems}{41}{section.3.3}%
-\contentsline {subsection}{\numberline {3.3.1}Current and Pressure Density Profiles}{41}{subsection.3.3.1}%
-\contentsline {subsection}{\numberline {3.3.2}Example Configurations}{41}{subsection.3.3.2}%
-\contentsline {chapter}{\numberline {4}Numerical Model Fitting}{43}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Non-Linear Optimisation}{43}{section.4.1}%
-\contentsline {subsection}{\numberline {4.1.1}Least Squares}{43}{subsection.4.1.1}%
-\contentsline {subsection}{\numberline {4.1.2}Optimisation Algorithms}{43}{subsection.4.1.2}%
-\contentsline {subsubsection}{The Usual Suspects}{43}{section*.20}%
-\contentsline {subsubsection}{MMA Algorithm}{43}{section*.21}%
-\contentsline {section}{\numberline {4.2}GSH Parameter Fitting}{43}{section.4.2}%
-\contentsline {subsection}{\numberline {4.2.1}Optimisation Function}{44}{subsection.4.2.1}%
-\contentsline {subsection}{\numberline {4.2.2}Parameter Space}{44}{subsection.4.2.2}%
-\contentsline {subsection}{\numberline {4.2.3}Convergence Difficulties}{44}{subsection.4.2.3}%
-\contentsline {section}{\numberline {4.3}Simulated Current Reversals}{44}{section.4.3}%
-\contentsline {subsection}{\numberline {4.3.1}Method of Reversal}{44}{subsection.4.3.1}%
-\contentsline {subsection}{\numberline {4.3.2}Results and Explanations}{44}{subsection.4.3.2}%
-\contentsline {chapter}{\numberline {5}Comparison with Experiment}{47}{chapter.5}%
-\contentsline {section}{\numberline {5.1}ISTTOK}{47}{section.5.1}%
-\contentsline {subsection}{\numberline {5.1.1}Heavy Ion Beam Diagnostics}{47}{subsection.5.1.1}%
-\contentsline {subsection}{\numberline {5.1.2}Reactor Specification and Data}{49}{subsection.5.1.2}%
-\contentsline {section}{\numberline {5.2}Parameter Fitting}{52}{section.5.2}%
-\contentsline {subsection}{\numberline {5.2.1}Results}{52}{subsection.5.2.1}%
-\contentsline {subsubsection}{Initial Attempts}{52}{section*.22}%
-\contentsline {subsubsection}{Data Cleanup and Second Attempt}{57}{section*.23}%
-\contentsline {subsubsection}{Alternative Data Coddling Methods and Steps Forward}{59}{section*.24}%
-\contentsline {chapter}{\numberline {6}Blue Skies and Horizons}{61}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Conclusions}{61}{section.6.1}%
-\contentsline {section}{\numberline {6.2}Further Work}{62}{section.6.2}%
-\contentsline {subsection}{\numberline {6.2.1}Simulated Electric Field via Fake Solenoids}{62}{subsection.6.2.1}%
-\contentsline {subsection}{\numberline {6.2.2}Comparison with ISTTOK $v_{\text {loop}}$ data}{62}{subsection.6.2.2}%
-\contentsline {subsection}{\numberline {6.2.3}Grid Based Initial Parameter Guessing}{63}{subsection.6.2.3}%
-\contentsline {chapter}{\numberline {A}Appendix title goes here}{65}{appendix.A}%
-\contentsline {chapter}{Bibliography}{67}{appendix.A}%
+\contentsline {section}{\numberline {2.3}Runaway Electrons}{28}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}Regular Electron Movement}{29}{subsection.2.3.1}%
+\contentsline {subsubsection}{Electric Field drift}{29}{section*.13}%
+\contentsline {subsubsection}{$\grad \vec {B}$ drift}{30}{section*.14}%
+\contentsline {subsection}{\numberline {2.3.2}Generation}{31}{subsection.2.3.2}%
+\contentsline {subsection}{\numberline {2.3.3}Detection}{32}{subsection.2.3.3}%
+\contentsline {chapter}{\numberline {3}Current Reversal Theory}{35}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Perturbation Methods}{35}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}What is a Perturbation Treatment?}{35}{subsection.3.1.1}%
+\contentsline {subsubsection}{Resistivity Note}{37}{section*.15}%
+\contentsline {subsection}{\numberline {3.1.2}Regular Perturbation Theory}{38}{subsection.3.1.2}%
+\contentsline {subsection}{\numberline {3.1.3}Ideal MHD Perturbation}{38}{subsection.3.1.3}%
+\contentsline {subsubsection}{Continuity Equation Time Perturbation}{39}{section*.16}%
+\contentsline {subsubsection}{Momentum Equation}{41}{section*.17}%
+\contentsline {subsubsection}{The Other Ideal MHD Equations}{42}{section*.18}%
+\contentsline {subsubsection}{Significance}{43}{section*.19}%
+\contentsline {section}{\numberline {3.2}Grad-Shafranov-Helmholtz Equation}{44}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Helmholtz Equations}{44}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}GSH Equation}{44}{subsection.3.2.2}%
+\contentsline {subsection}{\numberline {3.2.3}Analytic Solution and Derivation}{45}{subsection.3.2.3}%
+\contentsline {section}{\numberline {3.3}Current Reversal Systems}{45}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Current and Pressure Density Profiles}{45}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.3.2}Example Configurations}{45}{subsection.3.3.2}%
+\contentsline {chapter}{\numberline {4}Numerical Model Fitting}{47}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Non-Linear Optimisation}{47}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Least Squares}{47}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.2}Optimisation Algorithms}{47}{subsection.4.1.2}%
+\contentsline {subsubsection}{The Usual Suspects}{47}{section*.20}%
+\contentsline {subsubsection}{MMA Algorithm}{47}{section*.21}%
+\contentsline {section}{\numberline {4.2}GSH Parameter Fitting}{47}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Optimisation Function}{48}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}Parameter Space}{48}{subsection.4.2.2}%
+\contentsline {subsection}{\numberline {4.2.3}Convergence Difficulties}{48}{subsection.4.2.3}%
+\contentsline {section}{\numberline {4.3}Simulated Current Reversals}{48}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Method of Reversal}{48}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.3.2}Results and Explanations}{48}{subsection.4.3.2}%
+\contentsline {chapter}{\numberline {5}Comparison with Experiment}{51}{chapter.5}%
+\contentsline {section}{\numberline {5.1}ISTTOK}{51}{section.5.1}%
+\contentsline {subsection}{\numberline {5.1.1}Heavy Ion Beam Diagnostics}{51}{subsection.5.1.1}%
+\contentsline {subsection}{\numberline {5.1.2}Reactor Specification and Data}{53}{subsection.5.1.2}%
+\contentsline {section}{\numberline {5.2}Parameter Fitting}{56}{section.5.2}%
+\contentsline {subsection}{\numberline {5.2.1}Results}{56}{subsection.5.2.1}%
+\contentsline {subsubsection}{Initial Attempts}{56}{section*.22}%
+\contentsline {subsubsection}{Data Cleanup and Second Attempt}{61}{section*.23}%
+\contentsline {subsubsection}{Alternative Data Coddling Methods and Steps Forward}{63}{section*.24}%
+\contentsline {chapter}{\numberline {6}Blue Skies and Horizons}{65}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Conclusions}{65}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Further Work}{66}{section.6.2}%
+\contentsline {subsection}{\numberline {6.2.1}Simulated Electric Field via Fake Solenoids}{66}{subsection.6.2.1}%
+\contentsline {subsection}{\numberline {6.2.2}Comparison with ISTTOK $v_{\text {loop}}$ data}{66}{subsection.6.2.2}%
+\contentsline {subsection}{\numberline {6.2.3}Grid Based Initial Parameter Guessing}{67}{subsection.6.2.3}%
+\contentsline {chapter}{\numberline {A}Appendix title goes here}{69}{appendix.A}%
+\contentsline {chapter}{Bibliography}{71}{appendix.A}%

@@ -325,7 +325,7 @@ assumptions of ideal MHD. It is a nonlinear, elliptic partial differential equat
 with a cylindrical coordinate system \cite{shafranov-paper}. We will first begin with some basic definitions surrounding PDEs, partly 
 because the author is not formally educated in them and wishes to demonstrate the 
 amount they have learned over this last year, but largely, realistically, for the obligatory Evans citation. We 
-will then introduce GSE, and explore some of its properties.
+will then introduce the GSE, and explore some of its properties.
 
 \begin{definition}[Partial Differential Equation]
     An expression of the form
@@ -484,8 +484,156 @@ immediately gives us that, in our plasma model:
     \item Any velocities considered are non-relativistic (notably, this includes electron velocities)
 \end{itemize}
 
-\TODO \\
-\red{can use graphics here as well}
+\begin{remark}
+    We will largely follow Wesson's derivation of the Grad-Shafranov equation given in \cite{wesson-tokamaks}, however 
+    will correlate this with other sources too. Additionally, we will deviate from some standard notations (such as 
+    that used for major radius offset, substituting $x$ for $R$, as this will be more consistent with the presentation 
+    of the Grad-Shafranov-Helmholtz given by Wang in \cite{wang-analytic-solution} which will be the subject of our 
+    attention in the next section)
+\end{remark}
+
+We make a few extra assumptions too. First, we take our fluid to be incompressible, which gives us the relation 
+$\nabla \cdot (\rho \vec{u}) = 0$. As the Grad-Shafranov equation is also one describing an equilbrium state 
+of the plasma, we take our fluid to be stationary, i.e., $\vec{u} = 0$. From this we gather 
+that $\rho \frac{\DD}{\DD t} \vec{u} = 0$, which transforms out momentum equation from 
+\begin{equation}
+    \rho \frac{\DD}{\DD t} \vec{u} = -\nabla p + \vec{j} \times \vec{B}
+\end{equation}
+into a force-balance equation relating pressure, current, and the magnetic field.
+\begin{equation}
+    \nabla p = \vec{j} \times \vec{B}
+\end{equation}
+We also add the restriction that the magnetic field is divergence free, i.e.
+\begin{equation}
+    \nabla \cdot \vec{B} = 0
+\end{equation}
+which is to say there are no sources or sinks of magnetism within the field itself (to not make this 
+assumption would be to suggest the existence of a magnetic monopole within our plasma). We can combine these 
+two relations with Ampere's law, which remains unchanged, to have the set of equations
+\begin{align}
+    \label{divergence-free-b} \nabla \cdot \vec{B} &= 0 \\
+    \label{local-amperes} \mu_0 \vec{j} &= \nabla \times \vec{B} \\
+    \label{force-balance} \nabla p &= \vec{j} \times \vec{B}
+\end{align} 
+
+\begin{remark}
+    Equation \ref{divergence-free-b}, with \ref{force-balance}, also tells us that both $\vec{B} \cdot \nabla p = 0$ and $\vec{j} \cdot \nabla p = 0$. 
+    Thus, there is no pressure gradient across magnetic field lines, and current lines also lie within magnetic surfaces.
+\end{remark}
+
+We then introduce the poloidal magnetic flux function, $\Psi$, which describes the amount of poloidal magnetic flux 
+per radian in the $\phi$ (toroidal) direction. At the same time we introduce our cylindrical coordinate system. 
+We place specific emphasis on the fact we are simplifying our torus geometry to that of a cylinder here - we do this 
+under the assumption of axisymmetry, which says that our system is invariant with respect to $\phi$. We take $x$ to be the 
+major radius offset, with $R_0$ being the major radius of the torus. We also let $z$ describe the vertical offset within our poloidal 
+cross section, which is bound by $a$, the minor radius of the torus. The poloidal magnetic field can then be related 
+to our flux function by components in the $x$ and $z$ direction of our cross section
+\begin{align}
+    B_x &= -\frac{1}{x} \pdv{\Psi}{z} \\
+    B_z &= \frac{1}{x} \pdv{\Psi}{x}
+\end{align}
+which, combined, lets us write:
+\begin{align}
+    B_p &:= B_x \hat{e}_x + B_z \hat{e}_z \\
+    &= -\frac{1}{x} \pdv{\Psi}{z} \hat{e}_x + \frac{1}{x} \pdv{\Psi}{x} \hat{e}_z
+\end{align}
+which is equivalent to writing 
+\begin{equation}
+    \label{poloidal-mag-field-psi} B_p = \frac{1}{x} \left ( \nabla \Psi \times e_{\phi} \right )
+\end{equation}
+By a similar argument, we can decompose the poloidal current in terms of a function $f$, the poloidal current 
+flux function.
+\begin{align}
+    \label{current-1} \vec{j}_{x} &= -\frac{1}{x} \pdv{f}{z} \\
+    \label{current-2} \vec{j}_{z} &= \frac{1}{x} \pdv{f}{x}
+\end{align}
+By comparison, Ampere's equation (equation \ref{local-amperes}), combined with \ref{poloidal-mag-field-psi}, gives us the equivalent relations
+\begin{align}
+    \vec{j}_{x} &= -\frac{1}{\mu_0} \pdv{\vec{B}_{\phi}}{z} \\
+    \vec{j}_{z} &= \frac{1}{\mu_0}\frac{1}{x} \pdv{}{x} \left ( x \vec{B}_{\phi} \right )
+\end{align}
+which gives us an expression for $f$:
+\begin{equation}
+    f = \frac{x \vec{B}_{\phi}}{\mu_0}
+\end{equation}
+At this point, we are able to describe the force balance equation (\ref{force-balance}) in terms of $f, \Psi$ and $p$. Next, 
+we want to show that, in actuality, our poloidal current density flux function $f$ and our pressure density 
+function $p$ are both functions of $\Psi$. Recalling we have $\vec{j} \cdot \nabla p = 0$, we can 
+substitute our relations for the poloidal current density given in equations (\ref{current-1}, \ref{current-2}) to 
+write our pressure in terms of poloidal current:
+\begin{align*}
+    \vec{j} \cdot \nabla p &= 0 \\
+    \left ( -\frac{1}{x} \pdv{f}{z} \hat{e}_{x} + \frac{1}{x} \pdv{f}{x} \hat{e}_{z} \right ) \cdot \nabla p &= 0 \\
+    \left ( -\frac{1}{x} \pdv{f}{z} \hat{e}_{x} + \frac{1}{x} \pdv{f}{x} \hat{e}_{z} \right ) \cdot \left ( \pdv{p}{x} \hat{e}_{x} +  \pdv{p}{z} \hat{e}_{z} \right ) &= 0 \\
+    \frac{1}{x} \left ( \pdv{f}{x} \pdv{p}{z} - \pdv{f}{z} \pdv{p}{x} \right ) &= 0 \\
+    \pdv{f}{x} \pdv{p}{z} - \pdv{f}{z} \pdv{p}{x} &= 0
+\end{align*}
+The last line of the above is equivalent to the statement
+\begin{equation*}
+    \nabla f \times \nabla p = 0
+\end{equation*}
+which tells us that $f$ is constant with respect to $p$. This tells us that $f$ is a function of $p$, 
+i.e., $f = f(p)$. We already had the result earlier that $p$ is constant with respect to poloidal magnetic field lines, 
+which tells us additionally that $p = p(\Psi)$, which by transitivity gives us that $f = f(\Psi)$. Thus, $p(\Psi)$ and $f(\Psi)$
+are functions of the poloidal magnetic flux. This gives us explicitly a way to describe the force balance 
+function in terms of flux functions. Thus, if we expand:
+\begin{align*}
+    \vec{j} \times \vec{B} &= \nabla p \\
+    \vec{j}_p \times (\vec{B}_\phi \hat{e}_{\phi}) + (\vec{j}_{\phi} \hat{e}_{\phi}) \times \vec{B}_p &= \nabla p
+\end{align*}
+we can substitute the expressions for $\vec{B}_p$ and $\vec{j}_p$
+\begin{align*}
+    \vec{B}_p &= \frac{1}{x} \left ( \nabla \Psi \times \hat{e}_{\phi} \right ) \\
+    \vec{j}_p &= \frac{1}{x} \left ( \nabla f \times \hat{e}_{\phi} \right )
+\end{align*}
+into the expanded force balance equation:
+\begin{align*}
+    \vec{j}_p \times (\vec{B}_\phi \hat{e}_{\phi}) + (\vec{j}_{\phi} \hat{e}_{\phi}) \times \vec{B}_p &= \nabla p \\
+    \left ( \frac{1}{x} \left ( \nabla f \times \hat{e}_{\phi} \right ) \right ) \times (\vec{B}_\phi \hat{e}_{\phi}) + (\vec{j}_{\phi} \hat{e}_{\phi}) \times \left ( \frac{1}{x} \left ( \nabla \Psi \times \hat{e}_{\phi} \right ) \right ) &= \nabla p
+\end{align*}
+Noting that the toroidal components of the flux functions are non-existent, i.e. that $\hat{e}_{\phi} \cdot \nabla \Psi = 0$ and $\hat{e}_{\phi} \cdot \nabla f = 0$
+\begin{equation}
+    \label{expanded-balance} -\frac{\vec{B}_{\phi}}{x} \nabla f  + \frac{\vec{j}_{\phi}}{x} \nabla \Psi = \grad p
+\end{equation}
+Recalling that $f$ and $p$ are functions of our poloidal magnetic flux function $\Psi$, we have the relations
+\begin{align*}
+    \nabla f(\Psi) &= \pdv{f}{\Psi} \nabla \Psi \\
+    \nabla p(\Psi) &= \pdv{p}{\Psi} \nabla \Psi
+\end{align*}
+Substituting these into \ref{expanded-balance} gives us
+\begin{equation}
+    j_{\phi} = x \pdv{p}{\Psi} + \vec{B}_{\phi} \pdv{f}{\Psi}
+\end{equation}
+then, recalling that $f = (x \vec{B}_{\phi}) / \mu_0$, we can remove the toroidal magnetic field component
+\begin{equation}
+    \label{pre-gse} j_{\phi} = x \pdv{p}{\Psi} + \frac{\mu_0}{x} f(\Psi) \pdv{f}{\Psi}
+\end{equation}
+Lastly, we want to remove the toroidal current component. We can do this by expanding Ampere's law again, where 
+we also use our expressions for $\vec{B}_p$ and $\vec{j}_p$. To save using more space in this derivation we'll leave this 
+as an exercise, but the result is the expansion
+\begin{equation}
+    \label{jphi-remove} -\mu_0 x \vec{j}_{\phi} = x \pdv{x} \left (\frac{1}{x} \pdv{\Psi}{x} \right ) + \pdv[2]{\Psi}{z}
+\end{equation}
+Substituting \ref{jphi-remove} into \ref{pre-gse} gives us the Grad-Shafranov equation:
+\begin{equation}
+    x \pdv{x} \left ( \frac{1}{x} \pdv{\Psi}{x} \right ) + \pdv[2]{\Psi}{z} = -\mu_0 x^2 \pdv{p}{\Psi} - \mu_0^2 f(\Psi) \pdv{f}{\Psi}
+\end{equation}
+which is in the form we first saw it in in equation \ref{gse-formal}.
+
+\begin{remark}
+    An important result here is that the total magnetic field can be expressed as 
+    \begin{equation*}
+        \vec{B} = \vec{B}_p \hat{e}_{\phi} + \vec{B}_{\phi} \hat{e}_{\phi}  = \nabla \Psi \times \nabla \phi + f(\Psi) \nabla \phi
+    \end{equation*}
+    whic tells us that to describe the magnetic field, the only information we require is 
+    the poloidal magnetic flux function, and the poloidal current density function (or equivalently, 
+    poloidal pressure density). 
+\end{remark}
+
+
+
+\TODO
+
 
 % 2.3.
 \section{Runaway Electrons}
@@ -583,8 +731,8 @@ REs, and in eliminating other processes which generate them, we will necessarily
 of runaway electrons. Notably, this will also increase in magnitude for reactors which have longer 
 
 A connected idea to this is that of runaway avalanches. If a collision takes place within the plasma between a high 
-energy electron and another particle, then an avalanche can occur if that collision results in the production of another 
-high energy (relativistic) electron. This avalanche effect is characterised by an exponential growth, which can be given:
+energy electron and particles in the gas, then a ``Townsend avalanche'' can occur if that collision results in the production of other 
+high energy electrons. This avalanche effect is characterised by an exponential growth, which can be given:
 \begin{equation*}
     \ln \frac{n_{\text{re}}}{n_{\text{seed}}} = \frac{e}{m_e \ln \Lambda} \frac{\Delta \Psi / (2\pi R)}{\sqrt{5 + Z_{\text{eff}}}}
 \end{equation*}
@@ -625,7 +773,7 @@ population size.
     Quick science fawning moment: Cherenkov radiation is an observable phenomena presenting as a blue 
     glow, and is the result of photons travelling faster than the speed of light! But this is only possible 
     in certain situations. For example, in water, light waves propagate slower than the speed of light in a vacuum
-    (the traditional value for $c$ we're accustomed to seeing).
+    (the traditional value for $c$ we're accustomed to seeing) due to the refractive nature of water.
     However, radioactive materials can generate beta particles which are emitted at close to the velocity of light 
     in a vacuum, $c$, and thus travel faster than the light in the medium around it! \cite{nobel-cherenkov}
 \end{remark}
