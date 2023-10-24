@@ -353,40 +353,38 @@ presence of excess runaway electrons.
 % 3.2.
 \section{Grad-Shafranov-Helmholtz Equation}
 
+The Grad-Shafranov equation, in its default state (as we have derived it), does not account for the possibility of current 
+reversal equilibrium configurations (CRECs). That is to say, it does not permit anti-parallel current channels in an equilibrium state. 
+This is problematic, as this is one of the behaviours we are seeking to identify in simulation. In the last 20 years work has been done on 
+modelling such configurations, and analytic results have become more abundant \cite{wang-analytic-solution}, \cite{crec-work-1}, \cite{crec-work-2}.
+For our purposes, we are interested in work done by Wang and Yu in deriving an analytic solution to a variant of the Grad-Shafranov equation 
+known as the Grad-Shafranov-Helmholtz equation, which is capable of supporting CRECs. In this section we'll present their work, provide a 
+brief derivation, and highlight the components that will be important for our simulations (the current density and pressure density profiles). 
+Then we'll demonstrate an ability to recreate Wang's results.
+
 % 3.2.1.
-\subsection{Helmholtz Equations}
+\subsection{Equation and Derivation}
 
-What is a Helmholtz equation 
+The work here will largely follow the paper by Wang and Yu \cite{wang-analytic-solution},
+with some key notes and modifications. We are by now familiar with the GSE:
+\begin{equation}
+    x \pdv{x} \left ( \frac{1}{x} \pdv{\Psi}{x} \right ) + \pdv[2]{\Psi}{z} = -\mu_0 x^2 \pdv{p}{\Psi} - \mu_0^2 f(\Psi) \pdv{f}{\Psi}
+\end{equation}
 
-% 3.2.2.
-\subsection{GSH Equation}
-How do we apply it to the Grad-Shafranov equation
-
-The work here will largely follow the paper by Wang and Yu REFERENCE,
-with some key notes and modifications. We are by now familiar with the 
-GSE:
-
-\red{INSERT GSE}
-
-Wang provide a slightly different (though equivalent) formulation:
+Wang provides a slightly different (though equivalent) formulation:
 \begin{proposition}
-    First, we will introduce some normalisation terms. Let $j_\phi = \frac{J_{\phi} \mu_0 a}{B_0}$ be 
-    the toroidal current density normalised with respect to the magnetic field, where we let $J_{\phi}$ 
-    be the toroidal current density, $\mu_0$ is free-space magnetic permeability, 
-    and $B_0$ is the on-axis magnetic field strength (here, the strength of the 
-    magnetic field evaluted at the centre of the cross section, where $x = a$. This is not physically correct, 
-    but is what the model asserts).
-
+    Let $R_0$ and $a$ describe the major and minor radius. $B_0$ is then the magnetic axis, which Wang takes to be 
+    the strength of the magnetic field at $R = R_0$. Additionally, we let $\psi = \Psi / (B_0 a^2)$ be the 
+    normalised poloidal magnetic flux, and we let $x = R/a$ and $z = Z/a$. For flux fucntions, we let $\beta(\psi) = (2 \mu_0 p(\psi))/B_0^2$, 
+    $g(\psi) = F(\psi) / (B_0 a)$ and $j_\phi = (J_{\phi} \mu_0 a) / B_0$, where $J_{\phi}$ is the toroidal current density. 
     The GSE can then equivalently be stated:
     \begin{align}
-        \left ( x \pdv{x} \frac{1}{x} \pdv{x} + \pdv[2]{z} \right ) \psi &= -\frac{1}{2} x^2 \dv{\beta}{\psi} - \frac{1}{2}\dv{g^2}{\psi} = -x j_{\phi} \\
+        \label{wang-gse} \left ( x \pdv{x} \frac{1}{x} \pdv{x} + \pdv[2]{z} \right ) \psi &= -\frac{1}{2} x^2 \dv{\beta}{\psi} - \frac{1}{2}\dv{g^2}{\psi} = -x j_{\phi} \\
         \intertext{where}
-        a_1 &= -\frac{1}{2} \dv{\beta}{\psi} \\
-        a_2 - \alpha^2 \psi &= -\frac{1}{2} \dv{g^2}{\psi}
+        \label{a1} a_1 &= -\frac{1}{2} \dv{\beta}{\psi} \\
+        \label{a2-alpha} -a_2 - \alpha^2 \psi &= -\frac{1}{2} \dv{g^2}{\psi}
     \end{align}
-
-    Here, we have some normalised terms: $\psi(x,z) = \frac{\Psi(x,z)}{B_0 a^2}$ is the normalised poloidal magnetic flux function. The $\beta$ 
-    function is given $\beta(\psi) = \frac{2 \mu_0 p(\psi)}{B_0^2}$, and $g(\psi) = \frac{F(\psi)}{B_0 a}$. 
+    Additionally we impose the boundary condition $\psi |_b = 0$. 
 \end{proposition} 
 
 \begin{remark}
@@ -395,39 +393,130 @@ Wang provide a slightly different (though equivalent) formulation:
     significance so that the reader (that's you!) may pay them special attention through the rest of the following working.
 \end{remark}
 
-At the boundary of a fusion reactor we expect there to be no / minimal poloidal magnetic 
-flux, i.e. that the field strength dissipates as we approach the edge of the reactor. This justifies 
-the boundary condition we will impose: $\psi |_b = 0$. 
+\begin{definition}[Helmholtz Equation]
+    A Helmholtz equation is a problem associated with the below form
+    $$\nabla^2 f = -k^2 f$$
+    where $\nabla^2$ is the Laplace operator, $k^2$ is the eigenvalue, and $f$ is an eigenfunction.
+\end{definition}
+The equation we have in \ref{wang-gse} is in fact just the Grad-Shafranov equation. If, instead of a flux function $\psi$, we consider 
+a toroidal vector potential factor $A = \psi / x$, then the GSE formulation given above reduces to a separate system, which can be identified 
+as being Helmholtz:
+\begin{align}
+    \label{wang-gsh} \left ( \frac{1}{x} \pdv{x} x \pdv{x} + \pdv[2]{z} - \frac{1}{x^2} \right ) A + \alpha^2 A &= a_1 x - a_2 \frac{1}{x} \\
+    A |_b &= 0
+\end{align}
 
+We then seek a solution $\psi(x,z)$ for equation \ref{wang-gse}, which satisfies the above conditions in \ref{wang-gsh}. Wang provides one:
+\begin{proposition}
+    The below is a solution to the GSH as given above
+    \begin{equation}
+        \label{gsh-solution} \psi(x,z) = x \sum_{n = 1}^{\infty} \sum_{l = 0}^{\infty} \frac{(-1)^l 2 a_n^u}{kv_la_n^d (\alpha^2 - \lambda_{n,l}^2)} \left [ c_n J_1(\mu_n x) + N_1(\mu_n x)\right ] \cos(v_l z)
+    \end{equation}
+    where here $J_\alpha$ are Bessel functions of the first kind, and $N_\alpha$ are Bessel functions of the second kind. Some of these other terms we will for now 
+    leave unexplained, as we will cover them in the derivation. 
+\end{proposition}
+
+\subsubsection{Derivation}
+We will assume a cylindrical coordinate system, and consider our boundary conditions to be a rectangular cross section. We will 
+take $x \in [x_0 - a, x_0 + a]$ and $z \in [-k, k]$, where $k$ is an elongation constant which determines the ellipticity of the cross section. 
+With this in mind, the equivalent problem to \ref{wang-gsh} is the system
+\begin{align}
+    \label{4a} \left ( \frac{1}{x} \pdv{x} x \pdv{x} + \pdv[2]{z} - \frac{1}{x^2} \right ) U + \lambda^2 U &= 0 \\
+    \label{4b} U(x_0 - a, z) = U(x_0 + a, z) &= 0 \\
+    \label{4c} U(x, -k) = U(x, k) &= 0
+\end{align}
+If we begin by assuming that a solution is of the form $U(x,z) = \mathcal{R}(x) \mathcal{Z}(z)$, then we can describe it as an 
+orthogonal system of eigenfunctions, and make a Fourier expansion as such:
+\begin{align}
+    \label{10a} A(x,z) &= \sum_{n = 1}^{\infty} \sum_{l = 0}^{\infty} A_{n,l} \mathcal{R}_n(x) \mathcal{Z}_l(z) \\
+    \label{10b} a_1 x - a_2 \frac{1}{x} &= \sum_{n = 1}^{\infty} \sum_{l = 0}^{\infty} f_{n,l} \mathcal{R}_n(x) \mathcal{Z}_l(z)
+\end{align}
+Equations \ref{10a} and \ref{10b} can be substituted into \ref{wang-gsh}, Wang found an explicit form for $A_{n,l}$:
+\begin{equation}
+    \label{a-form} A_{n,l} = \frac{f_{n,l}}{\alpha^2 - \lambda_{n,l}^2} = \frac{(-1)^l 2a_n^u}{kv_l a_n^d (\alpha^2 - \lambda_{n,l}^2)}
+\end{equation}
+Thus, we need to reason about the values $\mathcal{R}_n(x)$ and  $\mathcal{Z}_l(z)$. 
+If we introduce constants $v^2$ and $\mu^2$ such that $\lambda^2 = v^2 + \mu^2$ (a result of $\mathcal{Z}$ and $\mathcal{R}$ being orthogonal), Wang found the relations
+\begin{align}
+    \label{5a} \dv[2]{\mathcal{Z}}{x} + v^2 \mathcal{Z} &= 0 \\
+    \label{5b} \mathcal{Z}(-k) = \mathcal{Z}(k) &= 0 \\
+    \label{5c} \dv[2]{\mathcal{R}}{x} + \frac{1}{2} \dv{\mathcal{R}}{x} + \left ( \mu^2 - \frac{1}{x^2} \right ) \mathcal{R} &= 0 \\
+    \label{5d} \mathcal{R}(x_0 - a) = \mathcal{R}(x_0 + 1) &= 0
+\end{align}
+Equations \ref{5a} and \ref{5b} are an eigenvalue problem, and provide the following eigenvalues and eigenfunctions
+\begin{align}
+    v_l &= \frac{1}{k} (l + \frac{1}{2}) \pi \\
+    \label{z-func} \mathcal{Z}_l(z) &= \cos(v_l z)
+\end{align}
+with $l \in \Z_{\ge 0}$. Similarly, equation \ref{5c} with \ref{5d} represent another eigenvalue problem. The eigenfunctions 
+are given as
+\begin{equation}
+    \label{r-func} \mathcal{R}_n(x) = c_n J_1(\mu_n x) + N_1(\mu_n x)
+\end{equation}
+where $n \in \Z_{\ge 1}$. Here, however, we don't have an explicit form for the eigenvalues $\mu_n$. Instead, 
+$\mu_n$ is described as being the zeros of the function
+\begin{equation}
+    -J_1(\mu_n (x_0 + a)) \frac{N_1(\mu_n (x_0 - a))}{J_1 (\mu_n (x_0 - a))} + N_1(\mu_n (x_0 + 1)) = 0
+\end{equation}
+where
+$$c_n = -\frac{N_1(\mu_n (x_0 - a))}{J_1 (\mu_n (x_0 - a))}$$
+Thus we can summarise the eigenvalues and eigenfunctions of \ref{4a} - \ref{4c} are given by
+\begin{align}
+    \lambda_{n,l}^2 &= v_l^2 + \mu_n^2 \\
+    U_{n,l}(x,z) &= \mathcal{R}_n(x) \mathcal{Z}_l(z)
+\end{align}
+Thus we have an explicit form for the eigenfunctions we required in \ref{a-form}. We can also now 
+provide expressions for the until now unknown variables in \ref{a-form}, the derivations for which are 
+given by Wang in an earlier paper \cite{wang-precursor}. We provide them en masse here:
+\begin{align}
+    e_n^u(x) &= \frac{1}{\mu_n} \left [ a_1 x^2 (c_n J_2(\mu_n x) + N_2(\mu_n x)) + a_2 (c_n J_0 (\mu_n x) + N_0(\mu_n x)) \right ] \\
+    a_n^u &= [e_n^u(x)]_{x_0 - a}^{x_0 + a} \\
+    e_n^d(x) &= -\frac{1}{2} x^2 N_0(\mu_n x) N_2(\mu_n x) - \frac{1}{2} c_n^2 x^2 J_0(\mu_n x) J_2(\mu_n x) \\
+    \notag &+ c_n \left [ \frac{1}{2}x^2 (J_0(\mu_n x) - J_2(\mu_n x) )N_0(\mu_n x) - \frac{1}{\mu_n} x J_0(\mu_n x) N_1(\mu_n x) \right ] \\
+    a_n^d &= [a_n^d (x)]_{x_0-a}^{x_0+a}
+\end{align}
+Note here that the superscripts $u$ and $d$ are not indices, but are just used to distinguish between variables. Thus, to show that $\psi(x,z)$ as
+provided in \ref{gsh-solution} is a solution, we simply substitute equations \ref{z-func}, \ref{r-func} and \ref{a-form} into \ref{10b}.
 
 % 3.2.3.
-\subsection{Analytic Solution and Derivation}
+\subsection{Current Density and Pressure Density}
+We have an explicit formula for the poloidal magnetic flux function $\psi$ (albeit normalised for our case), but we remain to have an 
+expression for our current density and pressure density profiles.
 
-\red{From Wang, but with the fixes added in. Should I highlight the fixes I made, or is 
-that being an asshole?}
+\subsubsection{Pressure Density Profile}
+In a small note below equation (16c) of \cite{wang-analytic-solution}, an expression for the plasma pressure is given as
+\begin{equation}
+    \label{pressure-profile} \beta(x,z) = \beta_0 - 2a_1 \psi(x,z)
+\end{equation}
+where $\beta_0$ is chosen such that the minimum of the expression is zero for the domain (this just ensures that it's not possible 
+to have negative pressures).
 
-\red{Emphasise cylindrical coordinate system, and rectangular cross section}
+\subsubsection{Current Density Profile}
+Equation \ref{wang-gse} relates the toroidal current density to our parameters $a_1, a_2$ and $\alpha$. As we know 
+all other components here, we can draw the toroidal current density from this. In doing so, recall notably equations \ref{a1} and \ref{a2-alpha}.
+\begin{align}
+    \notag -xj_{\phi}(x,z) &= -\frac{1}{2}x^2 \dv{\beta}{\psi} - \frac{1}{2} \dv{g^2}{\psi} \\
+    \notag -xj_{\phi}(x,z) &= a_1 x^2 - a_2 - \alpha^2 \psi(x,z) \\
+    \label{current-profile} \implies j_{\phi}(x,z) &= -a_1 x + \frac{1}{x} a_2 + \frac{\alpha^2}{x} \psi(x,z)
+\end{align}
+
+\begin{remark}
+    As we stated toward the start of this chapter, three parameters appear crucial to this system - $(a_1, a_2, \alpha)$. We see that, in fact, 
+    the entirety of our system can be determined by them, as any other variables are configuration variables for the tokamak. Thus, if we 
+    the values $(a_1, a_2, \alpha)$ can be used to calculate the poloidal magnetic flux, the current density profile, and the 
+    pressure density profile.
+\end{remark}
+
 % 3.3.
-\section{Current Reversal Systems}
+\section{Simulations}
+At this point, we are able to describe the poloidal magnetic field flux function, current density profile, and pressure density profile for a 
+tokamak under the restrictions of the GSH model. However, we are only able to do this if we are given some set of parameter, $(a_1, a_2, \alpha)$. 
+In the next chapter we will deal with the question of deriving these parameters for a given current density profile, but for now we can simply reproduce 
+the results given by Wang in section 3 of \cite{wang-analytic-solution}.
 
-\red{SECTION IS CANDIDATE FOR REMOVAL GIVEN TIME CONSTRAINTS}
-
-\red{if this is kept, could it go before the section on the GSH equation?}
-
-\red{https://www.teses.usp.br/teses/disponiveis/43/43134/tde-11032013-131439/publico/taborda.pdf}
-
-\red{Talk about difficulties with regular GSE in modelling systems where current can be reversed}
-
-\red{Is important because experiment shows anti-parallel currents could exist; need to support negative currents}
-
-% 3.3.1.
-\subsection{Current and Pressure Density Profiles}
-
-\red{Short derivation of the current and pressure density profiles, how they relate 
-to $a_1, a_2$ and $\alpha$. Maybe this section doesn't need to be too long}
-
-% 3.3.2.
-\subsection{Example Configurations}
-
-\red{Present our replication of Wang's paper results, plus a couple more for good 
-measure. Could include a few snippets of code maybe?}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[scale=0.7]{imgs/c3/wang-fig-1.png}
+    \caption{Figure 1 of \cite{wang-analytic-solution}. Here, there parameters are $(a_1, a_2, \alpha) = (-0.04531, -1.0808, 2.1683)$, 
+    where the minor radius $a = 1$, the elongation is $k = 1$, and the major radius is taken to be $R = 5$.}
+\end{figure}

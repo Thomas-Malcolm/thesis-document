@@ -52,6 +52,12 @@ L.C. Evans.
 \newblock {\em Partial Differential Equations}.
 \newblock Graduate studies in mathematics. American Mathematical Society, 2010.
 
+\bibitem{crec-work-2}
+G.~W. Hammett, S.~C. Jardin, and B.~C. Stratton.
+\newblock Non-existence of normal tokamak equilibria with negative central
+  current.
+\newblock {\em Physics of Plasmas}, 10(10):4048--4052, 09 2003.
+
 \bibitem{howard-plasma-physics}
 John Howard.
 \newblock Introduction to plasma physics.
@@ -101,6 +107,11 @@ Tom Malcolm.
 \newblock via GitHub at \url{https://github.com/Thomas-Malcolm/thesis-code},
   2023.
 
+\bibitem{crec-work-1}
+A.~A. Martynov, S.~Yu. Medvedev, and L.~Villard.
+\newblock Tokamak equilibria with reversed current density.
+\newblock {\em Phys. Rev. Lett.}, 91:085004, Aug 2003.
+
 \bibitem{websters_plasma}
 Merriam-Webster.
 \newblock Plasma, 2023.
@@ -134,6 +145,11 @@ V.~D. {Shafranov}.
 Neil Trudinger.
 \newblock Fully nonlinear pdes in geometry.
 \newblock Lecture Slides, 2004.
+
+\bibitem{wang-precursor}
+Shaojie Wang.
+\newblock Theory of tokamak equilibria with central current density reversal.
+\newblock {\em Phys. Rev. Lett.}, 93:155007, Oct 2004.
 
 \bibitem{wang-analytic-solution}
 Shaojie Wang and Jun Yu.

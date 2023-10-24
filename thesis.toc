@@ -37,39 +37,39 @@
 \contentsline {subsubsection}{The Other Ideal MHD Equations}{45}{section*.19}%
 \contentsline {subsubsection}{Significance}{46}{section*.20}%
 \contentsline {section}{\numberline {3.2}Grad-Shafranov-Helmholtz Equation}{47}{section.3.2}%
-\contentsline {subsection}{\numberline {3.2.1}Helmholtz Equations}{47}{subsection.3.2.1}%
-\contentsline {subsection}{\numberline {3.2.2}GSH Equation}{47}{subsection.3.2.2}%
-\contentsline {subsection}{\numberline {3.2.3}Analytic Solution and Derivation}{48}{subsection.3.2.3}%
-\contentsline {section}{\numberline {3.3}Current Reversal Systems}{48}{section.3.3}%
-\contentsline {subsection}{\numberline {3.3.1}Current and Pressure Density Profiles}{48}{subsection.3.3.1}%
-\contentsline {subsection}{\numberline {3.3.2}Example Configurations}{48}{subsection.3.3.2}%
-\contentsline {chapter}{\numberline {4}Numerical Model Fitting}{49}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Non-Linear Optimisation}{49}{section.4.1}%
-\contentsline {subsection}{\numberline {4.1.1}Least Squares}{49}{subsection.4.1.1}%
-\contentsline {subsection}{\numberline {4.1.2}Optimisation Algorithms}{49}{subsection.4.1.2}%
-\contentsline {subsubsection}{The Usual Suspects}{49}{section*.21}%
-\contentsline {subsubsection}{MMA Algorithm}{49}{section*.22}%
-\contentsline {section}{\numberline {4.2}GSH Parameter Fitting}{49}{section.4.2}%
-\contentsline {subsection}{\numberline {4.2.1}Optimisation Function}{50}{subsection.4.2.1}%
-\contentsline {subsection}{\numberline {4.2.2}Parameter Space}{50}{subsection.4.2.2}%
-\contentsline {subsection}{\numberline {4.2.3}Convergence Difficulties}{50}{subsection.4.2.3}%
-\contentsline {section}{\numberline {4.3}Simulated Current Reversals}{50}{section.4.3}%
-\contentsline {subsection}{\numberline {4.3.1}Method of Reversal}{50}{subsection.4.3.1}%
-\contentsline {subsection}{\numberline {4.3.2}Results and Explanations}{50}{subsection.4.3.2}%
-\contentsline {chapter}{\numberline {5}Comparison with Experiment}{53}{chapter.5}%
-\contentsline {section}{\numberline {5.1}ISTTOK}{53}{section.5.1}%
-\contentsline {subsection}{\numberline {5.1.1}Heavy Ion Beam Diagnostics}{53}{subsection.5.1.1}%
-\contentsline {subsection}{\numberline {5.1.2}Reactor Specification and Data}{55}{subsection.5.1.2}%
-\contentsline {section}{\numberline {5.2}Parameter Fitting}{58}{section.5.2}%
-\contentsline {subsection}{\numberline {5.2.1}Results}{58}{subsection.5.2.1}%
-\contentsline {subsubsection}{Initial Attempts}{58}{section*.23}%
-\contentsline {subsubsection}{Data Cleanup and Second Attempt}{63}{section*.24}%
-\contentsline {subsubsection}{Alternative Data Coddling Methods and Steps Forward}{65}{section*.25}%
-\contentsline {chapter}{\numberline {6}Blue Skies and Horizons}{67}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Conclusions}{67}{section.6.1}%
-\contentsline {section}{\numberline {6.2}Further Work}{68}{section.6.2}%
-\contentsline {subsection}{\numberline {6.2.1}Simulated Electric Field via Fake Solenoids}{68}{subsection.6.2.1}%
-\contentsline {subsection}{\numberline {6.2.2}Comparison with ISTTOK $v_{\text {loop}}$ data}{68}{subsection.6.2.2}%
-\contentsline {subsection}{\numberline {6.2.3}Grid Based Initial Parameter Guessing}{69}{subsection.6.2.3}%
-\contentsline {chapter}{\numberline {A}Appendix title goes here}{71}{appendix.A}%
-\contentsline {chapter}{Bibliography}{73}{appendix.A}%
+\contentsline {subsection}{\numberline {3.2.1}Equation and Derivation}{47}{subsection.3.2.1}%
+\contentsline {subsubsection}{Derivation}{49}{section*.21}%
+\contentsline {subsection}{\numberline {3.2.2}Current Density and Pressure Density}{51}{subsection.3.2.2}%
+\contentsline {subsubsection}{Pressure Density Profile}{51}{section*.22}%
+\contentsline {subsubsection}{Current Density Profile}{51}{section*.23}%
+\contentsline {section}{\numberline {3.3}Simulations}{52}{section.3.3}%
+\contentsline {chapter}{\numberline {4}Numerical Model Fitting}{53}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Non-Linear Optimisation}{53}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Least Squares}{53}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.2}Optimisation Algorithms}{53}{subsection.4.1.2}%
+\contentsline {subsubsection}{The Usual Suspects}{53}{section*.24}%
+\contentsline {subsubsection}{MMA Algorithm}{53}{section*.25}%
+\contentsline {section}{\numberline {4.2}GSH Parameter Fitting}{53}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Optimisation Function}{54}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}Parameter Space}{54}{subsection.4.2.2}%
+\contentsline {subsection}{\numberline {4.2.3}Convergence Difficulties}{54}{subsection.4.2.3}%
+\contentsline {section}{\numberline {4.3}Simulated Current Reversals}{54}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Method of Reversal}{54}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.3.2}Results and Explanations}{54}{subsection.4.3.2}%
+\contentsline {chapter}{\numberline {5}Comparison with Experiment}{57}{chapter.5}%
+\contentsline {section}{\numberline {5.1}ISTTOK}{57}{section.5.1}%
+\contentsline {subsection}{\numberline {5.1.1}Heavy Ion Beam Diagnostics}{57}{subsection.5.1.1}%
+\contentsline {subsection}{\numberline {5.1.2}Reactor Specification and Data}{59}{subsection.5.1.2}%
+\contentsline {section}{\numberline {5.2}Parameter Fitting}{62}{section.5.2}%
+\contentsline {subsection}{\numberline {5.2.1}Results}{62}{subsection.5.2.1}%
+\contentsline {subsubsection}{Initial Attempts}{62}{section*.26}%
+\contentsline {subsubsection}{Data Cleanup and Second Attempt}{67}{section*.27}%
+\contentsline {subsubsection}{Alternative Data Coddling Methods and Steps Forward}{69}{section*.28}%
+\contentsline {chapter}{\numberline {6}Blue Skies and Horizons}{71}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Conclusions}{71}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Further Work}{72}{section.6.2}%
+\contentsline {subsection}{\numberline {6.2.1}Simulated Electric Field via Fake Solenoids}{72}{subsection.6.2.1}%
+\contentsline {subsection}{\numberline {6.2.2}Comparison with ISTTOK $v_{\text {loop}}$ data}{72}{subsection.6.2.2}%
+\contentsline {subsection}{\numberline {6.2.3}Grid Based Initial Parameter Guessing}{73}{subsection.6.2.3}%
+\contentsline {chapter}{\numberline {A}Appendix title goes here}{75}{appendix.A}%
+\contentsline {chapter}{Bibliography}{77}{appendix.A}%
