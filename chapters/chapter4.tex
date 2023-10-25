@@ -5,10 +5,31 @@
 % 4.1.
 \section{Non-Linear Optimisation}
 
+Optimisation methods are, at their heart, minimisation problems (and dually maximisation problems, 
+though the two are equivalent). We have some function $f(x)$, called the \textit{objective function},
+and some domain $\Omega \subset \R^n$, and we wish to determine
+$$\arg\min_{x \in \Omega} f(x)$$
+Often the objective function is accompanied by a set of constraints, which more or 
+less are used to define the set $\Omega$. If we let $c_i(x) \le 0$ describe one of $k$ constraints that $f$ 
+is subject to, then we can describe $\Omega$ as such:
+$$\Omega := \lbrace x \in \R^n : c_1(x) \le 0 \; \land c_2(x) \le 0 \land \dots \land c_k(x) \le 0 \rbrace$$
+
+An equivalent formulation of the minimisation problem is in terms of norms. 
+\red{Describe minimisation in terms of norms? Ties into least-squares optimisation nicely}
+
+There are a number of difficulties that come packaged with optimisation problems, however. Firstly, 
+the method by which you go about minimising your function is dependent on the properties of your function 
+- you will have a much easier time minimising a smooth, convex function than you would a discontinuous, 
+non-convex function, and different algorithms will net you varying results for each. 
+
+\red{Non-linear functions - introduced via constraints, not necessarily the objective function}
+
 % 4.1.1.
 \subsection{Least Squares}
 
 \red{Standard $L_2$ norm explanation and stuff}
+
+\red{Data fitting}
 
 % 4.1.2.
 \subsection{Optimisation Algorithms}
@@ -16,17 +37,14 @@
 Minimising least squares.
 \red{Motivate optimisation algorithms}
 
-% 4.1.2.1
-\subsubsection{The Usual Suspects}
+\subsubsection{Bounded vs non-bounded optimisation}
 
-\red{Newton's method}
+\subsubsection{Newton's method}
 
-\red{Gradient descent}
+\subsubsection{Gradient descent}
 
-\red{Bounded vs non-bounded optimisation}
-
-% 4.1.2.2.
-\subsubsection{MMA Algorithm}
+% 4.1.3.
+\subsection{MMA Algorithm}
 
 \red{just summarise below more or less}
 \red{https://fab.cba.mit.edu/classes/865.18/design/optimization/mma.pdf}

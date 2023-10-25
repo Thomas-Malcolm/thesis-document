@@ -29,24 +29,25 @@
 \BOOKMARK [1][-]{section.4.1}{Non-Linear Optimisation}{chapter.4}% 29
 \BOOKMARK [2][-]{subsection.4.1.1}{Least Squares}{section.4.1}% 30
 \BOOKMARK [2][-]{subsection.4.1.2}{Optimisation Algorithms}{section.4.1}% 31
-\BOOKMARK [1][-]{section.4.2}{GSH Parameter Fitting}{chapter.4}% 32
-\BOOKMARK [2][-]{subsection.4.2.1}{Optimisation Function}{section.4.2}% 33
-\BOOKMARK [2][-]{subsection.4.2.2}{Parameter Space}{section.4.2}% 34
-\BOOKMARK [2][-]{subsection.4.2.3}{Convergence Difficulties}{section.4.2}% 35
-\BOOKMARK [1][-]{section.4.3}{Simulated Current Reversals}{chapter.4}% 36
-\BOOKMARK [2][-]{subsection.4.3.1}{Method of Reversal}{section.4.3}% 37
-\BOOKMARK [2][-]{subsection.4.3.2}{Results and Explanations}{section.4.3}% 38
-\BOOKMARK [0][-]{chapter.5}{Comparison with Experiment}{}% 39
-\BOOKMARK [1][-]{section.5.1}{ISTTOK}{chapter.5}% 40
-\BOOKMARK [2][-]{subsection.5.1.1}{Heavy Ion Beam Diagnostics}{section.5.1}% 41
-\BOOKMARK [2][-]{subsection.5.1.2}{Reactor Specification and Data}{section.5.1}% 42
-\BOOKMARK [1][-]{section.5.2}{Parameter Fitting}{chapter.5}% 43
-\BOOKMARK [2][-]{subsection.5.2.1}{Results}{section.5.2}% 44
-\BOOKMARK [0][-]{chapter.6}{Blue Skies and Horizons}{}% 45
-\BOOKMARK [1][-]{section.6.1}{Conclusions}{chapter.6}% 46
-\BOOKMARK [1][-]{section.6.2}{Further Work}{chapter.6}% 47
-\BOOKMARK [2][-]{subsection.6.2.1}{Simulated Electric Field via Fake Solenoids}{section.6.2}% 48
-\BOOKMARK [2][-]{subsection.6.2.2}{Comparison with ISTTOK vloop data}{section.6.2}% 49
-\BOOKMARK [2][-]{subsection.6.2.3}{Grid Based Initial Parameter Guessing}{section.6.2}% 50
-\BOOKMARK [0][-]{appendix.A}{Appendix title goes here}{}% 51
-\BOOKMARK [0][-]{appendix.A}{Bibliography}{}% 52
+\BOOKMARK [2][-]{subsection.4.1.3}{MMA Algorithm}{section.4.1}% 32
+\BOOKMARK [1][-]{section.4.2}{GSH Parameter Fitting}{chapter.4}% 33
+\BOOKMARK [2][-]{subsection.4.2.1}{Optimisation Function}{section.4.2}% 34
+\BOOKMARK [2][-]{subsection.4.2.2}{Parameter Space}{section.4.2}% 35
+\BOOKMARK [2][-]{subsection.4.2.3}{Convergence Difficulties}{section.4.2}% 36
+\BOOKMARK [1][-]{section.4.3}{Simulated Current Reversals}{chapter.4}% 37
+\BOOKMARK [2][-]{subsection.4.3.1}{Method of Reversal}{section.4.3}% 38
+\BOOKMARK [2][-]{subsection.4.3.2}{Results and Explanations}{section.4.3}% 39
+\BOOKMARK [0][-]{chapter.5}{Comparison with Experiment}{}% 40
+\BOOKMARK [1][-]{section.5.1}{ISTTOK}{chapter.5}% 41
+\BOOKMARK [2][-]{subsection.5.1.1}{Heavy Ion Beam Diagnostics}{section.5.1}% 42
+\BOOKMARK [2][-]{subsection.5.1.2}{Reactor Specification and Data}{section.5.1}% 43
+\BOOKMARK [1][-]{section.5.2}{Parameter Fitting}{chapter.5}% 44
+\BOOKMARK [2][-]{subsection.5.2.1}{Results}{section.5.2}% 45
+\BOOKMARK [0][-]{chapter.6}{Blue Skies and Horizons}{}% 46
+\BOOKMARK [1][-]{section.6.1}{Conclusions}{chapter.6}% 47
+\BOOKMARK [1][-]{section.6.2}{Further Work}{chapter.6}% 48
+\BOOKMARK [2][-]{subsection.6.2.1}{Simulated Electric Field via Fake Solenoids}{section.6.2}% 49
+\BOOKMARK [2][-]{subsection.6.2.2}{Comparison with ISTTOK vloop data}{section.6.2}% 50
+\BOOKMARK [2][-]{subsection.6.2.3}{Grid Based Initial Parameter Guessing}{section.6.2}% 51
+\BOOKMARK [0][-]{appendix.A}{Appendix title goes here}{}% 52
+\BOOKMARK [0][-]{appendix.A}{Bibliography}{}% 53
