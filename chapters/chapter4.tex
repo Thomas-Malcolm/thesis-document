@@ -2,6 +2,11 @@
 \chapter{Numerical Model Fitting}
 \label{chapter4}
 
+With the ability to generate an equilibrium solution for the GSH equation from chapter \ref{chapter3}, 
+our next goal is to be able 
+\todo
+In chapter \ref{chapter3} we developed the ability 
+
 % 4.1.
 \section{Non-Linear Optimisation}
 
@@ -10,57 +15,175 @@ though the two are equivalent). We have some function $f(x)$, called the \textit
 and some domain $\Omega \subset \R^n$, and we wish to determine
 $$\arg\min_{x \in \Omega} f(x)$$
 Often the objective function is accompanied by a set of constraints, which more or 
-less are used to define the set $\Omega$. If we let $c_i(x) \le 0$ describe one of $k$ constraints that $f$ 
+less are used to define the set $\Omega$. If we let $c_i(x) \ge 0$ describe one of $k$ constraints that $f$ 
 is subject to, then we can describe $\Omega$ as such:
-$$\Omega := \lbrace x \in \R^n : c_1(x) \le 0 \; \land c_2(x) \le 0 \land \dots \land c_k(x) \le 0 \rbrace$$
+$$\Omega := \lbrace x \in \R^n : c_1(x) \ge 0 \; \land c_2(x) \ge 0 \land \dots \land c_k(x) \ge 0 \rbrace$$
 
-An equivalent formulation of the minimisation problem is in terms of norms. 
-\red{Describe minimisation in terms of norms? Ties into least-squares optimisation nicely}
+\begin{remark}
+    If a given problem has no constraints (i.e. you are only presented with the task of minimising a function), then 
+    this is known as an \textbf{unconstrained optimisation} problem. As soon as you add constraints however, you have a 
+    \textbf{constrained optimisation} problem. Algorithms may have better or worse performance in reaching a local minimum 
+    depending whether the problem is constrained or not.
+\end{remark}
 
-There are a number of difficulties that come packaged with optimisation problems, however. Firstly, 
+There are a number of difficulties that come packaged with optimisation problems. Firstly, 
 the method by which you go about minimising your function is dependent on the properties of your function 
 - you will have a much easier time minimising a smooth, convex function than you would a discontinuous, 
-non-convex function, and different algorithms will net you varying results for each. 
+non-convex function, and different algorithms will net you varying results for each. Another factor 
+that affects the choice of optimisation methods available, is the linearity of your system. Often linear systems 
+can have ``nice'' methods of solving them. However, the behaviour of non-linear systems can often make them 
+unwieldy when it comes to finding local and/or global minima. 
 
-\red{Non-linear functions - introduced via constraints, not necessarily the objective function}
+\begin{definition}[Non-linear Optimisation Problem]
+    Let $x \in \Omega \subseteq \R^n$. Also let $f:\Omega \to \R$ be the objective function, and $c_i :\Omega \to \R$ and $d_j : \Omega \to \R$ be 
+    constraints. Then a non-linear optimisation problem is a problem
+    \begin{align*}
+        &\min_{x \in \Omega} f(x) \\
+        c_i(x) &\ge 0 \;\; \forall i \in \lbrace 1, \dots, m \rbrace \\
+        d_j(x) &= 0 \;\; \forall j \in \lbrace 1, \dots, p \rbrace
+    \end{align*}
+    where one of $f$, $c_i$ and/or $d_j$ are non-linear.
+\end{definition}
+
 
 % 4.1.1.
 \subsection{Least Squares}
 
-\red{Standard $L_2$ norm explanation and stuff}
+Least squares problems are a subsect of optimisation problems, which are largely concerned with fitting some function to 
+a set of data. Let a set of data be given $(x_i, y_i)$, where $x_i$ are independent variables, and $y_i$ are dependent variables in 
+the data set. We wish to fit some function $f(x, \beta)$ to fit our data as tightly as possible, where $x$ is the independent variable 
+as for the data, and $\beta$ are parameters in the function $f$ which can be varied. Let $r_i$ be the \textit{residual} error between 
+a given data entry $(x_i, y_i)$ and our corresponding value for it, $f(x_i, \beta)$ for a given $\beta$. Then our goal 
+(in wanting to have a function $f$ which matches the provided data) is to reduce the amount of residual error we have - to minimise it. 
+We can specify this as an optimisation problem \cite{carlone-least-squares}
+\begin{align*}
+    \min_{\beta \in \Omega} \sum_{i = 1}^{n} \norm{r_i(\beta)}^2 = \min_{\beta \in \Omega} \sum_{i = 1}^{n} \norm{y_i - f(x_i, \beta)}^2
+\end{align*}
+In this case, our objective function is the equation $g(\beta) = \sum_{i = 1}^{n} \norm{y_i - f(x_i, \beta)}^2$.
 
-\red{Data fitting}
+\begin{remark}
+    While the above norm is left general, often optimisation algorithms will take this to be the $L^2(\R^n)$ norm.
+\end{remark}
+\begin{remark}
+    The above is, by default, an unconstrained optimisation problem. When we come to formulate our own least squares problem, we will 
+    introduce our own constraints however. Additionally, the above is not specified to be linear or non-linear. In our efforts, 
+    we will deal with a non-linear system.
+\end{remark}
+
+Thus, if you are provided with a set of data, and a function you wish to use to approximate the behaviour of the data, you can 
+employ the use of a least squares optimisation method to manipulate that function into being as close a fit to that data as 
+it can be. How we implement that optimisation is a question of algorithms, which we will now cover.
 
 % 4.1.2.
 \subsection{Optimisation Algorithms}
 
-Minimising least squares.
-\red{Motivate optimisation algorithms}
+\begin{notn}
+    When we talk about running algorithms to solve our optimisation problems, we will use a few terms. We define those here:    
+    \begin{table}[h!]
+        \begin{tabular}{p{3.5cm}|p{10cm}}
+            \textbf{Feasible} & A problem is feasible if the algorithm is able to find an $x^* \in \Omega$ that is a local minimum and satisfies any given conditions. Otherwise, it is \textbf{infeasible}. \\
+            \textbf{Objective Value} & The value of the objective function for the identified local minimum $x^* \in \Omega$, $f(x^*)$ . \\
+            \textbf{ftol} & If the difference between consecutive objective function values is less than this amount, stop the optimisation algorithm and return converged \\
+            \textbf{xtol} & If the difference between consecutive $x \in \Omega$ values is less than this amount, stop the optimisation algorithm and return converged \\
+        \end{tabular}
+    \end{table}
+    
+\end{notn}
 
-\subsubsection{Bounded vs non-bounded optimisation}
+The main questions that an optimisation algorithm asks at each of its iterations is: which direction should I travel, and how far 
+should I travel in that direction? Algorithms that use this form of logic are called \textit{descent methods}, and a 
+general approach for them is given \cite{carlone-least-squares}:
+
+\begin{algorithm}[h!]
+    \begin{algorithmic}[1]
+        \State Given initial guess $x$
+        \While {Convergence criteria not satisfied}
+            \State Choose (unit) descent direction $\delta_x \in \R^n$
+            \State Choose step size $\gamma \in \R$
+            \State $\delta \leftarrow \gamma \cdot \delta_x$
+            \State Update variables $x = x + \delta$
+        \EndWhile
+    \end{algorithmic}
+\end{algorithm}
+Thus, descent algorithms are distinguished by the mechanism by which they choose a descent direction, and the step size.
+
+While the algorithms we will talk about here can be applied to optimisation problems generally, we should 
+keep in mind their application to non-linear least squares problems, as this is what we will eventually deal with. 
+Here we'll provide an overview of two common algorithms 
+used for finding local minima of a given function. In our attempts to fit a model to some data in section 4.2, we first 
+attempted to use these methods. However, due to the nature of the objective function we have, these efforts were in vain, and 
+we turned to a different algorithm (MMA). Nevertheless, it is useful for intuition to see examples of other algorithms.
 
 \subsubsection{Newton's method}
+Newton's optimisation method exploits a Taylor series expansion of a given objective function. Assume that we 
+want to determine $\min f(x)$, where $x,\delta \in \R^n$. We know that an expansion about $x + \delta$ is:
+\begin{equation*}
+    f(x+\delta) \approx h(x+\delta) := f(x) + \nabla f(x)^{T} \delta + \frac{1}{2}(\delta)^{T} \nabla^2 f(t) \delta
+\end{equation*}
+where $\nabla^2$ denotes the Hessian. We want to find a turning point (minimum) of the above, so we can simply set its 
+derivative to be $0$. This gives us
+\begin{equation*}
+    \nabla f(x) + \nabla^2 f(x) \delta = 0
+\end{equation*}
+This tells us that the optimal descent direction (and step size) is
+\begin{equation*}
+    \delta = - \gamma \left [  (\nabla^2 f(x))^{-1} (\nabla f(x)) \right ]
+\end{equation*}
+where $0 < \gamma \le 1$ is a chosen step size, which can be tailored to a given problem. 
+
+\begin{remark}
+    As Newton's method only necessitates that the objective function be twice differentiable, it is applicable to 
+    optimisation problems generally (i.e. it is not restricted to constrained nor unconstrained problems, nor does it differentiate 
+    between linear and non-linear problems).
+\end{remark}
 
 \subsubsection{Gradient descent}
+Gradient descent is an approach which has strong intuitive roots. If you were at the top of a hill, and wanted to get 
+to the bottom as fast as possible, then you might choose to go down the steepest point you see around you. This is 
+essentially what gradient descent does. For an objective function $f(x)$, assuming that it is differentiable 
+for some neighbourhood of a point $a \in \R^n$, then the optimal descent direction is $- \nabla f(a)$. This can, 
+similar to Newton's method, be scaled by a step size $\gamma$ to slow / speed up this process, though the value of 
+this is dependent on the optimisation problem you're investigating (note that, similar to Newton's method, 
+the gradient descent method can be applied to a large class of problems).
 
-% 4.1.3.
-\subsection{MMA Algorithm}
+\subsubsection{MMA}
+One of the problems we encountered in our data fitting attempts (which we will see in the next section), is that 
+of asymptotic behaviour which affects convergence of our algorithms. Thus, we sought to employ the use of an algorithm 
+which was more resistant to such behaviour in an objective function. This led to the discovery of the Method of Moving 
+Asymptotes algorithm, developed 
+by Svanberg \cite{mma}. While its implementation details are a bit volumous to repeat here, in essence, it works by creating 
+convex sub-problems around potential local minima, and attempts to minimise these individually. It repeats this process until 
+it is no longer decreasing, and returns the most recent potential local minima it found. This algorithm is 
+useful to us two main reasons: 1. it is still as robust an optimisation method as Newton's method and gradient descent, in that it 
+can handle a host of optimisation problems (including non-linear problems); and 2, it is more resistant to the asymptotic behaviour.
 
-\red{just summarise below more or less}
-\red{https://fab.cba.mit.edu/classes/865.18/design/optimization/mma.pdf}
-
-Method of Moving Asymptotes (MMA)
-
-Provide explanation of LD-MMA algorithm. 
+In our code we use an implementation provided by the NLopt package, a nonlinear optimisation library for Julia \cite{nlopt}.
 
 % 4.2.
 \section{GSH Parameter Fitting}
 
-\red{Talk about why we want to find $a_1, a_2$ and $\alpha$, and how we could go about 
-doing that}
+In the previous chapter we were able to, given $P := (a_1, a_2, \alpha)$, reproduce results from Wang, including 
+the poloidal magnetic flux, current density profile, and pressure density profile. However, in reality, we will 
+not know these parameters $P$ for a given system - yet we are entirely dependent on them for describing our system. 
+We then face a problem, which is that if we wish to vary our system, or if we wish to describe a real tokamak's dynamics,
+we need some way to determine what $P$ should represent the system we're investigating. 
+
+Looking forward a bit, we know that from the ISTTOK project we have time series current density profile and pressure density profile data 
+available to us. Thus we may wish to utilise at least one of these in determining $P$ - and this is exactly what we will do. 
+In the previous section we built the theory for, given a set of data, fitting a function $f$ with variables $\beta$ which can be varied, 
+which is exactly the challenge we now face. 
+
+We could seek to use both the current density profile and pressure density profile 
+
+In this chapter, we will not concern ourselves with experimental data however - that is the task of chapter \ref{chapter5}. Here we 
+will work with contrived data. With our ability to specify parameters $P$ and derive the equilibrium solution from that, we can generate 
+our own simulated current density profile data, and then attempt to go in the opposite direction - to fit parameters $P'$ to that data, 
+which we can then compare to $P$ for accuracy.
 
 % 4.2.1
 \subsection{Optimisation Function}
+
+Let $(x_i, d_i)$ denote a data entry for the current density profile. 
 
 \red{Talk about data we have available}
 
@@ -81,12 +204,7 @@ Graphs showing effect of different parameters
 
 Non-reliance on $\alpha$ (with exception of $\frac{1}{\alpha}$ where $\alpha = 0$ thing)
 
-% 4.2.3
-\subsection{Convergence Difficulties}
-
-\red{Could be merged with above?}
-
-Initial difficulties with normalisation. 
+\red{Convergence difficulties}
 
 % 4.3
 \section{Simulated Current Reversals}

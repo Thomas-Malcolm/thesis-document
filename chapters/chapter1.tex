@@ -31,8 +31,8 @@ While I'm sure there isn't no relation between crystals and our investigations, 
 When plasma is referred to in everyday conversation it is often noted as being the ``4th state of matter''. To introduce slightly more rigour,
 plasma is an extension of the gaseous state of matter, where its energy (read: temperature) is increased sufficiently high that the electrons 
 are no longer bound by the electromagnetic force to the atom's nucleus \cite{basics-of-plasma-astrophysics}. The resulting substance is a ``pool'' of cations (the positively charged nuclei), and 
-electrons (negatively charged), that exhibits interesting properties. It is these properties that we seek to exploit in the search of controlled, 
-sustained fusion reactions.
+electrons (negatively charged), that exhibits interesting properties. It is these properties that we seek to exploit in the search for controlled, 
+sustainable fusion reactions.
 
 Plasma is abundant in nature -- just not in many places that we as Humans commonly look. Stars are the most immediate example of matter in a plasma state, 
 and are readily viewable (at least for half the day). Lightning strikes are paths through the atmosphere which are ionised, 
@@ -54,19 +54,19 @@ resources available on Earth; water.
 
 The question then becomes, how do we drive this fusion process? If two atoms can fuse as such, why do we not 
 see atoms fusing everywhere around us accompanied by violent explosions destroying all that we've 
-come to know and love? The answer is that we kind of do -- just not normally in the places that humans expect to be inhabiting. In fact, we see this happening everyday --
+come to know and love? The answer is that we kind of do. In fact, we see this happening everyday --
 for those of us fortunate enough to be able to see the sun that is. Our sun 
 is a large ball of plasma where an estimated $9.3 \times 10^{37}$ fusion reactions are expected to occur every second \cite{nasa-sun-fusion}, 
 and is one of the easiest examples of both plasma as a state of matter, and of a self-sustaining fusion reaction.
 
-How then do two hydrogen atoms fuse -- how can we create a sun on Earth? The nucleus of an atom (consisting of positively charged 
+How then do two hydrogen atoms fuse? The nucleus of an atom (consisting of positively charged 
 protons, and neutral neutrons) is positively charged, and so two atoms' nuclei will repel each other due to the Coulomb force when pushed together. This is the force 
 we have to overcome to enable a fusion reaction to take place (and what stops the world around us burning!). To overcome this the process is relatively ``simple'' -- 
 we just increase the energy of our atoms so that when they collide they collide with enough energy to overcome this force, allowing the strong force to become
 dominant, fusing the two atoms. When we energise a mass (take a gas here) of atoms enough, they become ionised however, which is 
 exactly the state of plasma we described earlier. In other words, if we want to reason about the creation, sustainment, and effects of 
 fusion reactions, we need first to understand the dynamics of plasma, the medium in which the fusion reactions take place. From this comes a plethora of questions, ranging from 
-``how do we generate such a plasma?'' to ``how do we reliably control such a plasma'' and ``how do we harness such a plasma''? Alas, we 
+``how do we generate such a plasma?'' to ``how do we reliably control such a plasma'' and ``how do we harvest energy from a plasma''? Alas, we 
 digress however, as we do not seek to solve the big problems in fusion science in this here mere mortal thesis. Instead, now equipped 
 with at least a passing knowledge of what constitutes a ``plasma'' state and what it means for a fusion reaction to take place, 
 we will humbly delve into the inner workings of fusion reactor terminology and design.
@@ -82,7 +82,7 @@ to a tokamak - components working in the ``toroidal'' (around the major radius, 
 ``poloidal'' direction (around the minor radius, $a$, of a cross section of the tokamak). Thus, we will often reason about 
 various physical concepts (such as magnetic fields, current densities) in terms of one of these. Though, in fact, we will 
 often ignore the toroidal component - these are often abstracted away under the guise of an axisymmetry assumption, which assumes 
-that any partials with respect to the toroidal angle are diminishing, i.e., $\pdv{\phi} = 0$. We let $\phi$ denote poloidal angles, 
+that any partials with respect to the toroidal angle are diminishing, i.e., $\pdv{\phi} = 0$. We let $\theta$ denote poloidal angles, 
 and $\phi$ the toroidal angles. When we refer to $(x,z)$, we will be referring to offsets within a poloidal cross section. 
 Refer to figure \ref{dimensions} for a graphic distinguishing toroidal from poloidal components.
 
@@ -105,13 +105,13 @@ which is central to the problem of confinement (pun intended). See figure \ref{f
     \label{flux-functions}
 \end{figure}
 
-We control fusion reactors via a series of (meticulously!) places solenoids around the external of the reactor. These are positioned 
+We control fusion reactors via a series of (meticulously!) placed solenoids around the external of the reactor. These are positioned 
 such that certain solenoids can be used to shape either the toroidal or poloidal magnetic field. Current is passed through these,
 the strength of which drives the strength of the resultant magnetic field, and the direction of which is determined by the 
 ``right hand rule'' if you recall high school physics exams with everyone staring at their hands. We see a depiction of these solenoids 
-and their effect on the poloidal and toroidal magnetic fields. Note that we have ignored one set of solenoids which accompany these, which are placed 
-following the contours of the toroidal direction, and are used for more fine grained control of the poloidal magnetic flux, but these are 
-largely irrelevant for our purposes, and are annoying to draw.
+and their effect on the poloidal and toroidal magnetic fields in figure \ref{solenoids}. Note that we have ignored one set of solenoids which accompany these, which are placed 
+following the contours of the toroidal direction, and are used for more fine grained control of the poloidal magnetic flux - these are 
+largely irrelevant for our purposes however, and are annoying to draw, and so are omitted from the graphic.
 
 \begin{figure}[h!]
     \centering

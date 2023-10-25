@@ -120,9 +120,9 @@ the value of the function for some perturbation $a$
 \end{equation*}
 In a similar spirit, we can expand a function $f(x)$ around a point $x = a$ by some $\epsilon$ amount
 $$f(a + \epsilon) = f(a) + \epsilon \dv{f}{x}(a) + \frac{1}{2} \epsilon^2 \dv[2]{f}{x}(a) + \dots$$
-and it is this sentiment that is what drives perturbation theory - that some small change in input of a function can result 
+and it is this sentiment that drives perturbation theory - that some small change in input of a function can result 
 in small changes in the output of that function. This is obviously not the case for all functions - immediately we see that this 
-fails for anything that is not differentiable, an in general if we wish to make an approximation to the $n^{\text{th}}$ degree then 
+fails for anything that is not differentiable, and in general if we wish to make an approximation to the $n^{\text{th}}$ degree then 
 we need our function to at least be $f \in C^n$ \cite{perturbation-basics}. 
 
 When it comes to PDEs, regular perturbation theory can be used to find solutions to unknown functions. The general process is \cite{perturbation-basics}:
@@ -131,7 +131,7 @@ When it comes to PDEs, regular perturbation theory can be used to find solutions
     \item Perturb the system by $\epsilon$ (i.e., go back and expand the system in terms of some $\epsilon > 0$)
     \item Let the (unknown) solution to the new perturbed system be given as
     $$f_0 + \epsilon f_1 + \epsilon^2 f_2 + \dots$$
-    \item Expand the PDE in terms of $\epsilon$. Collect like powers of $\epsilon$ and solve these are their own systems
+    \item Expand the PDE in terms of $\epsilon$. Collect like powers of $\epsilon$ and solve these as their own systems
     \item Collate solutions for each $f_i$ as found for their respective powers of $\epsilon$ - this is your approximation 
     to the analytic solution to the PDE
 \end{enumerate}
@@ -139,7 +139,7 @@ When it comes to PDEs, regular perturbation theory can be used to find solutions
 \noindent
 Formally then we can state that, given a differential equation
 $$F(D^{k} u(x), D^{k-1}u(x), \dots, Du(x), x) = 0$$
-that an expansion for $u$ can be given
+an expansion for $u$ can be given
 $$u(x) = u_0(x) + \epsilon u_1(x) + \epsilon^2 u_2(x) + \dots$$
 If we were able to reason about all the derivatives of $u$ (and they exist), then in the ideal case we 
 can retrieve an analytic solution to the PDE. However, if instead the function is not $C^{\infty}$, or perhaps 
@@ -205,7 +205,7 @@ seemingly arbitrarily remove terms we no longer wish to have. We
 kindly ask that any mathematicians reading these sections avert their gaze in such 
 times so as to maintain sanity.
 
-In Chapter \ref{chapter2} we derived the ideal MHD equations, and their subsequent reduction, used in GSE, given:
+In chapter \ref{chapter2} we derived the ideal MHD equations, and their subsequent reduction used in GSE, given:
 \begin{align}
     \vec{j} \times \vec{B} &= \nabla p \\
     \mu_0 \vec{j} &= \nabla \times \vec{B} \\
@@ -225,8 +225,8 @@ as given in (\eqref{ideal-mhd-first} - \eqref{ideal-mhd-last})
     \vec{E} + \vec{u} \times \vec{B} &= 0 
 \end{align*}
 
-We will apply our perturbation treatment to the first three equations of these (the continuity equation, momentum equation, and 
-energy equation), using the assumptions to aid us. We will being with the continuity equation.
+We will apply our perturbation treatment to the first two equations of these (the continuity equation, momentum equation), 
+using the assumptions to aid us. We will begin with the continuity equation.
 
 \subsubsection{Continuity Equation Time Perturbation}
 We restate the continuity equation:
@@ -240,8 +240,8 @@ Here we have two functions, $\rho$ and $\vec{u}$, which are both functions of th
 \end{align*}
 where $\vec{r} \in \R^3, t \in \R$. Here (and throughout these perturbation treatments) we will decouple the time dependency by 
 assuming it to be some epsilon perturbation from an initial state. For example, for mass density ($\rho$), we can let $\rho_0$ 
-describe some initial state that is only dependent on space, and $\rho_1$ a perturbation component similarly dependent only on space. Let $\epsilon_{\rho} < 0$ be some small perturbation factor
-for mass density, and $t$ be the time evolved. Then we prescribe a time-linear perturbation expansion as such:
+describe some initial state that is only dependent on space, and $\rho_1$ a perturbation component similarly dependent only on space. Let $\epsilon_{\rho} > 0$ be some small perturbation factor
+for mass density, and $t$ be the time evolved for. Then we prescribe a time-linear perturbation expansion as such:
 \begin{align*}
     \rho(\vec{r}, t) &= \rho_0(\vec{r}) + \epsilon_\rho t \rho_1(\vec{r}) + \mathcal{O}(\epsilon_\rho^2)
     \shortintertext{and analogously:}
@@ -431,21 +431,21 @@ orthogonal system of eigenfunctions, and make a Fourier expansion as such:
     \label{10a} A(x,z) &= \sum_{n = 1}^{\infty} \sum_{l = 0}^{\infty} A_{n,l} \mathcal{R}_n(x) \mathcal{Z}_l(z) \\
     \label{10b} a_1 x - a_2 \frac{1}{x} &= \sum_{n = 1}^{\infty} \sum_{l = 0}^{\infty} f_{n,l} \mathcal{R}_n(x) \mathcal{Z}_l(z)
 \end{align}
-Equations \ref{10a} and \ref{10b} can be substituted into \ref{wang-gsh}, Wang found an explicit form for $A_{n,l}$:
+Equations \ref{10a} and \ref{10b} can be substituted into \ref{wang-gsh}, which Wang uses to find an explicit form for $A_{n,l}$:
 \begin{equation}
     \label{a-form} A_{n,l} = \frac{f_{n,l}}{\alpha^2 - \lambda_{n,l}^2} = \frac{(-1)^l 2a_n^u}{kv_l a_n^d (\alpha^2 - \lambda_{n,l}^2)}
 \end{equation}
 Thus, we need to reason about the values $\mathcal{R}_n(x)$ and  $\mathcal{Z}_l(z)$. 
-If we introduce constants $v^2$ and $\mu^2$ such that $\lambda^2 = v^2 + \mu^2$ (a result of $\mathcal{Z}$ and $\mathcal{R}$ being orthogonal), Wang found the relations
+After introducing constants $v^2$ and $\mu^2$ such that $\lambda^2 = v^2 + \mu^2$ (a result of $\mathcal{Z}$ and $\mathcal{R}$ being orthogonal), Wang found the relations
 \begin{align}
     \label{5a} \dv[2]{\mathcal{Z}}{x} + v^2 \mathcal{Z} &= 0 \\
     \label{5b} \mathcal{Z}(-k) = \mathcal{Z}(k) &= 0 \\
     \label{5c} \dv[2]{\mathcal{R}}{x} + \frac{1}{2} \dv{\mathcal{R}}{x} + \left ( \mu^2 - \frac{1}{x^2} \right ) \mathcal{R} &= 0 \\
-    \label{5d} \mathcal{R}(x_0 - a) = \mathcal{R}(x_0 + 1) &= 0
+    \label{5d} \mathcal{R}(x_0 - a) = \mathcal{R}(x_0 + a) &= 0
 \end{align}
 Equations \ref{5a} and \ref{5b} are an eigenvalue problem, and provide the following eigenvalues and eigenfunctions
 \begin{align}
-    v_l &= \frac{1}{k} (l + \frac{1}{2}) \pi \\
+    v_l &= \frac{\pi}{k} \left (l + \frac{1}{2} \right ) \\
     \label{z-func} \mathcal{Z}_l(z) &= \cos(v_l z)
 \end{align}
 with $l \in \Z_{\ge 0}$. Similarly, equation \ref{5c} with \ref{5d} represent another eigenvalue problem. The eigenfunctions 
@@ -466,7 +466,7 @@ Thus we can summarise the eigenvalues and eigenfunctions of \ref{4a} - \ref{4c} 
     U_{n,l}(x,z) &= \mathcal{R}_n(x) \mathcal{Z}_l(z)
 \end{align}
 Thus we have an explicit form for the eigenfunctions we required in \ref{a-form}. We can also now 
-provide expressions for the until now unknown variables in \ref{a-form}, the derivations for which are 
+provide expressions for the, until now, unknown variables in \ref{a-form}, the derivations for which are 
 given by Wang in an earlier paper \cite{wang-precursor}. We provide them en masse here:
 \begin{align}
     e_n^u(x) &= \frac{1}{\mu_n} \left [ a_1 x^2 (c_n J_2(\mu_n x) + N_2(\mu_n x)) + a_2 (c_n J_0 (\mu_n x) + N_0(\mu_n x)) \right ] \\
@@ -501,9 +501,9 @@ all other components here, we can draw the toroidal current density from this. I
 \end{align}
 
 \begin{remark}
-    As we stated toward the start of this chapter, three parameters appear crucial to this system - $(a_1, a_2, \alpha)$. We see that, in fact, 
+    As we stated toward the start of this chapter, three parameters appear crucial to this system: $(a_1, a_2, \alpha)$. We see that, in fact, 
     the entirety of our system can be determined by them, as any other variables are configuration variables for the tokamak. Thus, if we 
-    the values $(a_1, a_2, \alpha)$ can be used to calculate the poloidal magnetic flux, the current density profile, and the 
+    are provided the values $(a_1, a_2, \alpha)$, we can calculate the poloidal magnetic flux, the current density profile, and the 
     pressure density profile.
 \end{remark}
 
@@ -517,14 +517,14 @@ the results given by Wang in section 3 of \cite{wang-analytic-solution}.
 \begin{figure}[h!]
     \centering
     \includegraphics[scale=0.6]{imgs/c3/wang-fig-1.png}
-    \caption{Figure 1 of \cite{wang-analytic-solution}. Here, there parameters are $(a_1, a_2, \alpha) = (-0.04531, -1.0808, 2.1683)$, 
+    \caption{Figure 1 of \cite{wang-analytic-solution}. Here, the parameters are $(a_1, a_2, \alpha) = (-0.04531, -1.0808, 2.1683)$, 
     where the minor radius $a = 1$, the elongation is $k = 1$, and the major radius is taken to be $R = 5$.}
 \end{figure}
 
 \begin{figure}[h!]
     \centering
     \includegraphics[scale=0.6]{imgs/c3/wang-fig-2.png}
-    \caption{Figure 2 of \cite{wang-analytic-solution}. Here, there parameters are $(a_1, a_2, \alpha) = (0.01, 3.1, 5.566)$, 
+    \caption{Figure 2 of \cite{wang-analytic-solution}. Here, the parameters are $(a_1, a_2, \alpha) = (0.01, 3.1, 5.566)$, 
     where the minor radius $a = 1$, the elongation is $k = 1$, and the major radius is taken to be $R = 5$. Note that 
     the characteristic x-point is seemingly missing from our version - this is simply an effect of Julia's plot 
     smoothing, and the data representing it is still available to us.}
@@ -533,6 +533,6 @@ the results given by Wang in section 3 of \cite{wang-analytic-solution}.
 \begin{figure}[h!]
     \centering
     \includegraphics[scale=0.6]{imgs/c3/wang-fig-3.png}
-    \caption{Figure 3 of \cite{wang-analytic-solution}. Here, there parameters are $(a_1, a_2, \alpha) = (-0.06, -0.0006, 5.50)$, 
+    \caption{Figure 3 of \cite{wang-analytic-solution}. Here, the parameters are $(a_1, a_2, \alpha) = (-0.06, -0.0006, 5.50)$, 
     where the minor radius $a = 1$, the elongation is $k = 1$, and the major radius is taken to be $R = 5$.}
 \end{figure}

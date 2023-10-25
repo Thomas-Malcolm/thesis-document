@@ -366,7 +366,7 @@ equation. Before that however, we'll look at definitions for PDE properties that
         $$\sum_{\abs{\alpha} = k} a_{\alpha}(x) D^{\alpha} u + a_0(D^{k-1}u, \dots, Du, u, x) = 0$$
         \item ``Quasilinear''
         
-        A PDE is said to be ``quaslinear'' if it is of the form 
+        A PDE is said to be ``quasilinear'' if it is of the form 
 
         $$\sum_{\abs{\alpha} = k} a_{\alpha} \left ( D^{k-1} u, \dots, Du, u, x \right ) D^{\alpha} u + a_0 \left ( D^{k-1} u, \dots, Du, u, x \right ) = 0$$
         \item ``Nonlinear''
@@ -487,9 +487,9 @@ immediately gives us that, in our plasma model:
 \begin{remark}
     We will largely follow Wesson's derivation of the Grad-Shafranov equation given in \cite{wesson-tokamaks}, however 
     will correlate this with other sources too. Additionally, we will deviate from some standard notations (such as 
-    that used for major radius offset, substituting $x$ for $R$, as this will be more consistent with the presentation 
-    of the Grad-Shafranov-Helmholtz given by Wang in \cite{wang-analytic-solution} which will be the subject of our 
-    attention in the next section)
+    that used for major radius offset, substituting $x$ for $R$) as this will be more consistent with the presentation 
+    of the Grad-Shafranov-Helmholtz given by Wang which will be the subject of our 
+    attention in the next section \cite{wang-analytic-solution}.
 \end{remark}
 
 We make a few extra assumptions too. First, we take our fluid to be incompressible, which gives us the relation 
@@ -529,17 +529,17 @@ major radius offset, with $R_0$ being the major radius of the torus. We also let
 cross section, which is bound by $a$, the minor radius of the torus. The poloidal magnetic field can then be related 
 to our flux function by components in the $x$ and $z$ direction of our cross section
 \begin{align}
-    B_x &= -\frac{1}{x} \pdv{\Psi}{z} \\
-    B_z &= \frac{1}{x} \pdv{\Psi}{x}
+    \vec{B}_x &= -\frac{1}{x} \pdv{\Psi}{z} \\
+    \vec{B}_z &= \frac{1}{x} \pdv{\Psi}{x}
 \end{align}
 which, combined, lets us write:
 \begin{align}
-    B_p &:= B_x \hat{e}_x + B_z \hat{e}_z \\
+    \vec{B}_p &:= \vec{B}_x \hat{e}_x + \vec{B}_z \hat{e}_z \\
     &= -\frac{1}{x} \pdv{\Psi}{z} \hat{e}_x + \frac{1}{x} \pdv{\Psi}{x} \hat{e}_z
 \end{align}
 which is equivalent to writing 
 \begin{equation}
-    \label{poloidal-mag-field-psi} B_p = \frac{1}{x} \left ( \nabla \Psi \times e_{\phi} \right )
+    \label{poloidal-mag-field-psi} \vec{B}_p = \frac{1}{x} \left ( \nabla \Psi \times e_{\phi} \right )
 \end{equation}
 By a similar argument, we can decompose the poloidal current in terms of a function $f$, the poloidal current 
 flux function.
@@ -636,10 +636,10 @@ which is in the form we first saw it in in equation \ref{gse-formal}.
 
 Runaway electrons describe electrons with energy such that they are ``relativistic'' - when their velocity 
 is comparable to the speed of light. At such high speeds, these electrons move freely from the confines of the 
-magnetic field, making them difficult to control, and unwiedly. They can have destructive effects on our ability to confine 
+magnetic field, making them difficult to control, and unwieldy. They can have destructive effects on our ability to confine 
 a plasma, both in terms of the dynamics that are introduced by their presence, and in the destruction of the medium we rely 
-on to perform such confinement - the reactor itself. One of the problems this seeks to address is the presence of runaway electrons 
-in AC mode tokamaks, 
+on to perform such confinement - the reactor itself. One of the problems this thesis seeks to address is the presence of runaway electrons 
+in AC mode tokamaks, which is conducive to understanding how to increase confinement time.
 
 In ISTTOK, it is noted that runaway electron populations can contribute a substantial amount to the plasma we have present. 
 It is estimated that up to $30\%$ of the plasma current can be attributed to runaway electron current, and that up to $1\%$ of 
@@ -710,7 +710,7 @@ gives probability that some portion of the resulting plasma will consist of elec
 energised to relativistic states \cite{runaway-electrons}. The Maxwellian distribution for electron energy densities 
 can be given:
 $$f_{M}(v) = \frac{n}{\sqrt{\pi} v_{\text{th}}} e^{-\frac{v^2}{v_{\text{th}}^2}}$$
-where $v_{text{th}}$ describes the barrier for an electron being described thermal or not, and $n$ is the number 
+where $v_{\text{th}}$ describes the barrier for an electron being described thermal or not, and $n$ is the number 
 of electrons present. Velocities past this barrier are referred to as being in the ``hot tail'', and are considered 
 candidates for being runaway. Using this we can define an electric field for which all thermal electrons will be 
 accelerated into becoming runaway electrons:
@@ -721,7 +721,7 @@ accelerated into becoming runaway electrons:
         E_{D} = \frac{4\pi e^3 n \ln (\Lambda)}{m v_{\text{th}}^2}
     \end{equation*}
 \end{definition}
-The heating element which is the causation of this is affectionately titled a ``heating lamp'', 
+The heating element which is the cause of this is affectionately titled a ``heating lamp'', 
 though one should likely hesitate to leave it on after you go to bed. As such, no matter our efforts in dampening 
 REs, and in eliminating other processes which generate them, we will necessarily have some background population 
 of runaway electrons. Notably, this will also increase in magnitude for reactors which have longer 
@@ -742,7 +742,7 @@ complicated than simply ``topology changes, runaway electrons generated'', the o
 considered a type of runaway electron generation, and can be used to infer / support their generation if observed \cite{runaway-electrons}.
 This change in topolgy could, for example, be characterised by the formation of an ``X-point'', which is a point at which two previously 
 distinct magnetic field regions join together to share a single point of flux density in common, which mathemtically presents as 
-a singularity, though physically acts as an unstable accelerator. The paper cited above, \cite{runaway-electrons}, provides a good overview of the effects of 
+a singularity, though physically acts as an unstable accelerator. The paper cited above by Boozer provides a good overview of the effects of 
 magnetic field line topology on the generation of runaway electrons.
 
 
