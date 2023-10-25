@@ -157,7 +157,10 @@ it is no longer decreasing, and returns the most recent potential local minima i
 useful to us two main reasons: 1. it is still as robust an optimisation method as Newton's method and gradient descent, in that it 
 can handle a host of optimisation problems (including non-linear problems); and 2, it is more resistant to the asymptotic behaviour.
 
-In our code we use an implementation provided by the NLopt package, a nonlinear optimisation library for Julia \cite{nlopt}.
+In our code we use an implementation provided by the NLopt package, a nonlinear optimisation library for Julia \cite{nlopt}. The NLopt
+library, in iniitialising an optimisation problem for MMA, requires information about the objective function, its partial derivatives, 
+and any constraints, if they exist (which they will for us, but we'll note on that shortly). Thus, when it comes to constructing 
+our system, we must provide the objective function naturally, but also its partial derivatives with respect to our paramters.
 
 % 4.2.
 \section{GSH Parameter Fitting}
@@ -173,26 +176,70 @@ available to us. Thus we may wish to utilise at least one of these in determinin
 In the previous section we built the theory for, given a set of data, fitting a function $f$ with variables $\beta$ which can be varied, 
 which is exactly the challenge we now face. 
 
-We could seek to use both the current density profile and pressure density profile 
+We could seek to use both the current density profile and pressure density profile, and could build an objective function around this. However, 
+we will also note that we wish to verify our results - as such, it may be prudent to leave one of these data sets available for comparison instead. 
+With a bit of prescient knowledge we may realise that derivatives are much easier to calculate for the current density profile, and so choose 
+to build our objective function around this, reserving pressure density data for comparisons instead. In the spirit of laziness, this is 
+exactly what we do.
 
-In this chapter, we will not concern ourselves with experimental data however - that is the task of chapter \ref{chapter5}. Here we 
+In this chapter we will not concern ourselves with experimental data however - that is the task of chapter \ref{chapter5}. Here we 
 will work with contrived data. With our ability to specify parameters $P$ and derive the equilibrium solution from that, we can generate 
-our own simulated current density profile data, and then attempt to go in the opposite direction - to fit parameters $P'$ to that data, 
+our own simulated current density profile data, and then attempt to work in the opposite direction - to fit parameters $P'$ to that data, 
 which we can then compare to $P$ for accuracy.
 
 % 4.2.1
-\subsection{Optimisation Function}
+\subsection{Optimisation Problem}
 
-Let $(x_i, d_i)$ denote a data entry for the current density profile. 
+\subsubsection{Objective Function}
+Let $(x_i, d_i)$ denote a data entry for the current density profile. We will perform a least squares optimisation, and so need to specify $f(x, \beta)$. 
+In our case, $\beta = P = (a_1, a_2, \alpha) \in \R^3$, and
+\begin{equation*}
+    f(x, \beta) = j_{\phi}(x, z) = -a_1 x + \frac{1}{x} a_2 + \frac{\alpha^2}{x} \psi(x, z)
+\end{equation*}
+Note here though that the current density profile is taken to be for $z = 0$. Additionally, we can transform our current density profile function 
+$\vec{j}_{\phi}$ to also be in terms of $P$ by specifying them as independent variables, and so the above is more accurately stated
+\begin{equation*}
+    f(x, \beta) = j_{\phi}(x, P) = -a_1 x + \frac{1}{x} a_2 + \frac{\alpha^2}{x} \psi(x, 0, P)
+\end{equation*}
+Assume that we have $N$ data entries for the current density profile available to us. Then, our least squares optimisation problem is given:
+\begin{align*}
+    \notag& \min_{\beta \in \Omega} \sum_{i = 1}^{N} \norm{d_i - f(x_i, \beta)}^2 \\
+    \iff& \min_{P \in \Omega} \sum_{i = 1}^{N} \norm{d_i - j_{\phi}(x, P)}^2 
+\end{align*}
+for now we will take $\Omega = \R^3$, however this will change shortly. This, however, is the objective function we seek to minimise - 
+in the hopes that the resulting parameter $P$ will let $j_{\phi}(P)$ accurately describe the current density profile we expect, and thus 
+the rest of the system will follow suit.
 
-\red{Talk about data we have available}
+\subsubsection{Partials}
+We require $\nabla g(P)$, where $g(P) = \sum_{i = 1}^{N} \norm{d_i - j_{\phi}(x, P)}^2$. We'll calculate each individually:
+\begin{align*}
+    \pdv{g(P)}{a_1} &= \pdv{a_1} \sum_{i = 1}^{N} \norm{d_i - j_{\phi}(x, P)}^2 \\
+    &= \pdv{a_1} \sum_{i = 1}^{N} \left ( d_i - j_{\phi}(x, P) \right )^2 \\
+    &= 2 \sum_{i=1}^{N} \left ( \pdv{a_1} (d_i - j_{\phi}(x, P)) \right ) \\
+    &= -2 \sum_{i=1}^{N} \left ( d_i - \pdv{a_1} j_{\phi}(x, P) \right ) j_{\phi}(x, P)
+\end{align*}
+By similar calculation, we get the partials for $a_2$ and $\alpha$ to be:
+\begin{align*}
+    \pdv{g(P)}{a_2} &= -2 \sum_{i=1}^{N} \left ( d_i - \pdv{a_2} j_{\phi}(x, P) \right ) j_{\phi}(x, P) \\
+    \pdv{g(P)}{\alpha} &= -2 \sum_{i=1}^{N} \left ( d_i - \pdv{\alpha} j_{\phi}(x, P) \right ) j_{\phi}(x, P)
+\end{align*}
+Thus, we now only need the partials of the toroidal current density with respect to each element of $P$, which we provide below
+\begin{align*}
+    \pdv{j_{\phi}(x, P)}{a_1} &= \pdv{a_1} \left ( -a_1 x + \frac{1}{x} a_2 + \frac{\alpha^2}{x} \psi(x, z, P) \right ) \\
+    &= -x + \pdv{a_1} \left ( \frac{\alpha^2}{x} \psi(x,z, P) \right ) \\
+    &= -x + \alpha^2 \sum_{n = 1}^{M} \sum_{l = 0}^{M-1} \frac{2(-1)^l [c_n J_1(\mu_n x) + N_1(\mu_n x)]}{k v_l a_n^d (\alpha^2 - \lambda_{n,l}^2)} \left [ \frac{1}{\mu_n} x'^2 \left (c_n J_2(\mu_n x') + N_2(\mu_n x') \right ) \right ]_{R_0 - a}^{R_0 + a} \\
+    \pdv{j_{\phi}(x,P)}{a_2} &= \frac{1}{x} + \alpha^2 \sum_{n = 1}^{M} \sum_{l = 0}^{M-1}  \frac{2(-1)^l [c_n J_1(\mu_n x) + N_1(\mu_n x)]}{k v_l a_n^d (\alpha^2 - \lambda_{n,l}^2)} \left [ \frac{1}{\mu_n} \left ( c_n J_0(\mu_n x') + N_0(\mu_n x') \right ) \right ]_{R_0 - a}^{R_0 + a} \\
+    \pdv{j_{\phi}(x,P)}{\alpha} &= \frac{2\alpha}{x} \psi(x, 0, P) + \alpha^3 \sum_{n=1}^{M} \sum_{l=0}^{M-1} \frac{4(-1)^l a_n^u}{k v_l a_n^d (\alpha^2 - \lambda_{n,l}^2)} \left [ c_n J_1(\mu_n x) + N_1(\mu_n x) \right ]
+\end{align*}
+With these, we have the partial derivatives (with respect to our parameters) of our objective function, and we have our objective function. 
+Additionally, we have our data (emulated current density profile data, which we generated from the prescribed $(a_1, a_2, \alpha)$ values 
+in Wang \cite{wang-analytic-solution}). This is everything required by NLopt for performing an optimisation, and so the only thing left to do is optimise, and see our results!
 
-\red{Construct the objective function}
-
-\red{Bounds for the objective function and justification}
 
 % 4.2.2
 \subsection{Parameter Space}
+
+Initially, our efforts in fitting a set of parameters to a given input of current density profile data were without accomplishment.
 
 \red{Parameter space a bit cooked}
 
@@ -205,6 +252,8 @@ Graphs showing effect of different parameters
 Non-reliance on $\alpha$ (with exception of $\frac{1}{\alpha}$ where $\alpha = 0$ thing)
 
 \red{Convergence difficulties}
+
+\red{Bounds for the objective function and justification}
 
 % 4.3
 \section{Simulated Current Reversals}

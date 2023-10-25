@@ -413,8 +413,13 @@ We then seek a solution $\psi(x,z)$ for equation \ref{wang-gse}, which satisfies
         \label{gsh-solution} \psi(x,z) = x \sum_{n = 1}^{\infty} \sum_{l = 0}^{\infty} \frac{(-1)^l 2 a_n^u}{kv_la_n^d (\alpha^2 - \lambda_{n,l}^2)} \left [ c_n J_1(\mu_n x) + N_1(\mu_n x)\right ] \cos(v_l z)
     \end{equation}
     where here $J_\alpha$ are Bessel functions of the first kind, and $N_\alpha$ are Bessel functions of the second kind. Some of these other terms we will for now 
-    leave unexplained, as we will cover them in the derivation. 
+    leave unexplained, as we will cover them in the derivation.
 \end{proposition}
+
+\begin{notn}
+    Note that we use the notation $N_\alpha$ to mean second-kind Bessel functions. This is an old notation, 
+    with a more modern notation being $Y_\alpha$. $N_\alpha$ nevertheless often appears in older physics texts, and is what we use in this thesis for Bessel functions of the second kind.
+\end{notn}
 
 \subsubsection{Derivation}
 We will assume a cylindrical coordinate system, and consider our boundary conditions to be a rectangular cross section. We will 
@@ -470,10 +475,10 @@ provide expressions for the, until now, unknown variables in \ref{a-form}, the d
 given by Wang in an earlier paper \cite{wang-precursor}. We provide them en masse here:
 \begin{align}
     e_n^u(x) &= \frac{1}{\mu_n} \left [ a_1 x^2 (c_n J_2(\mu_n x) + N_2(\mu_n x)) + a_2 (c_n J_0 (\mu_n x) + N_0(\mu_n x)) \right ] \\
-    a_n^u &= [e_n^u(x)]_{x_0 - a}^{x_0 + a} \\
+    a_n^u &= [e_n^u(x)]_{R_0 - a}^{R_0 + a} \\
     e_n^d(x) &= -\frac{1}{2} x^2 N_0(\mu_n x) N_2(\mu_n x) - \frac{1}{2} c_n^2 x^2 J_0(\mu_n x) J_2(\mu_n x) \\
     \notag &+ c_n \left [ \frac{1}{2}x^2 (J_0(\mu_n x) - J_2(\mu_n x) )N_0(\mu_n x) - \frac{1}{\mu_n} x J_0(\mu_n x) N_1(\mu_n x) \right ] \\
-    a_n^d &= [a_n^d (x)]_{x_0-a}^{x_0+a}
+    a_n^d &= [a_n^d (x)]_{R_0-a}^{R_0+a}
 \end{align}
 Note here that the superscripts $u$ and $d$ are not indices, but are just used to distinguish between variables. Thus, to show that $\psi(x,z)$ as
 provided in \ref{gsh-solution} is a solution, we simply substitute equations \ref{z-func}, \ref{r-func} and \ref{a-form} into \ref{10b}.
@@ -513,6 +518,15 @@ At this point, we are able to describe the poloidal magnetic field flux function
 tokamak under the restrictions of the GSH model. However, we are only able to do this if we are given some set of parameter, $(a_1, a_2, \alpha)$. 
 In the next chapter we will deal with the question of deriving these parameters for a given current density profile, but for now we can simply reproduce 
 the results given by Wang in section 3 of \cite{wang-analytic-solution}.
+
+\begin{remark}
+    Note that in our simulation, we cannot have infinite precision when it comes to our eigenfunctions (i.e., how far the indices 
+    $n,l$ are permitted to go). In our computations we must restrict these - however, luckily for us, the Bessel functions mean that the strength 
+    of the contribution of higher order terms is vanishingly small. In most of our simulations we have capped these at $M = 8$ levels, i.e. 
+    $$\dots \sum_{n =1}^{M} \sum_{l = 0}^{M-1} \dots$$
+    where the rest of the equation is omitted for purposes of laziness. Additionally, we set a grid size of approximately $200$ steps for 
+    partitioning the $x$ and $z$ domains.
+\end{remark}
 
 \begin{figure}[h!]
     \centering
