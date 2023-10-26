@@ -48,30 +48,32 @@
 \contentsline {subsection}{\numberline {4.1.1}Least Squares}{56}{subsection.4.1.1}%
 \contentsline {subsection}{\numberline {4.1.2}Optimisation Algorithms}{57}{subsection.4.1.2}%
 \contentsline {subsubsection}{Newton's method}{58}{section*.24}%
-\contentsline {subsubsection}{Gradient descent}{58}{section*.25}%
+\contentsline {subsubsection}{Gradient descent}{59}{section*.25}%
 \contentsline {subsubsection}{MMA}{59}{section*.26}%
-\contentsline {section}{\numberline {4.2}GSH Parameter Fitting}{59}{section.4.2}%
+\contentsline {section}{\numberline {4.2}GSH Parameter Fitting}{60}{section.4.2}%
 \contentsline {subsection}{\numberline {4.2.1}Optimisation Problem}{60}{subsection.4.2.1}%
 \contentsline {subsubsection}{Objective Function}{60}{section*.27}%
-\contentsline {subsubsection}{Partials}{61}{section*.28}%
-\contentsline {subsection}{\numberline {4.2.2}Parameter Space}{62}{subsection.4.2.2}%
-\contentsline {section}{\numberline {4.3}Simulated Current Reversals}{66}{section.4.3}%
+\contentsline {subsubsection}{Partials}{62}{section*.28}%
+\contentsline {subsection}{\numberline {4.2.2}Parameter Space}{63}{subsection.4.2.2}%
+\contentsline {section}{\numberline {4.3}Simulated Current Reversals}{65}{section.4.3}%
 \contentsline {subsection}{\numberline {4.3.1}Method of Reversal}{66}{subsection.4.3.1}%
-\contentsline {subsection}{\numberline {4.3.2}Results and Explanations}{66}{subsection.4.3.2}%
-\contentsline {chapter}{\numberline {5}Comparison with Experiment}{67}{chapter.5}%
-\contentsline {section}{\numberline {5.1}ISTTOK}{67}{section.5.1}%
-\contentsline {subsection}{\numberline {5.1.1}Heavy Ion Beam Diagnostics}{67}{subsection.5.1.1}%
-\contentsline {subsection}{\numberline {5.1.2}Reactor Specification and Data}{69}{subsection.5.1.2}%
-\contentsline {section}{\numberline {5.2}Parameter Fitting}{72}{section.5.2}%
-\contentsline {subsection}{\numberline {5.2.1}Results}{72}{subsection.5.2.1}%
-\contentsline {subsubsection}{Initial Attempts}{72}{section*.29}%
-\contentsline {subsubsection}{Data Cleanup and Second Attempt}{77}{section*.30}%
-\contentsline {subsubsection}{Alternative Data Coddling Methods and Steps Forward}{79}{section*.31}%
-\contentsline {chapter}{\numberline {6}Blue Skies and Horizons}{81}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Conclusions}{81}{section.6.1}%
-\contentsline {section}{\numberline {6.2}Further Work}{82}{section.6.2}%
-\contentsline {subsection}{\numberline {6.2.1}Simulated Electric Field via Fake Solenoids}{82}{subsection.6.2.1}%
-\contentsline {subsection}{\numberline {6.2.2}Comparison with ISTTOK $v_{\text {loop}}$ data}{82}{subsection.6.2.2}%
-\contentsline {subsection}{\numberline {6.2.3}Grid Based Initial Parameter Guessing}{83}{subsection.6.2.3}%
-\contentsline {chapter}{\numberline {A}Appendix}{85}{appendix.A}%
-\contentsline {chapter}{Bibliography}{89}{figure.A.6}%
+\contentsline {subsection}{\numberline {4.3.2}Results and Explanations}{69}{subsection.4.3.2}%
+\contentsline {subsubsection}{Feasibility}{70}{section*.29}%
+\contentsline {chapter}{\numberline {5}Comparison with Experiment}{71}{chapter.5}%
+\contentsline {section}{\numberline {5.1}ISTTOK}{71}{section.5.1}%
+\contentsline {subsection}{\numberline {5.1.1}Heavy Ion Beam Diagnostics}{71}{subsection.5.1.1}%
+\contentsline {subsection}{\numberline {5.1.2}Reactor Specification and Data}{73}{subsection.5.1.2}%
+\contentsline {section}{\numberline {5.2}Parameter Fitting}{76}{section.5.2}%
+\contentsline {subsection}{\numberline {5.2.1}Results}{76}{subsection.5.2.1}%
+\contentsline {subsubsection}{Initial Attempts}{76}{section*.30}%
+\contentsline {subsubsection}{Data Cleanup and Second Attempt}{81}{section*.31}%
+\contentsline {subsubsection}{Alternative Data Coddling Methods and Steps Forward}{83}{section*.32}%
+\contentsline {chapter}{\numberline {6}Blue Skies and Horizons}{85}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Conclusions}{85}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Further Work}{86}{section.6.2}%
+\contentsline {subsection}{\numberline {6.2.1}Simulated Electric Field via Fake Solenoids}{86}{subsection.6.2.1}%
+\contentsline {subsection}{\numberline {6.2.2}Comparison with ISTTOK $v_{\text {loop}}$ data}{86}{subsection.6.2.2}%
+\contentsline {subsection}{\numberline {6.2.3}Grid Based Initial Parameter Guessing}{87}{subsection.6.2.3}%
+\contentsline {chapter}{\numberline {A}Parameter Space Heatmaps}{89}{appendix.A}%
+\contentsline {chapter}{\numberline {B}Current Reversal Simulations}{93}{appendix.B}%
+\contentsline {chapter}{Bibliography}{98}{figure.B.4}%

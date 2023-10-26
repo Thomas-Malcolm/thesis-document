@@ -3,9 +3,10 @@
 \label{chapter4}
 
 With the ability to generate an equilibrium solution for the GSH equation from chapter \ref{chapter3}, 
-our next goal is to be able 
-\todo
-In chapter \ref{chapter3} we developed the ability 
+our next goal is to produce the same result where, instead of a set of parameters, we are given data relating to one 
+of the poloidal magnetic field, current density profile, or pressure density profile. From there we wish to see how the 
+system responds to a current inversion - our ultimate goal. We will first begin with a discussion on 
+optimisation and data fitting, which will be prudent for our efforts in fitting our model to a set of data.
 
 % 4.1.
 \section{Non-Linear Optimisation}
@@ -81,6 +82,7 @@ it can be. How we implement that optimisation is a question of algorithms, which
     When we talk about running algorithms to solve our optimisation problems, we will use a few terms. We define those here:    
     \begin{table}[h!]
         \begin{tabular}{p{3.5cm}|p{10cm}}
+            \hline
             \textbf{Feasible} & A problem is feasible if the algorithm is able to find an $x^* \in \Omega$ that is a local minimum and satisfies any given conditions. Otherwise, it is \textbf{infeasible}. \\ \hline
             \textbf{Objective Value} & The value of the objective function for the identified local minimum $x^* \in \Omega$, $f(x^*)$ . \\ \hline
             \textbf{ftol} & If the difference between consecutive objective function values is less than this amount, stop the optimisation algorithm and return converged \\ \hline
@@ -210,6 +212,11 @@ for now we will take $\Omega = \R^3$, however this will change shortly. This, ho
 in the hopes that the resulting parameter $P$ will let $j_{\phi}(P)$ accurately describe the current density profile we expect, and thus 
 the rest of the system will follow suit.
 
+\begin{remark}
+    The above objective function is non-linear by virtue of the fact that $j_{\phi}(x, P)$ is very non-linear in terms of 
+    both $x$ and the parameters.
+\end{remark}
+\newpage
 \subsubsection{Partials}
 We require $\nabla g(P)$, where $g(P) = \sum_{i = 1}^{N} \norm{d_i - j_{\phi}(x, P)}^2$. We'll calculate each individually:
 \begin{align*}
@@ -322,26 +329,113 @@ a time evolution, and in doing so, will observe how the system reacts.
 % 4.3.1
 \subsection{Method of Reversal}
 
+To simulate a current inversion, we will simply take our current density profile data we have and invert it.
+That is to say, assume we have the data set with $M$ data points 
+$$I_s = \lbrace (x_i, d_i) : 1 \le i \le M \rbrace$$
+then the inverted current density p rofile would be
+$$I_e = \lbrace (x_i, -d_i) : 1 \le i \le M \rbrace $$
+It will be interesting to see how our system responds to this inversion of current which, 
+while quite contrived, can give us an insight into how 
+a plasma might behave under some current reversal. We need some way to get from $I_s$ to 
+$I_e$ however, and to be able to determine the parameters $P$ for each stage. 
 
-\red{Linearly vary current. Could talk about alternatives - i.e. if 
-our time perturbation had not been linear but had been trigonometric (to 
-fit with a larger scope AC simulation) then our current reversal method 
-here could be different}
+We use a standard linear interpolation between the two where, assuming we want $M \in \N$ time slices
+between the start of our current density profile and the inverted state, 
+the $j^{\text{th}}$ slice can be given
+$$I_j = \left \lbrace \left (x_i, \frac{(d_{i}^{e} - d_{i}^{s}) \cdot j}{M} \right ): 1 \le i \le M \right \rbrace$$
+where the superscripts $e$ and $s$ denote whether the data comes from $I_e$ or $I_s$ respectively.
 
-\red{Feed solved parameters into guess for next. Emphasise problem of not knowing 
-the initial ones nonetheless}
+\begin{remark}
+    A linear interpolation is not the only method that could be used. For example, it could be more physically accurate 
+    to model this transition with some sclaed trigonometric relation, given that is more physically representative of AC cycle transitions. However, 
+    at the time scales we're dealing with, and as we're largely concerned with the ramp down phase, a linear approximation 
+    of this behaviour should be sufficient.
+\end{remark}
 
+This gives us a set of time-series current density profile data we are able to use (and is precisely 
+the type of data we will be given by ISTTOK in chapter \ref{chapter5}). However, we now have a new problem. 
+We are expecting our system to change, which necessitates a change in our parameters $P = (a_1, a_2, \alpha)$, and as we 
+discussed in the previous section, our optimisation problem is quite sensitive to variations in these parameters. 
+As such, we might anticipate some difficulty with our model converging if we simply attempt to run it for each 
+time slice independently. However, given that our objective function and current density profile function are both almost everywhere smooth, we can, with 
+reasonable certainty, assume that a small perturbation in the current density profile will result in some ``small'' 
+change in our parameters. In other words, assume that $P_n = (a_1, a_2, \alpha)$ describes the parameters for 
+time slice $n$. Then for slice $n + 1$, we would expect the parameters to be described
+$$P_{n+1} = (a_1 + \epsilon_{a_1}, a_2 + \epsilon_{a_2}, \alpha + \epsilon_{\alpha})$$
+For each subsequent optimisation run on a time slice, we can use the solved parameters from the previous time slice as an 
+initial guess for the current one. In other words, $P_{n,0} = P_{n-1, k}$ (where $k$ is the number of iterations the 
+optimisation algorithm took to converge in time slice $n-1$). We can then specify constraints on the $n^{\text{th}}$ 
+optimisation problem using this initial guess and some specified confidence bound for each of the parameters. 
+Let $\epsilon_{a_1},\epsilon_{a_2}, \epsilon_{\alpha} > 0$ be such that
+\begin{align*}
+    \abs{a_1^{(i)} - a_1^{(j)}} & < \epsilon_{a_1} \\
+    \abs{a_2^{(i)} - a_2^{(j)}} & < \epsilon_{a_2} \\
+    \abs{\alpha^{(i)} - \alpha^{(j)}} & < \epsilon_{\alpha}
+\end{align*}
+for any $0 \le i,j \le M$ are indices (using that silly notation physicists use for indexing). Then for the $n^{\text{th}}$ iteration we can specify constraints on our optimisation problem
+\begin{align*}
+    \epsilon_{a_1} - \abs{a_{1}^{(n)} - a_{1}^{(n-1)}} & \ge 0  \\
+    \epsilon_{a_2} - \abs{a_{2}^{(n)} - a_{2}^{(n-1)}} & \ge 0 \\ 
+    \epsilon_{\alpha} - \abs{\alpha^{(n)} - \alpha^{(n-1)}} & \ge 0
+\end{align*}
+Intuitively, this is effectively a fixed-size rectangular prism that moves around our parameter space for successive solved 
+parameters, with the previous iteration's solution being the centre of the current iterations bounds. The overall process 
+can be summarised:
+\begin{enumerate}
+    \item Specify an initial current density profile
+    \item Determine the inverse state of the given current density profile
+    \item Generate $M$ time slices, linearly interpolating between the start and end current density profiles
+    \item Guess an initial parameter $P_{0,0}$ (where the first index indicates this is the first time slice, and the second describes the iteration within the optimisation algorithm we are up to)
+    \item Run our optimisation algorithm to determine the most appropriate parameter set, $P_{0, k}$
+    \item Set $P_{1,0} = P_{0,k}$, and specify the constraints as described above.
+    \item Run the optimisation algorithm again.
+    \item Repeat steps (4) - (7) until all time slices have been solved for
+\end{enumerate}
+In following this process, we should expect to be able to describe the state of our system for each time slice 
+we've generated, and thus observe how the system changes under an inversion. Note that the work we 
+did in chapter \ref{chapter3} ties into this here in terms of how large our current inversion is, and 
+how large the steps between consecutive time slices is (i.e., how many interpolation points we have).
+The code for this can be found in our public GitHub repository \cite{project-source}.
+
+\begin{remark}
+    While this gives us a good way for providing initial guesses for iteration $n \ge 1$ of our simulation, we 
+    still at the whim of chance for the first time slice, $n = 0$. Here in our contrived example we are aware of the initial parameters, 
+    however this will not be the case when we come to deal with real data. There are a number of approaches to solving this problem, 
+    some of which are suggested as extensions to this thesis. For now however, when we don't know 
+    the parameters that match the first time slice of an inversion, we will proceed with visual inspection of the parameter space and manually 
+    specifying an initial guess $P_0$ for the first time slice.
+\end{remark}
 
 % 4.3.2
 \subsection{Results and Explanations}
 
-\red{Have still frame shots of the result of that (3x3 tiles?)}
+We applied the above method to figures 1 and 2 of Wang, to observe how these systems would change \cite{wang-analytic-solution}. 
+We used $M = 50$ time slices, and provide a subset of the results in figure \ref{fig-1-inversion-whole} for figure 1 of Wang's inversion. Figure 
+2 of Wang's inversion is similarly shown in figure \ref{fig-2-inversion-whole}. We provide the results in the appendix here as they are quite large, and disrupt 
+the flow of text - \LaTeX \, be damned.
 
-\red{Show the slow version, then the 'zoomed' in version}
+Some of the behaviour of the system here is difficult to see as, especially for figure \ref{fig-2-inversion-whole}, the effect of the inversion 
+seems to be most pronounced around the quiescent phase. We can zoom around simulation into this time period 
+and repeat our process, to get a simulation of the quiescent phase (using $M = 50$ time slices again, where we set our start and end to simply be 
+time slices around the $I_p = 0$ slice). The results of this effort are given in figures \ref{fig-1-inversion-quiescent} 
+and \ref{fig-2-inversion-quiescent}.
 
-\red{Highlight magnetic field topology breaking - suggests RE population generation}
+\subsubsection{Feasibility}
+These initial results are quite promising for a number of reasons. Firstly, we are able to 
+visually identify in both figures that the magnetic axis (represented by a magnetic island 
+in the topology of the poloidal magnetic field) responds to the varying of current density appropriately, 
+and that the behaviour of the pressure density profile reflects movement of plasma density. 
+Overall the system responds in a manner we would expect a physical system to, which supports the 
+notion that this time perturbation of equilibrium solutions can be used to approximate a time evolution 
+through the quiescent phase of an AC tokamak's current inversion.
 
-\red{Comment on feasibility of the behaviour - e.g.pressure density profile follows 
-magnetic field axis, but then there are things like current densities 
-at the edge of the reactor}
+In figure \ref{fig-1-inversion-quiescent}, representing the quiescent phase of the inversion of figure 1 of Wang, 
+we see what appears to be an inverted current channel appearing around slice $21$, with a magnetic island similarly appearing. 
+The pressure density here, however, indicates no presence of plasma. There is some unstable behaviour that 
+occurs between slices $31$ and $36$ that seems to correct the pressure density profile as the magnetic island that appeared 
+becomes the primary island in the cross section (i.e. this is where the plasma is now confined to). Similarly, in 
+slices $26$ to $31$ of figure \ref{fig-2-inversion-quiescent} we see what appears to be inverse current channels as well, 
+with accompany magnetic islands. While not obvious through the provided graphs, we also capture the 
+formation of an X-point in the magnetic field topology of figure \ref{fig-2-inversion-quiescent} - one of the 
+indicators of runaway electrons as discussed in chapter \ref{chapter2}.
 
