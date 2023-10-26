@@ -10,7 +10,7 @@ the various challenges faced in reaching the conclusions we have.
 
 
 Before burying ourselves in the thick of our results we 
-will cover the requisite knowledge for working in the plasma science simulation space. First we'll discuss what 
+will cover the requisite knowledge for working in the plasma science simulation space. First we will discuss what 
 the physical object of our attention (``plasma'') actually is, with a brief discussion on the design of fusion reactors, where we will 
 emphasise the structures that specifically relate to our interests. In the background chapter we will expound on this by 
 building the mathematical theory underpinning physical processes within the fusion reactor, providing us a way to reason
@@ -82,7 +82,7 @@ to a tokamak - components working in the ``toroidal'' (around the major radius, 
 ``poloidal'' direction (around the minor radius, $a$, of a cross section of the tokamak). Thus, we will often reason about 
 various physical concepts (such as magnetic fields, current densities) in terms of one of these. Though, in fact, we will 
 often ignore the toroidal component - these are often abstracted away under the guise of an axisymmetry assumption, which assumes 
-that any partials with respect to the toroidal angle are diminishing, i.e., $\pdv{\phi} = 0$. We let $\theta$ denote poloidal angles, 
+that any changes in the plasma with respect to the toroidal angle are diminishing, i.e., $\pdv{\phi} = 0$. We let $\theta$ denote poloidal angles, 
 and $\phi$ the toroidal angles. When we refer to $(x,z)$, we will be referring to offsets within a poloidal cross section. 
 Refer to figure \ref{dimensions} for a graphic distinguishing toroidal from poloidal components.
 
@@ -149,20 +149,22 @@ afflictions that modern day fusion reactors face and what this humble thesis att
 % 1.2
 \section{What problem does this thesis address?}
 
-The core problem that this thesis is built around is introduced by Hole and Malaquias in \cite{malaquias-matthew}.
+The core problem that this thesis is built around is introduced by Hole and Malaquias \cite{malaquias-matthew}.
 In a tokamak, external solenoids along with heating elements within the reactor are 
 what drive the primary current within a plasma. In a reactor operating in the DC regime, this is 
 characterised by being a constant, unidirectional current. However, when operating in AC mode, 
 this naturally becomes oscillatory. At every current reversal there is necessarily a quiescent phase 
-for the plasma current, where $I_{p} = 0$. At this point we would anticipate there to be no plasma density 
-as a result of this lack of a driving current, however, experiment in ISTTOK disagrees with this sentiment. 
+for the plasma current, where $I_{p} = 0$. At this point we would anticipate there to be no plasma density,
+as a result of there being no current to drive its temperature, however experimental results from ISTTOK (the 
+reactor which provides Hole and Malaquias, and us, data - more specific details for it are provided in chapter 
+\ref{chapter5}) disagree with this expectation. 
 Notably, reactors such as the CT-6B tokamak identify through experiment the presence of coexisting anti-parallel 
 currents in the ramp down phase - directly contradicting ISTTOK's observations \cite{huang-ct-tokamak}. 
 Summarily, there is no consensus in the community surrounding three central issues:
 \begin{itemize}
     \item Why does there exist a residual plasma density when there is seemingly nothing to drive it? (i.e. $I_p = 0$)
-    \item Why do we see an increase in runaway electron generation during the ramp down phase (and partly during 
-    ramp up, though we will note on this missing data in chapter \ref{chapter2})
+    \item Why do we see an increase in runaway electron generation during the ramp down phase ?(and partly during 
+    ramp up, though we will note on this missing data in chapter \ref{chapter2})?
     \item There is experimental evidence that both supports and discounts the existence of anti-parallel current
     formation during the ramp down phase. What could drive this, and is there theoretical support for either side?
 \end{itemize}
@@ -177,9 +179,9 @@ Summarily, there is no consensus in the community surrounding three central issu
 It is hypothesised by Hole and Malaquias that this residual plasma density is the result of 
 persistent runaway electron populations in the plasma. It is further suggested that these populations
 are driven by some mechanism reuslting from the ramp down phase - we discuss runaway electron generation 
-mechanisms in chapter \ref{chapter2}. As we noted however, experiment is inconsistent on the question of 
-the existence of anti-parallel current channels in the plasma (both positive and negative current densities 
-in the plasma density. In ISTTOK we note that the potential difference of the plasma is vanishing as the plasma 
+mechanisms in chapter \ref{chapter2}. As we noted however, experiments are inconsistent on the question of 
+the existence of anti-parallel current channels (concurrent positive and negatively oriented current densities) in the plasma. 
+In ISTTOK we note that the $V_{\text{loop}}$ of the plasma (essentially the plasma's voltage) is vanishing as the plasma 
 current approaches $I_p = 0$. This combined with the observation that the pressure density profile, as measured 
 by the ISTTOK heavy ion beam diagnostics team, show non-vanishing pressures within the plasma, indicating 
 the presence of a residual plasma even as the plasma current vanishes. This same pressure density profile 
@@ -191,7 +193,7 @@ of identifying indicators of runaway electron generation, or support for the pre
 - in effect, to provide some insight into the answers behind any of the three points raised above. 
 More specifically, however, we will develop theory around simulating the behaviour of a ramp down phase, necessarily a time evolution, when 
 the tools we have available to us are characteristically time independent. From this we will develop a model 
-which targets specifically the scenario that we have accuss to current density profile data, and from this 
+which targets specifically the scenario that we have access to current density profile data, and from this 
 derive information about the pressure density profile and the poloidal magnetic flux. We will run simulations 
 for a contrived tokamak to observe some theoretical results, before applying what we've learned to data 
 made available by the ISTTOK project. From this we will attempt to draw inference about the behaviours listed 
@@ -206,7 +208,7 @@ efforts led to the discovery of Wang's paper \cite{wang-analytic-solution}, whic
 to a variation of the Grad-Shafranov equation constructed specifically for the modelling of equilibrium in 
 current reversal tokamak configurations. While the presence of equilibria for AC regime tokamaks is the subject of 
 ongoing research (with theoretical work supporting their existence, but limited experimental support yet), 
-we can nevertheless sought to use their model to simulate a ramp down phase. We first showed that equilibrium 
+we nevertheless sought to use their model to simulate a ramp down phase. We first showed that equilibrium 
 solutions to the Grad-Shafranov equation could be perturbed by some small time dependent $\epsilon$ term to 
 emulate the effect of a time evolution. For some small (undetermined) perturbation this would still be an accurate 
 model of the physical effects within a reactor. We were able to simulate the ramp down phase for a contrived reactor using 

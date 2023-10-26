@@ -1114,11 +1114,6 @@ INPUT /home/tom/documents/uni/honours/thesis/thesis-document/abstract.tex
 INPUT /home/tom/documents/uni/honours/thesis/thesis-document/abstract.tex
 INPUT /home/tom/documents/uni/honours/thesis/thesis-document/abstract.tex
 INPUT /home/tom/documents/uni/honours/thesis/thesis-document/abstract.tex
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmsl12.tfm
-INPUT /home/tom/documents/uni/honours/thesis/thesis-document/thesis.toc
-INPUT /home/tom/documents/uni/honours/thesis/thesis-document/thesis.toc
-INPUT /home/tom/documents/uni/honours/thesis/thesis-document/thesis.toc
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmr8.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmr6.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmmi12.tfm
@@ -1151,6 +1146,11 @@ INPUT /usr/share/texlive/texmf-dist/tex/latex/base/ulasy.fd
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/latex-fonts/lasy10.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/latex-fonts/lasy8.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/latex-fonts/lasy6.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmsl12.tfm
+INPUT /home/tom/documents/uni/honours/thesis/thesis-document/thesis.toc
+INPUT /home/tom/documents/uni/honours/thesis/thesis-document/thesis.toc
+INPUT /home/tom/documents/uni/honours/thesis/thesis-document/thesis.toc
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
 OUTPUT /home/tom/documents/uni/honours/thesis/thesis-document/thesis.toc
 INPUT /home/tom/documents/uni/honours/thesis/thesis-document/notation.tex
 INPUT /home/tom/documents/uni/honours/thesis/thesis-document/notation.tex

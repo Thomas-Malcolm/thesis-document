@@ -52,8 +52,8 @@ unwieldy when it comes to finding local and/or global minima.
 
 Least squares problems are a subsect of optimisation problems, which are largely concerned with fitting some function to 
 a set of data. Let a set of data be given $(x_i, y_i)$, where $x_i$ are independent variables, and $y_i$ are dependent variables in 
-the data set. We wish to fit some function $f(x, \beta)$ to fit our data as tightly as possible, where $x$ is the independent variable 
-as for the data, and $\beta$ are parameters in the function $f$ which can be varied. Let $r_i$ be the \textit{residual} error between 
+the data set. We wish to fit some function $f(x, \beta)$ to our data as tightly as possible, where $x$ is the independent variable 
+as for the data, and $\beta$ are parameters in the function $f$ which can be varied to modify its behaviour. Let $r_i$ be the \textit{residual} error between 
 a given data entry $(x_i, y_i)$ and our corresponding value for it, $f(x_i, \beta)$ for a given $\beta$. Then our goal 
 (in wanting to have a function $f$ which matches the provided data) is to reduce the amount of residual error we have - to minimise it. 
 We can specify this as an optimisation problem \cite{carlone-least-squares}
@@ -111,7 +111,7 @@ Thus, descent algorithms are distinguished by the mechanism by which they choose
 
 While the algorithms we will talk about here can be applied to optimisation problems generally, we should 
 keep in mind their application to non-linear least squares problems, as this is what we will eventually deal with. 
-Here we'll provide an overview of two common algorithms 
+Here we will provide an overview of two common algorithms 
 used for finding local minima of a given function. In our attempts to fit a model to some data in section 4.2, we first 
 attempted to use these methods. However, due to the nature of the objective function we have, these efforts were in vain, and 
 we turned to a different algorithm (MMA). Nevertheless, it is useful for intuition to see examples of other algorithms.
@@ -156,12 +156,16 @@ Asymptotes algorithm, developed
 by Svanberg \cite{mma}. While its implementation details are a bit volumous to repeat here, in essence, it works by creating 
 convex sub-problems around potential local minima, and attempts to minimise these individually. It repeats this process until 
 it is no longer decreasing, and returns the most recent potential local minima it found. This algorithm is 
-useful to us two main reasons: 1. it is still as robust an optimisation method as Newton's method and gradient descent, in that it 
-can handle a host of optimisation problems (including non-linear problems); and 2, it is more resistant to the asymptotic behaviour.
+useful to us for two main reasons: 
+\begin{itemize}
+    \item It is still as robust an optimisation method as Newton's method and gradient descent, in that it 
+    can handle a host of optimisation problems (including non-linear problems);
+    \item It is more resistant to the asymptotic behaviour.
+\end{itemize} 
 
 In our code we use an implementation provided by the NLopt package, a nonlinear optimisation library for Julia \cite{nlopt}. The NLopt
-library, in iniitialising an optimisation problem for MMA, requires information about the objective function, its partial derivatives, 
-and any constraints, if they exist (which they will for us, but we'll note on that shortly). Thus, when it comes to constructing 
+library, in initialising an optimisation problem for MMA, requires information about the objective function, its partial derivatives, 
+and any constraints, if they exist (which they will for us, but we will note on that shortly). Thus, when it comes to constructing 
 our system, we must provide the objective function naturally, but also its partial derivatives with respect to our paramters.
 
 % 4.2.

@@ -14,7 +14,7 @@ mass of conductive particles, and their electrodynamic forces, as if it were a f
 individual particle interactions. This idea was first introducd by Hannes Alfv\'en in 1970, for which he earned 
 the Nobel prize \cite{alfven-mhd}!
 
-Much modern research in Tokamak plasma simulation uses some variation of an MHD model (and the derived Grad-Shafranov Equation, which we will 
+Much modern research in tokamak plasma simulation uses some variation of an MHD model (and the derived Grad-Shafranov Equation, which we will 
 soon be introduced to) for a number of reasons, not least being its comparative computational efficiency.
 One primary benefit of treating our plasma as a fluid being that we avoid modelling the behaviour of 
 each individual particle in said plasma, a simplification which becomes especially important when we consider 
@@ -23,8 +23,8 @@ for the author's ThinkPad T440p to even contemplate!
 
 Here we will build the relevant MHD background for this thesis, deriving the MHD equations from first principles, 
 and explaning the assumptions we make to reduce them to a simplified state known as ``ideal MHD''. From there we will 
-look at the PDE which models the behaviour of a plasma inside a Tokamak, the ``Grad-Shafranov Equation''. We will 
-then note some pitfalls of using this model to describe AC configuration Tokamaks (as we are investigating), 
+look at the PDE which models the behaviour of a plasma inside a tokamak, the ``Grad-Shafranov Equation''. We will 
+then note some pitfalls of using this model to describe AC configuration tokamaks (as we are investigating), 
 and finish with a discussion on runaway electrons (RE).
 
 % 2.1.1.
@@ -101,7 +101,7 @@ We begin with conservation of mass, also known as the ``continuity equation''.
 \end{remark}
 
 Equation \eqref{continuity} (and equivalently \eqref{continuity-lag}) tells us that the mass of our fluid is conserved for motion of a volume element 
-of our fluid - one assumption we make for our model. Next we'll discuss fluid motion as described by Newton for a fluid element:
+of our fluid - one assumption we make for our model. Next we will discuss fluid motion as described by Newton for a fluid element:
 
 \begin{definition}[Newtonian Fluid Motion]
     Newton's law for a fluid specifies:
@@ -120,7 +120,7 @@ The forces acting on particles within a fluid can be split into two types
     physics, though note this is a vector here as we care about the direction gravity accelerates the fluid element in, 
     and relativistic effects can be an important consideration for high mass systems. This is more relevant for cases that 
     you are using the MHD equations to describe the dynamics of large systems, such as a star. Unsurprisingly, this is less relevant 
-    for our case of plasmas within relatively miniscule Tokamaks.
+    for our case of plasmas within relatively miniscule tokamaks.
 
     \item Electromagnetic
     
@@ -138,7 +138,7 @@ via:
 
 \begin{remark}
     Here the $\rho \vec{g}$ term could be abstracted further away into a stress tensor, as described by equation 4.20 of \cite{mhd-lectures}. These 
-    pressures are largely negligible when dealing with the scale we do in Tokamak plasmas however, and 
+    pressures are largely negligible when dealing with the scale we do in tokamak plasmas however, and 
     are thus ignored. We will soon drop the gravitational consideration as well anyway, but include it here now for completeness.
 \end{remark}
 
@@ -307,13 +307,13 @@ composition and geometry of the plasma - thus any plasma model which wishes to a
 and magnetic field as a function of time will do well to take these effects into account, especially when it is over a ``sufficient'' 
 time scale (with special consideration for what ``sufficient'' actually entails here). It is possible that the timescales on which 
 a simulation is run are too small for resistive effects to meaningfully change field line topology, though this is more a question of 
-acceptable error and initial conditions. In this thesis (as we'll see) we seek to approximate a time evolution, but do so with 
+acceptable error and initial conditions. In this thesis (as we will see) we seek to approximate a time evolution, but do so with 
 a series of equilibria, which as such do not take into account resistive effects. We will make note on this again when we come to 
 discuss of our perturbation approach, and similarly when we present our simulated current reversals.
 
 The ideal MHD equations as we stated are what govern many approximations to behaviour of plasmas in general. These in their current 
 form of course make no assumptions about the geometry of the medium in which a plasma exists, nor any properties which 
-may be associated with such a scenario. Next we will take these equations and confine them to the geometry of an axisymmetric Tokamak 
+may be associated with such a scenario. Next we will take these equations and confine them to the geometry of an axisymmetric tokamak 
 ``reactor'', and derive the Grad-Shafranov equation, a model which will let us reason about the poloidal magnetic field structure given 
 some prescribed geometry and conditions.
 
@@ -344,7 +344,7 @@ To ``solve'' a PDE is to find such a function $u$, subject to any boundary condi
 common exercise in the study of PDEs is to simply show existence and uniqueness of a solution to a PDE, with no 
 intention of actually identifying the function itself. In our case, luckily, the GSE has identified solutions for 
 certain assumptions (boundary conditions) imposed on it, one of which we will exploit later in the Grad-Shafranov-Helmholtz 
-equation. Before that however, we'll look at definitions for PDE properties that are associated with the GSE:
+equation. Before that however, we will look at definitions for PDE properties that are associated with the GSE:
 
 \begin{notn}
     Evans uses the notation $D^{k} u$ to mean the $k \times k$ matrix of $k^{\text{th}}$ order partial derivatives of $u$.
@@ -456,7 +456,7 @@ We are now armed with the necessary tools to introduce the Grad-Shafranov Equati
 \begin{remark}
     The flux function $f(\Psi)$ describes the poloidal flux per radian in $\phi$. Of note, for an axisymmetric torus the 
     total flux function would then simply be $2\pi \Psi$. The other flux function here, $p(\Psi)$, simply describes pressure 
-    inside the Tokamak \cite{gse-derivation}. 
+    inside the tokamak \cite{gse-derivation}. 
 \end{remark}
 
 \begin{remark}
@@ -467,8 +467,8 @@ We are now armed with the necessary tools to introduce the Grad-Shafranov Equati
 \end{remark}
 
 The GSE equation is not without its faults, and is, in large, a considerable simplification of the actual physical behaviour 
-of a plasma within a Tokamak -- as my supervisor Matthew would say, it is very much so a spherical cow model. To explore 
-why this is so, we'll explain the components of the GSE and the assumptions that are made in reaching it through a 
+of a plasma within a tokamak -- as my supervisor Matthew would say, it is very much so a spherical cow model. To explore 
+why this is so, we will explain the components of the GSE and the assumptions that are made in reaching it through a 
 derivation with accompanying annotations below.
 
 % 2.2.1
@@ -477,10 +477,10 @@ derivation with accompanying annotations below.
 Here we present a derivation of the Grad-Shafranov Equation. We begin by assuming the ideal MHD conditions, which 
 immediately gives us that, in our plasma model:
 \begin{itemize}
-    \item The plasma particle distribution approximately abides a Maxwellian distribution
-    \item Resistivity is negligible
-    \item There is no external (to the system) current source
-    \item The topology of the magnetic field is fixed relative to the fluid, i.e., the magnetic field and fluid move together (the frozen-in flux theorem)
+    \item The plasma particle distribution approximately abides a Maxwellian distribution;
+    \item Resistivity is negligible;
+    \item There is no external (to the system) current source;
+    \item The topology of the magnetic field is fixed relative to the fluid, i.e., the magnetic field and fluid move together (the frozen-in flux theorem);
     \item Any velocities considered are non-relativistic (notably, this includes electron velocities)
 \end{itemize}
 
@@ -609,7 +609,7 @@ then, recalling that $f = (x \vec{B}_{\phi}) / \mu_0$, we can remove the toroida
     \label{pre-gse} \vec{j}_{\phi} = x \pdv{p}{\Psi} + \frac{\mu_0}{x} f(\Psi) \pdv{f}{\Psi}
 \end{equation}
 Lastly, we want to remove the toroidal current component. We can do this by expanding Ampere's law again, where 
-we also use our expressions for $\vec{B}_p$ and $\vec{j}_p$. To save using more space in this derivation we'll leave this 
+we also use our expressions for $\vec{B}_p$ and $\vec{j}_p$. To save using more space in this derivation we will leave this 
 as an exercise, but the result is the expansion
 \begin{equation}
     \label{jphi-remove} -\mu_0 x \vec{j}_{\phi} = x \pdv{x} \left (\frac{1}{x} \pdv{\Psi}{x} \right ) + \pdv[2]{\Psi}{z}
@@ -724,7 +724,8 @@ accelerated into becoming runaway electrons:
 The heating element which is the cause of this is affectionately titled a ``heating lamp'', 
 though one should likely hesitate to leave it on after you go to bed. As such, no matter our efforts in dampening 
 REs, and in eliminating other processes which generate them, we will necessarily have some background population 
-of runaway electrons. Notably, this will also increase in magnitude for reactors which have longer 
+of runaway electrons. Notably, this will also increase in magnitude for reactors which have longer confinement times, as the 
+runaway electron build-up is cumulative.
 
 A connected idea to this is that of runaway avalanches. If a collision takes place within the plasma between a high 
 energy electron and particles in the gas, then a ``Townsend avalanche'' can occur if that collision results in the production of other 
@@ -786,6 +787,6 @@ population size.
 We should note that, despite the various options available to us for identifying runaway electrons, 
 measurements can be somewhat fraught, and some populations may be mischaracterised in terms of strength, or 
 missed entirely. For example, some instruments that are plasma-facing in a tokamak are directional by nature. This would 
-be ok if your plasma current was oriented in a single direction, but as is in our case with a reactor operating 
+be okay if your plasma current was oriented in a single direction, but as is in our case with a reactor operating 
 in AC mode, the plasma current changes direction. As such, the HXR detector for example will miss radiation 
 caused by RE populations travelling in a direction it can't detect. 

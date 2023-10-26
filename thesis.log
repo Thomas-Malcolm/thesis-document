@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Debian) (preloaded format=pdflatex 2022.9.5)  26 OCT 2023 13:51
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Debian) (preloaded format=pdflatex 2022.9.5)  26 OCT 2023 15:34
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -662,21 +662,21 @@ Package pdftex.def Info: imgs/the-beatles.png  used on input line 16.
 
 
 ]
-Underfull \vbox (badness 5245) has occurred while \output is active []
-
- [9]) [10] (/home/tom/documents/uni/honours/thesis/thesis-document/thesis.toc
-LaTeX Font Info:    Trying to load font information for U+msa on input line 5.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 23.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 5.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 23.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for U+lasy on input line 5.
+LaTeX Font Info:    Trying to load font information for U+lasy on input line 23.
  (/usr/share/texlive/texmf-dist/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
-) [11
+))
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [9] [10] (/home/tom/documents/uni/honours/thesis/thesis-document/thesis.toc [11
 
 
 
@@ -703,18 +703,18 @@ Chapter 1.
 
 
 ] [2] [3]
-<imgs/c1/dimensions.png, id=369, 602.25pt x 851.18pt>
+<imgs/c1/dimensions.png, id=375, 602.25pt x 851.18pt>
 File: imgs/c1/dimensions.png Graphic file (type png)
 <use imgs/c1/dimensions.png>
 Package pdftex.def Info: imgs/c1/dimensions.png  used on input line 91.
 (pdftex.def)             Requested size: 301.12425pt x 425.58894pt.
-<imgs/c1/flux-functions.png, id=371, 144.54pt x 104.0688pt>
+<imgs/c1/flux-functions.png, id=377, 144.54pt x 104.0688pt>
 File: imgs/c1/flux-functions.png Graphic file (type png)
 <use imgs/c1/flux-functions.png>
 Package pdftex.def Info: imgs/c1/flux-functions.png  used on input line 102.
 (pdftex.def)             Requested size: 289.07925pt x 208.13708pt.
  [4 </home/tom/documents/uni/honours/thesis/thesis-document/imgs/c1/dimensions.png>]
-<imgs/c1/solenoids.png, id=380, 602.25pt x 851.18pt>
+<imgs/c1/solenoids.png, id=386, 602.25pt x 851.18pt>
 File: imgs/c1/solenoids.png Graphic file (type png)
 <use imgs/c1/solenoids.png>
 Package pdftex.def Info: imgs/c1/solenoids.png  used on input line 118.
@@ -724,7 +724,7 @@ Package pdftex.def Info: imgs/c1/solenoids.png  used on input line 118.
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [5 </home/tom/documents/uni/honours/thesis/thesis-document/imgs/c1/flux-functions.png>]
-<imgs/c1/east-cross-section.png, id=389, 1580.90625pt x 941.5175pt>
+<imgs/c1/east-cross-section.png, id=395, 1580.90625pt x 941.5175pt>
 File: imgs/c1/east-cross-section.png Graphic file (type png)
 <use imgs/c1/east-cross-section.png>
 Package pdftex.def Info: imgs/c1/east-cross-section.png  used on input line 132.
@@ -733,23 +733,20 @@ Package pdftex.def Info: imgs/c1/east-cross-section.png  used on input line 132.
 Underfull \vbox (badness 1043) has occurred while \output is active []
 
  [6 </home/tom/documents/uni/honours/thesis/thesis-document/imgs/c1/solenoids.png>] [7 </home/tom/documents/uni/honours/thesis/thesis-document/imgs/c1/east-cross-section.png>]
-<imgs/c1/residual-plasma.png, id=410, 425.9112pt x 362.3136pt>
+<imgs/c1/residual-plasma.png, id=416, 425.9112pt x 362.3136pt>
 File: imgs/c1/residual-plasma.png Graphic file (type png)
 <use imgs/c1/residual-plasma.png>
-Package pdftex.def Info: imgs/c1/residual-plasma.png  used on input line 172.
+Package pdftex.def Info: imgs/c1/residual-plasma.png  used on input line 174.
 (pdftex.def)             Requested size: 425.91014pt x 362.31271pt.
 
-Overfull \hbox (13.34518pt too wide) in paragraph at lines 172--174
+Overfull \hbox (13.34518pt too wide) in paragraph at lines 174--176
  [][] 
  []
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-
-Underfull \vbox (badness 1448) has occurred while \output is active []
-
- [8] [9 </home/tom/documents/uni/honours/thesis/thesis-document/imgs/c1/residual-plasma.png>]) [10]
+[8] [9 </home/tom/documents/uni/honours/thesis/thesis-document/imgs/c1/residual-plasma.png>]) [10]
 \openout2 = `chapters/chapter2.aux'.
 
  (/home/tom/documents/uni/honours/thesis/thesis-document/chapters/chapter2.tex
@@ -782,24 +779,24 @@ LaTeX Font Info:    Font shape `U/lasy/b/n' in size <6> not available
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [27] [28] [29]
-<imgs/c2/gradb-drift.png, id=665, 105.5142pt x 105.2733pt>
+<imgs/c2/gradb-drift.png, id=670, 105.5142pt x 105.2733pt>
 File: imgs/c2/gradb-drift.png Graphic file (type png)
 <use imgs/c2/gradb-drift.png>
 Package pdftex.def Info: imgs/c2/gradb-drift.png  used on input line 697.
 (pdftex.def)             Requested size: 221.57993pt x 221.07402pt.
  [30 </home/tom/documents/uni/honours/thesis/thesis-document/imgs/c2/gradb-drift.png>] [31]
-Overfull \hbox (0.9789pt too wide) in paragraph at lines 739--747
+Overfull \hbox (0.9789pt too wide) in paragraph at lines 740--748
 []\OT1/cmr/m/n/12 Another con-ti-bu-tion is that of mag-netic field topolgy. When there are ``breaks''
  []
 
 [32]
-<imgs/c2/re-presence.png, id=691, 469.755pt x 223.5552pt>
+<imgs/c2/re-presence.png, id=696, 469.755pt x 223.5552pt>
 File: imgs/c2/re-presence.png Graphic file (type png)
 <use imgs/c2/re-presence.png>
-Package pdftex.def Info: imgs/c2/re-presence.png  used on input line 779.
+Package pdftex.def Info: imgs/c2/re-presence.png  used on input line 780.
 (pdftex.def)             Requested size: 422.7756pt x 201.1978pt.
 
-Overfull \hbox (10.21065pt too wide) in paragraph at lines 779--783
+Overfull \hbox (10.21065pt too wide) in paragraph at lines 780--784
  [][] 
  []
 
@@ -814,7 +811,7 @@ Overfull \hbox (10.21065pt too wide) in paragraph at lines 779--783
 ]
 Chapter 3.
 [35] [36]
-<imgs/c3/pool.png, id=718, 592.2125pt x 333.245pt>
+<imgs/c3/pool.png, id=723, 592.2125pt x 333.245pt>
 File: imgs/c3/pool.png Graphic file (type png)
 <use imgs/c3/pool.png>
 Package pdftex.def Info: imgs/c3/pool.png  used on input line 99.
@@ -851,7 +848,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [51]
-<imgs/c3/wang-fig-1.png, id=877, 602.25pt x 401.5pt>
+<imgs/c3/wang-fig-1.png, id=882, 602.25pt x 401.5pt>
 File: imgs/c3/wang-fig-1.png Graphic file (type png)
 <use imgs/c3/wang-fig-1.png>
 Package pdftex.def Info: imgs/c3/wang-fig-1.png  used on input line 533.
@@ -864,7 +861,7 @@ Underfull \hbox (badness 1478) in paragraph at lines 535--535
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<imgs/c3/wang-fig-2.png, id=880, 602.25pt x 401.5pt>
+<imgs/c3/wang-fig-2.png, id=885, 602.25pt x 401.5pt>
 File: imgs/c3/wang-fig-2.png Graphic file (type png)
 <use imgs/c3/wang-fig-2.png>
 Package pdftex.def Info: imgs/c3/wang-fig-2.png  used on input line 540.
@@ -877,7 +874,7 @@ Underfull \hbox (badness 1478) in paragraph at lines 544--544
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<imgs/c3/wang-fig-3.png, id=883, 602.25pt x 401.5pt>
+<imgs/c3/wang-fig-3.png, id=888, 602.25pt x 401.5pt>
 File: imgs/c3/wang-fig-3.png Graphic file (type png)
 <use imgs/c3/wang-fig-3.png>
 Package pdftex.def Info: imgs/c3/wang-fig-3.png  used on input line 549.
@@ -904,39 +901,33 @@ Chapter 4.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[57]
-Underfull \vbox (badness 2662) has occurred while \output is active []
-
- [58]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [59]
+[57] [58] [59]
 Underfull \vbox (badness 1852) has occurred while \output is active []
 
  [60] [61]
-Overfull \hbox (79.29005pt too wide) detected at line 240
+Overfull \hbox (79.29005pt too wide) detected at line 244
 []
  []
 
 [62]
-<imgs/c4/heat-1-entire.png, id=967, 526.96875pt x 376.40625pt>
+<imgs/c4/heat-1-entire.png, id=972, 526.96875pt x 376.40625pt>
 File: imgs/c4/heat-1-entire.png Graphic file (type png)
 <use imgs/c4/heat-1-entire.png>
-Package pdftex.def Info: imgs/c4/heat-1-entire.png  used on input line 258.
+Package pdftex.def Info: imgs/c4/heat-1-entire.png  used on input line 262.
 (pdftex.def)             Requested size: 368.8756pt x 263.48257pt.
-<imgs/c4/heat-2-entire.png, id=968, 526.96875pt x 376.40625pt>
+<imgs/c4/heat-2-entire.png, id=973, 526.96875pt x 376.40625pt>
 File: imgs/c4/heat-2-entire.png Graphic file (type png)
 <use imgs/c4/heat-2-entire.png>
-Package pdftex.def Info: imgs/c4/heat-2-entire.png  used on input line 266.
+Package pdftex.def Info: imgs/c4/heat-2-entire.png  used on input line 270.
 (pdftex.def)             Requested size: 368.8756pt x 263.48257pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<imgs/c4/heat-3-entire.png, id=969, 526.96875pt x 376.40625pt>
+<imgs/c4/heat-3-entire.png, id=974, 526.96875pt x 376.40625pt>
 File: imgs/c4/heat-3-entire.png Graphic file (type png)
 <use imgs/c4/heat-3-entire.png>
-Package pdftex.def Info: imgs/c4/heat-3-entire.png  used on input line 274.
+Package pdftex.def Info: imgs/c4/heat-3-entire.png  used on input line 278.
 (pdftex.def)             Requested size: 368.8756pt x 263.48257pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
@@ -945,23 +936,23 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 Underfull \vbox (badness 5862) has occurred while \output is active []
 
  [64 </home/tom/documents/uni/honours/thesis/thesis-document/imgs/c4/heat-2-entire.png> </home/tom/documents/uni/honours/thesis/thesis-document/imgs/c4/heat-3-entire.png>]
-<imgs/c4/solved-fig-1.png, id=989, 602.25pt x 401.5pt>
+<imgs/c4/solved-fig-1.png, id=994, 602.25pt x 401.5pt>
 File: imgs/c4/solved-fig-1.png Graphic file (type png)
 <use imgs/c4/solved-fig-1.png>
-Package pdftex.def Info: imgs/c4/solved-fig-1.png  used on input line 306.
+Package pdftex.def Info: imgs/c4/solved-fig-1.png  used on input line 310.
 (pdftex.def)             Requested size: 481.80064pt x 321.20042pt.
 
-Overfull \hbox (69.23569pt too wide) in paragraph at lines 306--308
+Overfull \hbox (69.23569pt too wide) in paragraph at lines 310--312
  [][] 
  []
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<imgs/c4/converged.png, id=992, 228.855pt x 79.04532pt>
+<imgs/c4/converged.png, id=997, 228.855pt x 79.04532pt>
 File: imgs/c4/converged.png Graphic file (type png)
 <use imgs/c4/converged.png>
-Package pdftex.def Info: imgs/c4/converged.png  used on input line 314.
+Package pdftex.def Info: imgs/c4/converged.png  used on input line 318.
 (pdftex.def)             Requested size: 228.85443pt x 79.0451pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
@@ -980,7 +971,7 @@ Chapter 5.
 
 
 ]
-<imgs/c5/ion-diagnostics.png, id=1064, 325.215pt x 347.04657pt>
+<imgs/c5/ion-diagnostics.png, id=1069, 325.215pt x 347.04657pt>
 File: imgs/c5/ion-diagnostics.png Graphic file (type png)
 <use imgs/c5/ion-diagnostics.png>
 Package pdftex.def Info: imgs/c5/ion-diagnostics.png  used on input line 56.
@@ -993,7 +984,7 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [72] [73 </home/tom/documents/uni/honours/thesis/thesis-document/imgs/c5/ion-diagnostics.png (PNG copy)>]
-<imgs/c5/current-profile-unnormalised-0.png, id=1083, 602.25pt x 401.5pt>
+<imgs/c5/current-profile-unnormalised-0.png, id=1089, 602.25pt x 401.5pt>
 File: imgs/c5/current-profile-unnormalised-0.png Graphic file (type png)
 <use imgs/c5/current-profile-unnormalised-0.png>
 Package pdftex.def Info: imgs/c5/current-profile-unnormalised-0.png  used on input line 122.
@@ -1003,13 +994,13 @@ Package pdftex.def Info: imgs/c5/current-profile-unnormalised-0.png  used on inp
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [74]
-<imgs/c5/ip_time_data.png, id=1092, 602.25pt x 401.5pt>
+<imgs/c5/ip_time_data.png, id=1098, 602.25pt x 401.5pt>
 File: imgs/c5/ip_time_data.png Graphic file (type png)
 <use imgs/c5/ip_time_data.png>
 Package pdftex.def Info: imgs/c5/ip_time_data.png  used on input line 132.
 (pdftex.def)             Requested size: 361.35278pt x 240.90184pt.
  [75 </home/tom/documents/uni/honours/thesis/thesis-document/imgs/c5/current-profile-unnormalised-0.png> </home/tom/documents/uni/honours/thesis/thesis-document/imgs/c5/ip_time_data.png>]
-<imgs/c5/comparison-current-0-unfiltered.png, id=1101, 602.25pt x 401.5pt>
+<imgs/c5/comparison-current-0-unfiltered.png, id=1107, 602.25pt x 401.5pt>
 File: imgs/c5/comparison-current-0-unfiltered.png Graphic file (type png)
 <use imgs/c5/comparison-current-0-unfiltered.png>
 Package pdftex.def Info: imgs/c5/comparison-current-0-unfiltered.png  used on input line 153.
@@ -1019,7 +1010,7 @@ Overfull \hbox (9.00716pt too wide) in paragraph at lines 153--156
  [][] 
  []
 
-<imgs/c5/comparison-current-15-unfiltered.png, id=1103, 602.25pt x 401.5pt>
+<imgs/c5/comparison-current-15-unfiltered.png, id=1109, 602.25pt x 401.5pt>
 File: imgs/c5/comparison-current-15-unfiltered.png Graphic file (type png)
 <use imgs/c5/comparison-current-15-unfiltered.png>
 Package pdftex.def Info: imgs/c5/comparison-current-15-unfiltered.png  used on input line 166.
@@ -1030,7 +1021,7 @@ Overfull \hbox (9.00716pt too wide) in paragraph at lines 166--169
  []
 
 [76 </home/tom/documents/uni/honours/thesis/thesis-document/imgs/c5/comparison-current-0-unfiltered.png>]
-<imgs/c5/comparison-current-20-unfiltered.png, id=1113, 602.25pt x 401.5pt>
+<imgs/c5/comparison-current-20-unfiltered.png, id=1119, 602.25pt x 401.5pt>
 File: imgs/c5/comparison-current-20-unfiltered.png Graphic file (type png)
 <use imgs/c5/comparison-current-20-unfiltered.png>
 Package pdftex.def Info: imgs/c5/comparison-current-20-unfiltered.png  used on input line 185.
@@ -1044,7 +1035,7 @@ Overfull \hbox (9.00716pt too wide) in paragraph at lines 185--189
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [77 </home/tom/documents/uni/honours/thesis/thesis-document/imgs/c5/comparison-current-15-unfiltered.png>]
-<imgs/c5/magnetic-field-0.png, id=1125, 602.25pt x 401.5pt>
+<imgs/c5/magnetic-field-0.png, id=1131, 602.25pt x 401.5pt>
 File: imgs/c5/magnetic-field-0.png Graphic file (type png)
 <use imgs/c5/magnetic-field-0.png>
 Package pdftex.def Info: imgs/c5/magnetic-field-0.png  used on input line 205.
@@ -1058,7 +1049,7 @@ Overfull \hbox (9.00716pt too wide) in paragraph at lines 205--208
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [78 </home/tom/documents/uni/honours/thesis/thesis-document/imgs/c5/comparison-current-20-unfiltered.png>]
-<imgs/c5/magnetic-field-15.png, id=1133, 602.25pt x 401.5pt>
+<imgs/c5/magnetic-field-15.png, id=1139, 602.25pt x 401.5pt>
 File: imgs/c5/magnetic-field-15.png Graphic file (type png)
 <use imgs/c5/magnetic-field-15.png>
 Package pdftex.def Info: imgs/c5/magnetic-field-15.png  used on input line 214.
@@ -1067,7 +1058,7 @@ Package pdftex.def Info: imgs/c5/magnetic-field-15.png  used on input line 214.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<imgs/c5/magnetic-field-20.png, id=1134, 602.25pt x 401.5pt>
+<imgs/c5/magnetic-field-20.png, id=1140, 602.25pt x 401.5pt>
 File: imgs/c5/magnetic-field-20.png Graphic file (type png)
 <use imgs/c5/magnetic-field-20.png>
 Package pdftex.def Info: imgs/c5/magnetic-field-20.png  used on input line 223.
@@ -1079,12 +1070,12 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [79 </home/tom/documents/uni/honours/thesis/thesis-document/imgs/c5/magnetic-field-0.png>] [80 </home/tom/documents/uni/honours/thesis/thesis-document/imgs/c5/magnetic-field-15.png> </home/tom/documents/uni/honours/thesis/thesis-document/imgs/c5/magnetic-field-20.png>] [81]
-<imgs/c5/comparison-current-edited-0.png, id=1160, 602.25pt x 401.5pt>
+<imgs/c5/comparison-current-edited-0.png, id=1166, 602.25pt x 401.5pt>
 File: imgs/c5/comparison-current-edited-0.png Graphic file (type png)
 <use imgs/c5/comparison-current-edited-0.png>
 Package pdftex.def Info: imgs/c5/comparison-current-edited-0.png  used on input line 288.
 (pdftex.def)             Requested size: 391.45786pt x 260.9719pt.
-<imgs/c5/mag-field-edited-data-0.png, id=1161, 602.25pt x 401.5pt>
+<imgs/c5/mag-field-edited-data-0.png, id=1167, 602.25pt x 401.5pt>
 File: imgs/c5/mag-field-edited-data-0.png Graphic file (type png)
 <use imgs/c5/mag-field-edited-data-0.png>
 Package pdftex.def Info: imgs/c5/mag-field-edited-data-0.png  used on input line 294.
@@ -1109,15 +1100,15 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 ]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 59.
+(hyperref)                removing `math shift' on input line 54.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `subscript' on input line 59.
+(hyperref)                removing `subscript' on input line 54.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 59.
+(hyperref)                removing `math shift' on input line 54.
 
 ) [86] [87]
 \openout2 = `appendix1.aux'.
@@ -1129,12 +1120,12 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 
 ]
 Appendix A.
-<imgs/c4/heat-1-zoomed-current-only.png, id=1200, 526.96875pt x 376.40625pt>
+<imgs/c4/heat-1-zoomed-current-only.png, id=1208, 526.96875pt x 376.40625pt>
 File: imgs/c4/heat-1-zoomed-current-only.png Graphic file (type png)
 <use imgs/c4/heat-1-zoomed-current-only.png>
 Package pdftex.def Info: imgs/c4/heat-1-zoomed-current-only.png  used on input line 7.
 (pdftex.def)             Requested size: 368.8756pt x 263.48257pt.
-<imgs/c4/heat-2-zoomed-current-only.png, id=1201, 526.96875pt x 376.40625pt>
+<imgs/c4/heat-2-zoomed-current-only.png, id=1209, 526.96875pt x 376.40625pt>
 File: imgs/c4/heat-2-zoomed-current-only.png Graphic file (type png)
 <use imgs/c4/heat-2-zoomed-current-only.png>
 Package pdftex.def Info: imgs/c4/heat-2-zoomed-current-only.png  used on input line 15.
@@ -1142,7 +1133,7 @@ Package pdftex.def Info: imgs/c4/heat-2-zoomed-current-only.png  used on input l
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<imgs/c4/heat-3-zoomed-current-only.png, id=1202, 526.96875pt x 376.40625pt>
+<imgs/c4/heat-3-zoomed-current-only.png, id=1210, 526.96875pt x 376.40625pt>
 File: imgs/c4/heat-3-zoomed-current-only.png Graphic file (type png)
 <use imgs/c4/heat-3-zoomed-current-only.png>
 Package pdftex.def Info: imgs/c4/heat-3-zoomed-current-only.png  used on input line 23.
@@ -1150,7 +1141,7 @@ Package pdftex.def Info: imgs/c4/heat-3-zoomed-current-only.png  used on input l
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<imgs/c4/heat-1-with-pressure.png, id=1203, 526.96875pt x 376.40625pt>
+<imgs/c4/heat-1-with-pressure.png, id=1211, 526.96875pt x 376.40625pt>
 File: imgs/c4/heat-1-with-pressure.png Graphic file (type png)
 <use imgs/c4/heat-1-with-pressure.png>
 Package pdftex.def Info: imgs/c4/heat-1-with-pressure.png  used on input line 31.
@@ -1158,7 +1149,7 @@ Package pdftex.def Info: imgs/c4/heat-1-with-pressure.png  used on input line 31
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<imgs/c4/heat-2-with-pressure.png, id=1204, 526.96875pt x 376.40625pt>
+<imgs/c4/heat-2-with-pressure.png, id=1212, 526.96875pt x 376.40625pt>
 File: imgs/c4/heat-2-with-pressure.png Graphic file (type png)
 <use imgs/c4/heat-2-with-pressure.png>
 Package pdftex.def Info: imgs/c4/heat-2-with-pressure.png  used on input line 39.
@@ -1166,7 +1157,7 @@ Package pdftex.def Info: imgs/c4/heat-2-with-pressure.png  used on input line 39
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<imgs/c4/heat-3-with-pressure.png, id=1205, 526.96875pt x 376.40625pt>
+<imgs/c4/heat-3-with-pressure.png, id=1213, 526.96875pt x 376.40625pt>
 File: imgs/c4/heat-3-with-pressure.png Graphic file (type png)
 <use imgs/c4/heat-3-with-pressure.png>
 Package pdftex.def Info: imgs/c4/heat-3-with-pressure.png  used on input line 47.
@@ -1179,7 +1170,7 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
  (/home/tom/documents/uni/honours/thesis/thesis-document/appendix2.tex
 Appendix B.
-<imgs/c4/simulated-inversion-fig-1-whole-collage.png, id=1232, 1836.8625pt x 1565.85pt>
+<imgs/c4/simulated-inversion-fig-1-whole-collage.png, id=1239, 1836.8625pt x 1565.85pt>
 File: imgs/c4/simulated-inversion-fig-1-whole-collage.png Graphic file (type png)
 <use imgs/c4/simulated-inversion-fig-1-whole-collage.png>
 Package pdftex.def Info: imgs/c4/simulated-inversion-fig-1-whole-collage.png  used on input line 6.
@@ -1192,7 +1183,7 @@ Overfull \hbox (83.39455pt too wide) in paragraph at lines 6--7
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<imgs/c4/simulated-inversion-fig-2-whole-collage.png, id=1235, 1836.8625pt x 2087.8pt>
+<imgs/c4/simulated-inversion-fig-2-whole-collage.png, id=1242, 1836.8625pt x 2087.8pt>
 File: imgs/c4/simulated-inversion-fig-2-whole-collage.png Graphic file (type png)
 <use imgs/c4/simulated-inversion-fig-2-whole-collage.png>
 Package pdftex.def Info: imgs/c4/simulated-inversion-fig-2-whole-collage.png  used on input line 13.
@@ -1205,7 +1196,7 @@ Overfull \hbox (28.29105pt too wide) in paragraph at lines 13--14
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<imgs/c4/simulated-inversion-fig-1-quiescent-collage.png, id=1238, 1836.8625pt x 1565.85pt>
+<imgs/c4/simulated-inversion-fig-1-quiescent-collage.png, id=1245, 1836.8625pt x 1565.85pt>
 File: imgs/c4/simulated-inversion-fig-1-quiescent-collage.png Graphic file (type png)
 <use imgs/c4/simulated-inversion-fig-1-quiescent-collage.png>
 Package pdftex.def Info: imgs/c4/simulated-inversion-fig-1-quiescent-collage.png  used on input line 20.
@@ -1218,7 +1209,7 @@ Overfull \hbox (83.39455pt too wide) in paragraph at lines 20--21
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<imgs/c4/simulated-inversion-fig-2-quiescent-collage.png, id=1241, 1842.885pt x 2087.8pt>
+<imgs/c4/simulated-inversion-fig-2-quiescent-collage.png, id=1248, 1842.885pt x 2087.8pt>
 File: imgs/c4/simulated-inversion-fig-2-quiescent-collage.png Graphic file (type png)
 <use imgs/c4/simulated-inversion-fig-2-quiescent-collage.png>
 Package pdftex.def Info: imgs/c4/simulated-inversion-fig-2-quiescent-collage.png  used on input line 27.
@@ -1277,16 +1268,16 @@ Package rerunfilecheck Info: File `thesis.out' has not changed.
 Here is how much of TeX's memory you used:
  20490 strings out of 481168
  382950 string characters out of 5913831
- 690792 words of memory out of 5000000
+ 690840 words of memory out of 5000000
  36435 multiletter control sequences out of 15000+600000
  417527 words of font info for 83 fonts, out of 8000000 for 9000
  59 hyphenation exceptions out of 8191
  102i,19n,103p,637b,788s stack positions out of 5000i,500n,10000p,200000b,80000s
  </home/tom/.texlive2020/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1200.600pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on /home/tom/documents/uni/honours/thesis/thesis-document/thesis.pdf (116 pages, 8227006 bytes).
+Output written on /home/tom/documents/uni/honours/thesis/thesis-document/thesis.pdf (116 pages, 8227774 bytes).
 PDF statistics:
- 1474 PDF objects out of 1728 (max. 8388607)
- 1239 compressed objects within 13 object streams
+ 1481 PDF objects out of 1728 (max. 8388607)
+ 1246 compressed objects within 13 object streams
  429 named destinations out of 1000 (max. 500000)
  648 words of extra memory for PDF output out of 10000 (max. 10000000)
 

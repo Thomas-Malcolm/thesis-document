@@ -104,7 +104,7 @@ to resurface. An instructive graphic is below.
 We will have the ability to determine the 
 state of our system for some given parameters, and so the question becomes: can 
 we vary our input in a way such that the behaviour of the analytic solution to 
-the GSH is an approximation of a time evolution of the plasma. We are able to compare 
+the GSH is an approximation of a time evolution of the plasma? We are able to compare 
 our results to experimental data, and then exploit our work to answer further questions.
 
 
@@ -162,7 +162,7 @@ with boundary condition
 $$y(0) = 1$$
 where $\epsilon \equiv (b v_0) / a \ll 1$. Now with our dimensionless model we can begin our perturbations. 
 Instead of opting for an analytic solution, 
-we'll use an approximation, so we will expand as such:
+we will use an approximation, so we will expand as such:
 $$y(t) = y_0(t) + \epsilon y_1(t) + \epsilon^2 y_2(t)$$
 and ignore any $\mathcal{O}(\epsilon^3)$ terms. Substituting this into our dimensionless model gives
 \begin{align*}
@@ -284,7 +284,7 @@ that $\nabla \cdot (\rho \vec{u}) = 0$. From the above we immediately get that $
 we introduced has no effect on the system, given the assumptions we make. This is excellent news for us, as it means that small perturbations 
 in our system in a manner that emulates a time evolution should not affect the accuracy of our model, at least insofar as the effects of the 
 continuity equation are concerned, and up to a term of $\mathcal{O}(\epsilon^2)$. To be confident that we can do this for the Grad-Shafranov equation on a whole, we need to repeat this process for 
-the other ideal MHD equations. Next we'll look at the momentum equation.
+the other ideal MHD equations. Next we will look at the momentum equation.
 
 \subsubsection{Momentum Equation}
 We restate the momentum equation here:
@@ -355,12 +355,12 @@ presence of excess runaway electrons.
 
 The Grad-Shafranov equation, in its default state (as we have derived it), does not account for the possibility of current 
 reversal equilibrium configurations (CRECs). That is to say, it does not permit anti-parallel current channels in an equilibrium state. 
-This is problematic, as this is one of the behaviours we are seeking to identify in simulation. In the last 20 years work has been done on 
+This is problematic, as this is one of the behaviours we are seeking to identify in simulation. In the last 20 years, work has been done on 
 modelling such configurations, and analytic results have become more abundant \cite{wang-analytic-solution}, \cite{crec-work-1}, \cite{crec-work-2}.
 For our purposes, we are interested in work done by Wang and Yu in deriving an analytic solution to a variant of the Grad-Shafranov equation 
-known as the Grad-Shafranov-Helmholtz equation, which is capable of supporting CRECs. In this section we'll present their work, provide a 
+known as the Grad-Shafranov-Helmholtz equation, which is capable of supporting CRECs. In this section we will present their work, provide a 
 brief derivation, and highlight the components that will be important for our simulations (the current density and pressure density profiles). 
-Then we'll demonstrate an ability to recreate Wang's results.
+Then we will demonstrate an ability to recreate Wang's results.
 
 % 3.2.1.
 \subsection{Equation and Derivation}

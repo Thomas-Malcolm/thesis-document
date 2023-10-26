@@ -10,9 +10,9 @@ University of Lisbon. It is this reactor which found
 no evidence for the existence of anti-parallel currents in the ramp down phase, contradicting 
 the hypothesis put forward to explain the presence of a residual plasma during the quiescent 
 current cycle, as we discussed in the introduction \cite{malaquias-matthew}. 
-This hypothesis was initially supported by data from from the CT-6B Tokamak by Huang et. al \cite{huang-ct-tokamak} however, 
+This hypothesis was initially supported by data from from the CT-6B tokamak by Huang et. al \cite{huang-ct-tokamak} however, 
 and so no consensus exists on whether these currents exist, and what the cause of the runaway electrons is in cases of 
-AC Tokamak ramp downs. In this chapter we attempt to use our model to describe the current density profile, pressure density profile, 
+AC tokamak ramp downs. In this chapter we attempt to use our model to describe the current density profile, pressure density profile, 
 and poloidal magnetic field topology, given some data provided by ISTTOK.
 
 
@@ -30,7 +30,7 @@ can then be used to infer the value of other plasma properties, such as the curr
 
 We will stave off delving too deep into the physics here, and will instead seek to provide an intuition for 
 the functioning of the beam. A heavy ion beam is a measurement tool that works by injecting heavy charged 
-particles (ions) into a charged medium, at speed. The charged medium in our case is the plasma. For a Tokamak, 
+particles (ions) into a charged medium, at speed. The charged medium in our case is the plasma. For a tokamak, 
 a beam of positively charged ions (specifically, atoms with one extra electron) are injected into the plasma, 
 known as the ``primary beam'', and commonly consists of one of $\text{Cs}^{+}, \text{Rb}^{+}$. These 
 ions are injected perpendicular to the toroidal magnetic field (that is to say, in line with the poloidal 
@@ -44,9 +44,9 @@ where, crucially, $q$ represents a particle's charge as it moves through an magn
 From this we can infer that the forces acting on a particle will increase as the charge 
 increases. The effects of this increased ionisation of our heavy ions thus increases their Larmor radius
 (oscillatory movement of charged particles in a magnetic field) relative to their single-ionised counterparts, 
-which changes their trajectory in the plasma. In our Tokamak we then position a charged particle detector on the opposite 
+which changes their trajectory in the plasma. In our tokamak we then position a charged particle detector on the opposite 
 side of our heavy ion beam's injection point, which we use to measure distributions of received charged 
-particles. Form this we can infer information about the presence of negatively charged particles 
+particles. From this we can infer information about the presence of negatively charged particles 
 (predominantly electrons) in the $1D$ profile that our primary beam follows by measuring the 
 quantity of charged particles detected at different positions on our detector. Ingenious! A graphic depicting this 
 is given in figure \ref{heavy-ion-beam}.
@@ -60,7 +60,7 @@ is given in figure \ref{heavy-ion-beam}.
 \end{figure}
 
 While here we've provided what is hopefully an intuitive understanding for how a heavy ion beam is utilised for data 
-collection in a Tokamak, we have skipped much of the nitty-gritty details for actual data derivation. Most importantly for us to note
+collection in a tokamak, we have skipped much of the nitty-gritty details for actual data derivation. Most importantly for us to note
 however, is that ISTTOK does not directly measure the current or pressure density profiles, but instead 
 infers this data from poloidal magnetic field profile information afforded to us by the heavy ion beam. 
 As one might expect, there is a large margin for 
@@ -109,11 +109,11 @@ these paramters for two reason:
     \item In our simulations we explored the case of having limited current density profile data and attempting to 
     fit parameters to that, and found that we were able to deterine parameters sufficiently accurate to represent the system.
 \end{enumerate}
-While we will make comparisons with the pressure density profile data, another avenue we could 
-have explored was to incorporate the pressure density profile into the data fitting. Initial testing with this did not improve convergence of the optimisation algorithm for those cases in 
-which it struggled, however our testing was also not exhaustive in this manner, and the inclusion of this 
-data combined with some changes in the approach to fitting our model to the data, could well result 
-in a more accurate result. Ideas for further work around this are discussed in chapter \ref{chapter6}.
+While we will make comparisons with the pressure density profile data, another avenue we could have explored 
+was to incorporate the pressure density profile data into our optimisation model (as we discussed potentially doing in chapter \ref{chapter4}). 
+We did implement this as a test, however noted that it did not improve the ability of our optimisation algorithm to converge. It is possible 
+that, combined with some changes in the approach to fitting our model to data, the inclusion of pressure density profile data could well result in 
+a more accurate fit for the model - ideas for future work around this are discussed in chapter \ref{chapter6}.
 
 A representative time slice is provided in figure \ref{current-profile-unnormalised-0}
 
@@ -198,32 +198,32 @@ will be detrimental to all following simulations.
 We can see the effects of this more prominently by also observing the change in magnetic field toplogy 
 as the current and pressure data vary. Or rather, we should say, the lack thereof. Figures \ref{mag-field-0} - \ref{mag-field-20}
 show the poloidal magnetic field topology for the representative time slices we've picked. Note again that results for all 
-time slices can be found in the open sourced GitHub repository in \cite{project-source}.
+time slices can be found in the open sourced GitHub repository \cite{project-source}.
 
 \begin{figure}[h!]
     \centering
     \includegraphics[scale=0.7]{imgs/c5/magnetic-field-0.png}
-    \caption{Poloidal magnetic field (simulated) for a given $(a_1, a_2, \alpha)$ parameter set which is derived 
-    from the current density profile data present in the graph. The pressure profile is similarly given. Both current 
-    and pressure density profiles are normalised.}
+    \caption{Simulated poloidal magnetic field for a given $(a_1, a_2, \alpha)$ parameter set which is derived 
+    from the current density profile data present in the graph. The pressure profile is similarly given. Current and 
+    pressure density profiles given are normalised data from ISTTOK.}
     \label{mag-field-0}
 \end{figure}\newpage
 
 \begin{figure}[h!]
     \centering
     \includegraphics[scale=0.55]{imgs/c5/magnetic-field-15.png}
-    \caption{Poloidal magnetic field (simulated) for a given $(a_1, a_2, \alpha)$ parameter set which is derived 
-    from the current density profile data present in the graph. The pressure profile is similarly given. Both current 
-    and pressure density profiles are normalised.}
+    \caption{Simulated poloidal magnetic field for a given $(a_1, a_2, \alpha)$ parameter set which is derived 
+    from the current density profile data present in the graph. The pressure profile is similarly given. Current and 
+    pressure density profiles given are normalised data from ISTTOK.}
     \label{mag-field-15}
 \end{figure}
 
 \begin{figure}[h!]
     \centering
     \includegraphics[scale=0.55]{imgs/c5/magnetic-field-20.png}
-    \caption{Poloidal magnetic field (simulated) for a given $(a_1, a_2, \alpha)$ parameter set which is derived 
-    from the current density profile data present in the graph. The pressure profile is similarly given. Both current 
-    and pressure density profiles are normalised.}
+    \caption{Simulated poloidal magnetic field for a given $(a_1, a_2, \alpha)$ parameter set which is derived 
+    from the current density profile data present in the graph. The pressure profile is similarly given. Current and 
+    pressure density profiles given are normalised data from ISTTOK.}
     \label{mag-field-20}
 \end{figure}\newpage
 We find there is minimal variation in magnetic field line toplogy between all the time slices, with exception 
@@ -256,7 +256,7 @@ relatively few data entries we have, we might make some observations about the d
 we do have available, and the general physical properties we would expect it to exhibit 
 with relation to the other data points we have available.
 
-First, we'll note the (accusedly) extraneous data entries in the first time slice. Refer again 
+First, we will note the (accusedly) extraneous data entries in the first time slice. Refer again 
 to figure \ref{current-profile-unnormalised-0}. There are two irregularities we can note:
 \begin{itemize}
     \item There is a sharp increase in current density at the $-0.065\text{m}$ offset. Physically, unless 
@@ -312,8 +312,8 @@ Here we have simply removed potentially erroneous data points from our set, and 
 However, especially as we don't have access to a great many discrete measurements, this is not an ideal situation. 
 There are alternative approaches to post-processing the data that could be used, and comparisons made to deem which is 
 most suitable for our data fitting purposes. For example, it could be prudent to, after removing these erroneous data points, 
-perform an interpolation using the remaining points. This would have the benefit of providing a data set with data that was 1. 
-more volumous, and 2. smoother.
+perform an interpolation using the remaining points. This would have the benefit of providing a data set with data that was both 
+more volumous, and smoother.
 
 We could also interpolate in another dimension - time. One potential explanation for the difficulty our model has in moving between 
 time slices in the data is that the time variation between them is too large with respect to the time perturbation expansion we performed 
