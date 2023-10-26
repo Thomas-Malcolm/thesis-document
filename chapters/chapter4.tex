@@ -81,10 +81,10 @@ it can be. How we implement that optimisation is a question of algorithms, which
     When we talk about running algorithms to solve our optimisation problems, we will use a few terms. We define those here:    
     \begin{table}[h!]
         \begin{tabular}{p{3.5cm}|p{10cm}}
-            \textbf{Feasible} & A problem is feasible if the algorithm is able to find an $x^* \in \Omega$ that is a local minimum and satisfies any given conditions. Otherwise, it is \textbf{infeasible}. \\
-            \textbf{Objective Value} & The value of the objective function for the identified local minimum $x^* \in \Omega$, $f(x^*)$ . \\
-            \textbf{ftol} & If the difference between consecutive objective function values is less than this amount, stop the optimisation algorithm and return converged \\
-            \textbf{xtol} & If the difference between consecutive $x \in \Omega$ values is less than this amount, stop the optimisation algorithm and return converged \\
+            \textbf{Feasible} & A problem is feasible if the algorithm is able to find an $x^* \in \Omega$ that is a local minimum and satisfies any given conditions. Otherwise, it is \textbf{infeasible}. \\ \hline
+            \textbf{Objective Value} & The value of the objective function for the identified local minimum $x^* \in \Omega$, $f(x^*)$ . \\ \hline
+            \textbf{ftol} & If the difference between consecutive objective function values is less than this amount, stop the optimisation algorithm and return converged \\ \hline
+            \textbf{xtol} & If the difference between consecutive $x \in \Omega$ values is less than this amount, stop the optimisation algorithm and return converged \\ \hline
         \end{tabular}
     \end{table}
     
@@ -239,27 +239,84 @@ in Wang \cite{wang-analytic-solution}). This is everything required by NLopt for
 % 4.2.2
 \subsection{Parameter Space}
 
-Initially, our efforts in fitting a set of parameters to a given input of current density profile data were without accomplishment.
+Initially, our efforts in fitting a set of parameters to a given input of current density profile data were without accomplishment, as the 
+optimisation methods failed to converge (reaching max iteration counts before reaching an acceptable objective value). Given we have 
+omnipotent knowledge as to what our $P = (a_1, a_2, \alpha)$ values should be, we can look at the parameter space around 
+these values to see why our optimisation algorithm might be falling over. The results are telling, and can be seen in figures \ref{heat-1-entire} 
+to \ref{heat-3-entire}
 
-\red{Parameter space a bit cooked}
 
-\red{Show for various zooms}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[scale=0.7]{imgs/c4/heat-1-entire.png}
+    \caption{Objective value heatmap for fixed $\alpha$, with varying 
+    $a_1$ and $a_2$}
+    \label{heat-1-entire}
+\end{figure}
 
-\red{Talk about asymptotic behaviour with $\alpha$ (justifies MMA usage)}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[scale=0.7]{imgs/c4/heat-2-entire.png}
+    \caption{Objective value heatmap for fixed $a_2$, with varying 
+    $a_1$ and $\alpha$}
+    \label{heat-2-entire}
+\end{figure}
 
-Graphs showing effect of different parameters
+\begin{figure}[h!]
+    \centering
+    \includegraphics[scale=0.7]{imgs/c4/heat-3-entire.png}
+    \caption{Objective value heatmap for fixed $a_1$, with varying 
+    $a_2$ and $\alpha$}
+    \label{heat-3-entire}
+\end{figure}\newpage
+The lines here point to the expected $(a_1, a_2, \alpha)$ values, and for each one 
+we fix the parameter not being varied to be its expected value. Nevertheless, as we can see, our 
+parameter space is quite binary, in that the distinction between suitable parameters and not is quite sharp, 
+but with plateau's on either side - a nightmare situation for optimisation algorithms. If we zoom in 
+around our expected parameters we indeed see even more strongly the sensitivity of our objective value to fluctuations in 
+input parameters - see figures \ref{heat-1-zoomed} to \ref{heat-3-zoomed} in Appendix A.
 
-Non-reliance on $\alpha$ (with exception of $\frac{1}{\alpha}$ where $\alpha = 0$ thing)
+Some of this behaviour is the result of the $(\alpha^2 - \lambda_{n,l}^2)^{-1}$ term introduced 
+by $\psi$ in our objective function - it is this which motivates our usage of the MMA optimisation 
+algorithm over more traditional methods like gradient descent, as we discussed in the previous section. 
+However, as it stands - as an unconstrained optimisation problem - this is clearly still insufficient. 
+One initial thought might be that our problem is simply underdetermined, and that by introducing more 
+data we may improve the ability of our model to converge. However, as we see in figures \ref{heat-1-both} to \ref{heat-3-both},
+the inclusion of pressure density profile data in our fitting attempts does not vastly improve our parameter space.
 
-\red{Convergence difficulties}
+As such, the inclusion of extra data does not seem promising in our efforts to find a suitable set of parameters. Instead, 
+our next effort was to constraint our problem - given we know what to expect our $P = (a_1, a_2, \alpha)$ values 
+to be, we can constrain our parameter space by specifying a small offset for each. For example, 
+if we know our parameter set is supposed to be $P' = (a_1', a_2', \alpha')$, then we can set
+$$\Omega = [a_1' - \epsilon_{a_1}, a_1' + \epsilon_{a_1}] \times [a_2' - \epsilon_{a_2}, a_2' + \epsilon_{a_2}] \times [\alpha' - \epsilon_{\alpha}, \alpha' + \epsilon_{\alpha}]$$
+For our intial parameter guess $P_0$ we can pick some random element of $\Omega$. When we introduce these constraints 
+and turn our problem into a constrained optimisation problem we see significantly improved 
+results, and our model converges - see figure \ref{solved-fig-1} as a recreation of figure 1 from Wang 
+using simulateed current density profile data.
 
-\red{Bounds for the objective function and justification}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[scale=0.8]{imgs/c4/solved-fig-1.png}
+    \caption{Equilibrium solution for the parameter set $P$ that we determine via optimisation, starting with a 
+    set of current density profile data. This matches the expected figure 1 from Wang \cite{wang-analytic-solution}.}
+    \label{solved-fig-1}
+\end{figure}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[scale=1]{imgs/c4/converged.png}
+    \caption{Text output of our code showing convergence of our model.}
+\end{figure}
+
+Now that we can, for a given set of data, accurately derive the associated equilibrium solution, 
+our next goal is simulate a current inversion given said data.
 
 % 4.3
 \section{Simulated Current Reversals}
 
-\red{Have ability to solve for $a_1, a_2$ and $\alpha$, so next step is 
-the ``time perturbation'' - hark back to chapter 3 here}
+We have the ability to solve for $P = (a_1, a_2, \alpha)$, and so now we will draw upon our 
+work in chapter \ref{chapter3} in perturbing our equilibrium solution to simulate the effects of 
+a time evolution, and in doing so, will observe how the system reacts.
 
 
 % 4.3.1
